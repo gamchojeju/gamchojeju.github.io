@@ -1,187 +1,234 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title> 감초식당 신제주점 </title>
-    <style>
-.banner::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-  top: 0;
-  left: 0;
-}
-      .banner {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-}
+<head>
+  <meta charset="utf-8">
+  <title>감초식당 신제주점</title>
 
-.banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
 
-.banner-text {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-}
+    /* 🔥 배너 */
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+    }
 
-.banner-text h1 {
-  margin: 0;
-  font-size: 24px;
-}
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.banner-text p {
-  margin: 5px 0 0;
-  font-size: 14px;
-}
+    .banner::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.35);
+      top: 0;
+      left: 0;
+    }
 
-      
-    </style>
-     </head>
-  <body>
-        <div class ="banner">
-      <img src="banner.jpeg"  width="100%" style="max-height:300px; object-fit:cover;">
-      <div class="banner-txt">
-        <h1>감초식당 신제주점</h1> 
-        <p> 제주 연동에서 즐기는 30년 전통의 변함없는 어머님의 그맛, 그대로! 한국만화의 지존 허영만 화백의 [식객]에 소재로 연재된 제주식 수제찹쌀순대</p>
-      </div>
-    </div>
-    <div class="container">
+    .banner-text {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      z-index: 1;
+    }
+
+    .banner-text h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .banner-text p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .menu-info {
+      padding: 10px;
+    }
+
+    .menu-info h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .price {
+      color: #ff5722;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 15px;
+      background: #ff5722;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 🔥 배너 -->
+<div class="banner">
+  <img src="banner.jpg">
+  <div class="banner-text">
+    <h1>감초식당 신제주점</h1>
+    <p>제주 연동에서 즐기는 든든한 한끼</p>
+  </div>
+</div>
+
+<div class="container">
 
   <h2>🍲 식사 메뉴</h2>
   <div class="menu-grid">
 
     <div class="menu-card">
-      
       <div class="menu-info">
         <h3>감초순대국밥</h3>
         <p class="price">9,000원</p>
-        <img src="menu1.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
     <div class="menu-card">
-      
       <div class="menu-info">
         <h3>감초돼지해장국</h3>
         <p class="price">10,000원</p>
-        <img src="menu2.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
     <div class="menu-card">
-      
       <div class="menu-info">
         <h3>순수돼지국밥</h3>
         <p class="price">9,000원</p>
-        <img src="menu3.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
     <div class="menu-card">
       <div class="menu-info">
         <h3>마농돼지우동</h3>
         <p class="price">9,000원</p>
-        <img src="menu4.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
-    <div class="menu-card">
-      
-      <div class="menu-info">
-        <h3>검은콩국수</h3>
-        <p class="price">9,000원</p>
-        <img src="menu5.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
-      </div>
-      
-<div class="menu-card">
-      <div class="menu-info">
-        <h3>맛보기순대</h3>
-        <p class="price">10,000원</p>
-        <img src="menu6.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
-      </div>
+
   </div>
 
   <h2>🍖 전골 / 요리</h2>
   <div class="menu-grid">
 
     <div class="menu-card">
-      
       <div class="menu-info">
         <h3>순대내장전골</h3>
         <p class="price">35,000원</p>
-        <img src="menu10.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
     <div class="menu-card">
-      
       <div class="menu-info">
         <h3>내장막창전골</h3>
         <p class="price">35,000원</p>
-        <img src="menu11.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
     <div class="menu-card">
-      
       <div class="menu-info">
         <h3>닭볶음탕</h3>
         <p class="price">35,000원</p>
-        <img src="menu12.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
     <div class="menu-card">
-            <div class="menu-info">
+      <div class="menu-info">
         <h3>돼지해장전골</h3>
         <p class="price">22,000원</p>
-              <img src="menu13.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
   </div>
 
-  <h2>🍢 모듬순대 세트메뉴</h2>
+  <h2>🍢 순대 메뉴</h2>
   <div class="menu-grid">
 
     <div class="menu-card">
-            <div class="menu-info">
-        <h3>A 순대 + 머리고기 </h3>
+      <div class="menu-info">
+        <h3>순대</h3>
         <p class="price">15,000원</p>
-              <img src="menu7.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
     <div class="menu-card">
-      
       <div class="menu-info">
-        <h3>B 순대 + 머리고기 + 내장</h3>
+        <h3>순대 + 내장</h3>
         <p class="price">20,000원</p>
-        <img src="menu8.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
       </div>
+      <img src="food.jpg">
     </div>
 
-      <div class="menu-card">
-      
+    <div class="menu-card">
       <div class="menu-info">
-        <h3>C 순대 + 머리고기 + 내장 + 막창</h3>
-        <p class="price">25,000원</p>
-        <img src="menu9.jpeg" width="100%" style="max-height:300px; object-fit:cover;">
+        <h3>맛보기순대</h3>
+        <p class="price">10,000원</p>
       </div>
-    </div>
+      <img src="food.jpg">
     </div>
 
   </div>
 
+  <h2>📞 전화</h2>
+  <a class="btn" href="tel:01000000000">전화 바로걸기</a>
+
 </div>
-</div>
-  </body>
-  
+
+</body>
 </html>
