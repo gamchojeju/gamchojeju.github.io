@@ -12,7 +12,6 @@ body {
   color: #333;
 }
 
-/* 배너 */
 .banner {
   position: relative;
   width: 100%;
@@ -32,8 +31,6 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.3);
-  top: 0;
-  left: 0;
 }
 
 .banner-text {
@@ -44,7 +41,6 @@ body {
   z-index: 1;
 }
 
-/* 언어 버튼 */
 .lang-buttons {
   text-align: center;
   margin: 10px 0;
@@ -57,10 +53,8 @@ body {
   background: #6b3f2b;
   color: white;
   border-radius: 5px;
-  font-size: 12px;
 }
 
-/* 본문 */
 .container {
   padding: 15px;
 }
@@ -79,7 +73,7 @@ h2 {
 }
 
 .menu-card {
-  background: #fff;
+  background: white;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -110,15 +104,9 @@ h2 {
   padding: 10px;
 }
 
-.menu-info h3 {
-  margin: 0;
-  font-size: 14px;
-}
-
 .price {
   color: #a0522d;
   font-weight: bold;
-  font-size: 13px;
 }
 
 @media (max-width: 600px) {
@@ -134,7 +122,6 @@ h2 {
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  margin-top: 10px;
 }
 </style>
 </head>
@@ -161,6 +148,7 @@ h2 {
 <h2 id="menu1">🍲 식사 메뉴</h2>
 <div class="menu-grid">
 
+<!-- 식사 메뉴 -->
 <div class="menu-card">
   <div class="img-wrap">
     <img src="menu1.jpeg">
@@ -168,26 +156,35 @@ h2 {
   </div>
   <div class="menu-info">
     <h3>감초순대국밥</h3>
-    <p style="font-size:12px;">30년 전통 대표 메뉴</p>
     <p class="price">9,000원</p>
   </div>
 </div>
 
-<div class="menu-card">
-  <div class="img-wrap"><img src="menu2.jpg"></div>
-  <div class="menu-info">
-    <h3>감초돼지해장국</h3>
-    <p class="price">10,000원</p>
-  </div>
+<div class="menu-card"><div class="img-wrap"><img src="menu2.jpg"></div><div class="menu-info"><h3>감초돼지해장국</h3><p class="price">10,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu3.jpg"></div><div class="menu-info"><h3>순수돼지국밥</h3><p class="price">9,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu4.jpg"></div><div class="menu-info"><h3>마농돼지우동</h3><p class="price">9,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu6.jpeg"></div><div class="menu-info"><h3>맛보기순대</h3><p class="price">10,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu5.jpeg"></div><div class="menu-info"><h3>검은콩국수</h3><p class="price">9,000원</p></div></div>
+
 </div>
 
-<div class="menu-card">
-  <div class="img-wrap"><img src="menu3.jpg"></div>
-  <div class="menu-info">
-    <h3>순수돼지국밥</h3>
-    <p class="price">9,000원</p>
-  </div>
+<h2>🍖 전골 / 요리</h2>
+<div class="menu-grid">
+
+<div class="menu-card"><div class="img-wrap"><img src="menu10.jpeg"></div><div class="menu-info"><h3>순대내장전골</h3><p class="price">35,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu11.jpeg"></div><div class="menu-info"><h3>내장막창전골</h3><p class="price">35,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu12.jpeg"></div><div class="menu-info"><h3>닭볶음탕</h3><p class="price">35,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu13.jpeg"></div><div class="menu-info"><h3>돼지해장전골</h3><p class="price">22,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu14.jpeg"></div><div class="menu-info"><h3>순대술국</h3><p class="price">20,000원</p></div></div>
+
 </div>
+
+<h2>🍢 모듬 순대 세트 메뉴</h2>
+<div class="menu-grid">
+
+<div class="menu-card"><div class="img-wrap"><img src="menu7.jpeg"></div><div class="menu-info"><h3>A set 순대 + 머리고기</h3><p class="price">15,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu8.jpeg"></div><div class="menu-info"><h3>B set 순대 + 머리고기 + 내장</h3><p class="price">20,000원</p></div></div>
+<div class="menu-card"><div class="img-wrap"><img src="menu9.jpeg"></div><div class="menu-info"><h3>C set 순대 + 머리고기 + 내장 + 막창</h3><p class="price">25,000원</p></div></div>
 
 </div>
 
@@ -198,33 +195,25 @@ h2 {
 
 <script>
 function setLang(lang) {
-
-  if(lang === 'en') {
-    document.getElementById('title').innerText = 'Gamcho Restaurant';
-    document.getElementById('subtitle').innerText = 'Traditional Korean taste since 1994';
-    document.getElementById('menu1').innerText = '🍲 Main Menu';
-    document.getElementById('location').innerText = '📍 Location';
+  if(lang==='en'){
+    document.getElementById('title').innerText='Gamcho Restaurant';
+    document.getElementById('menu1').innerText='🍲 Main Menu';
+    document.getElementById('location').innerText='📍 Location';
   }
-
-  if(lang === 'zh') {
-    document.getElementById('title').innerText = '甘草餐厅';
-    document.getElementById('subtitle').innerText = '30年传统味道';
-    document.getElementById('menu1').innerText = '🍲 主食';
-    document.getElementById('location').innerText = '📍 位置';
+  if(lang==='zh'){
+    document.getElementById('title').innerText='甘草餐厅';
+    document.getElementById('menu1').innerText='🍲 主食';
+    document.getElementById('location').innerText='📍 位置';
   }
-
-  if(lang === 'ja') {
-    document.getElementById('title').innerText = 'カムチョ食堂';
-    document.getElementById('subtitle').innerText = '伝統の味';
-    document.getElementById('menu1').innerText = '🍲 メニュー';
-    document.getElementById('location').innerText = '📍 アクセス';
+  if(lang==='ja'){
+    document.getElementById('title').innerText='カムチョ食堂';
+    document.getElementById('menu1').innerText='🍲 メニュー';
+    document.getElementById('location').innerText='📍 アクセス';
   }
-
-  if(lang === 'ko') {
-    document.getElementById('title').innerText = '감초식당 신제주점';
-    document.getElementById('subtitle').innerText = '1994년부터 30년간 이어진 변함없는 어머님의 그 맛';
-    document.getElementById('menu1').innerText = '🍲 식사 메뉴';
-    document.getElementById('location').innerText = '📍 오시는 길';
+  if(lang==='ko'){
+    document.getElementById('title').innerText='감초식당 신제주점';
+    document.getElementById('menu1').innerText='🍲 식사 메뉴';
+    document.getElementById('location').innerText='📍 오시는 길';
   }
 }
 </script>
