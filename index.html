@@ -1,145 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>감초식당 신제주점</title>
+<meta charset="utf-8">
+<title>감초식당 신제주점</title>
 
- <style>
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    background-color: #f7f3ee; /* 아이보리 */
-    color: #333;
-  }
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: #f7f3ee;
+  color: #333;
+}
 
-  /* 배너 */
-  .banner {
-    position: relative;
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
-  }
+/* 배너 */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
 
-  .banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .banner::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.3);
-    top: 0;
-    left: 0;
-  }
+.banner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  top: 0;
+  left: 0;
+}
 
-  .banner-text {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    z-index: 1;
-  }
+.banner-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  z-index: 1;
+}
 
-  .banner-text h1 {
-    margin: 0;
-    font-size: 26px;
-  }
+.container {
+  padding: 15px;
+}
 
-  .banner-text p {
-    margin: 5px 0 0;
-    font-size: 14px;
-  }
+h2 {
+  margin-top: 30px;
+  color: #6b3f2b;
+  border-left: 5px solid #c8a27a;
+  padding-left: 8px;
+}
 
-  .container {
-    padding: 15px;
-  }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
 
-  h2 {
-    margin-top: 30px;
-    color: #6b3f2b; /* 브라운 */
-    border-left: 5px solid #c8a27a;
-    padding-left: 8px;
-  }
+.menu-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
 
+.menu-info {
+  padding: 10px;
+}
+
+.menu-info h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.price {
+  color: #a0522d;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* 🔥 이미지 영역 */
+.img-wrap {
+  position: relative;
+}
+
+.menu-card img {
+  width: 100%;
+  height: 120px; /* 🔥 적당한 크기 */
+  object-fit: cover;
+}
+
+/* 🔥 뱃지 (이미지 위로 이동) */
+.badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #a0522d;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
   .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
   }
+}
 
-  .menu-card {
-    background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    transition: transform 0.2s;
-  }
-
-  .menu-card:hover {
-    transform: translateY(-3px);
-  }
-
-  .menu-info {
-    padding: 10px;
-  }
-
-  .menu-info h3 {
-    margin: 0;
-    font-size: 14px;
-  }
-
-  .price {
-    color: #a0522d; /* 따뜻한 브라운 */
-    font-weight: bold;
-    font-size: 13px;
-  }
-
-  .menu-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-  }
-
-  @media (max-width: 600px) {
-    .menu-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 12px;
-    background: #6b3f2b;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-
-  .btn:hover {
-    background: #8b5a3c;
-  }
-   .badge { 
-     position : absolute;
-     background : #ff5722;
-     color : white;
-     fontsize : 12px;
-     padding: 4px 8px;
-     border-radius: 5px;
-     top: 9px;
-     left : 8px;
-   }
-   /* 이거중요 */
-   .menu-card {
-     position : relarive;
-   }
-   
+.btn {
+  display: inline-block;
+  padding: 12px;
+  background: #6b3f2b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 10px;
+}
 </style>
-
 </head>
 
 <body>
@@ -148,154 +130,63 @@
   <img src="banner.jpeg">
   <div class="banner-text">
     <h1>감초식당 신제주점</h1>
-        <p>1994년부터 30년간 이어진 변함없는 어머님의 그 맛, 그대로!</p>
+    <p>1994년부터 30년간 이어진 변함없는 어머님의 그 맛</p>
   </div>
 </div>
 
 <div class="container">
-  <h2>🍲 식사 메뉴</h2>
-  <div class="menu-grid">
-    <div class="menu-card">
-      <div class="menu-info">
-               <h3>감초순대국밥 <span style="color:#a0522d;">BEST</span></h3>
-      <p style="font-size:12px;">30년간 이어진 변함없는 어머님의 그맛 </p>
-        <p class="price">9,000원</p>
-      </div>
-      <img src="menu1.jpeg">
-    </div>
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>감초돼지해장국</h3>
-<p style="font-size:12px;"> 알싸한 대정 마늘을 듬뿍넣고 칼칼하게 끓여낸 돼지 해장국 </p>
-        <p class="price">10,000원</p>
-      </div>
-      <img src="menu2.jpg">
-    </div>
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>순수돼지국밥(돼지설렁탕)</h3>
-<p style="font-size:12px;"> 최고급사태와 담백한 머리고기로 구성한 진자 순수돼지국밥 </p>
-        <p class="price">9,000원</p>
-      </div>
-      <img src="menu3.jpg">
-    </div>
 
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>마농돼지우동</h3>
-<p style="font-size:12px;">감초식당신제주점에서만 맛볼수있는 마늘향가득한돼지우동 </p>
-        <p class="price">9,000원</p>
-      </div>
-      <img src="menu4.jpg">
-    </div>
-    
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>맛보기순대</h3>
-<p style="font-size:12px;">수제로 직접만든 제주식 찹쌀순대 </p>
-        <p class="price">10,000원</p>
+<h2>🍲 식사 메뉴</h2>
+<div class="menu-grid">
 
-      </div>
-      <img src="menu6.jpeg">
-    </div>
 <div class="menu-card">
-      <div class="menu-info">
-        <h3>검은콩국수</h3>
-<p style="font-size:12px;">여름메뉴!(6월 ~ 9월)콩국수 전문점은 아니지만 맛있어요</p>
-        <p class="price">9,000원</p>
-      </div>
-      <img src="menu5.jpeg">
-    </div>
-
-
+  <div class="img-wrap">
+    <img src="menu1.jpeg">
+    <div class="badge">BEST</div>
   </div>
-
-  <h2>🍖 전골 / 요리</h2>
-  <div class="menu-grid">
-
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>순대내장전골</h3>
-<p style="font-size:12px;"> 내장과 야채, 수제순대의 푸짐함! </p>
-        <p class="price">35,000원</p>
-      </div>
-      <img src="menu10.jpeg">
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>내장막창전골</h3>
-<p style="font-size:12px;"> 내장과 막창이 가득한 전골 </p>
-        <p class="price">35,000원</p>
-      </div>
-      <img src="menu11.jpeg">
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>닭볶음탕</h3>
-<p style="font-size:12px;"> 감초 닭볶음탕 전문점을 따로 낼정도의 맛있는건 안비밀~! </p>
-        <p class="price">35,000원</p>
-      </div>
-      <img src="menu12.jpeg">
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>돼지해장전골</h3>
-<p style="font-size:12px;"> 푸짐한 해장전골에 신라면이 공짜~ </p>
-        <p class="price">22,000원</p>
-      </div>
-      <img src="menu13.jpeg">
-    </div>
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>순대술국</h3>
-<p style="font-size:12px;"> 푸짐한 순대와 배지근한 국물이 한잔을 부르는 맛 </p>
-        <p class="price">20,000원</p>
-      </div>
-      <img src="menu14.jpeg">
-    </div>
+  <div class="menu-info">
+    <h3>감초순대국밥</h3>
+    <p style="font-size:12px;">30년 전통 대표 메뉴</p>
+    <p class="price">9,000원</p>
   </div>
+</div>
 
-  <h2>🍢 모듬 순대 세트 메뉴</h2>
-<p style="font-size:12px;"> 제주돼지로 직접 만든 제주식 전통 수제순대 </p>
-  <div class="menu-grid">
-
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>A set 순대 + 머리고기 </h3>
-        <p class="price">15,000원</p>
-      </div>
-      <img src="menu7.jpeg">
-    </div>
-
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>B set 순대 + 머리고기 + 내장</h3>
-        <p class="price">20,000원</p>
-      </div>
-      <img src="menu8.jpeg">
-    </div>
-    <div class="menu-card">
-      <div class="menu-info">
-        <h3>C set 순대 + 머리고기 + 내장 + 막창</h3>
-        <p class="price">25,000원</p>
-      </div>
-      <img src="menu9.jpeg">
-    </div>
-
-    
-
+<div class="menu-card">
+  <div class="img-wrap">
+    <img src="menu2.jpg">
   </div>
+  <div class="menu-info">
+    <h3>감초돼지해장국</h3>
+    <p style="font-size:12px;">마늘 듬뿍 칼칼한 해장국</p>
+    <p class="price">10,000원</p>
+  </div>
+</div>
 
-  <h2>📞 전화</h2>
-  <a class="btn" href="tel:0647438988">전화 바로걸기</a>
+<div class="menu-card">
+  <div class="img-wrap">
+    <img src="menu3.jpg">
+  </div>
+  <div class="menu-info">
+    <h3>순수돼지국밥</h3>
+    <p style="font-size:12px;">담백한 프리미엄 국밥</p>
+    <p class="price">9,000원</p>
+  </div>
+</div>
 
-  <h2> 오시는 길 </h2> <p style="font-size:13px; color:gray;"> 제주시 노연로 144 1층 (구)코스모스호텔사거리 / 주차 가능</p>
-  <iframe src="https://naver.me/FIfWlwrV" width="100%" height="400" style="border-radius:10px;"> </iframe>
-  
-  
+</div>
+
+<h2>📞 전화</h2>
+<a class="btn" href="tel:0647438988">전화 바로걸기</a>
+
+<h2>📍 오시는 길</h2>
+<p style="font-size:13px; color:gray;">
+제주시 노연로 144 / 주차 가능
+</p>
+
+<iframe src="https://naver.me/FIfWlwrV"
+width="100%" height="350"
+style="border-radius:10px; border:0;">
+</iframe>
 
 </div>
 
