@@ -10,7 +10,13 @@ body { font-family: Arial; margin:0; background:#f7f3ee; }
 .banner { position:relative; height:340px; overflow:hidden;}
 .banner img { width:100%; height:100%; object-fit:cover;}
 .banner::after {content:""; position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.3);}
-.banner-text { position:absolute; bottom:20px; left:20px; color:#DAA520; z-index:1;}
+/* .banner-text { position:absolute; bottom:20px; left:20px; color:#DAA520; z-index:1;} */임시해제
+  .banner-text {
+  color: #DAA520;          /* 금색 글자(예: 금색) */
+  -webkit-text-stroke-width: 1px;  /* 외곽선 두께(픽셀) */
+  -webkit-text-stroke-color: #FFFFFF; /* 흰색 외곽선 색상 */
+  /* 필요 시 단축 속성: -webkit-text-stroke: 1px #FFFFFF; */
+}
 
 .container { padding:15px;}
 
