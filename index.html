@@ -5,242 +5,308 @@
 <title>감초식당 신제주점</title>
 
 <style>
-body { font-family: Arial; margin:0; background:#f7f3ee;}
-.container { padding:15px;}
-.menu-card { background:#fff; padding:10px; margin-bottom:10px; border-radius:8px;}
-.lang-buttons { text-align:center; margin:10px;}
-button { margin:3px; padding:6px 10px; background:#6b3f2b; color:white; border:none; border-radius:5px;}
-.price { color:#a0522d; font-weight:bold;}
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: #f7f3ee;
+  color: #333;
+}
+
+/* 배너 */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  top: 0;
+  left: 0;
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  z-index: 1;
+}
+
+.container {
+  padding: 15px;
+}
+
+h2 {
+  margin-top: 30px;
+  color: #6b3f2b;
+  border-left: 5px solid #c8a27a;
+  padding-left: 8px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.menu-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* 이미지 + 뱃지 */
+.img-wrap {
+  position: relative;
+}
+
+.menu-card img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #a0522d;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.menu-info {
+  padding: 10px;
+}
+
+.menu-info h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.price {
+  color: #a0522d;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px;
+  background: #6b3f2b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 10px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="lang-buttons">
-<button onclick="setLang('ko')">한국어</button>
-<button onclick="setLang('en')">EN</button>
-<button onclick="setLang('zh')">中文</button>
-<button onclick="setLang('ja')">日本語</button>
+<div class="banner">
+  <img src="banner.jpg">
+  <div class="banner-text">
+    <h1>감초식당 신제주점</h1>
+    <p>1994년부터 30년간 이어진 변함없는 어머님의 그 맛, 그대로!</p>
+  </div>
 </div>
 
 <div class="container">
+<div class="lang-buttons">
+<button onclick="setLang('ko')">한국어</button>
+<button onclick="setLang('en')">ENGLISH</button>
+<button onclick="setLang('zh')">中文</button>
+<button onclick="setLang('ja')">日本語</button>
+</div>
+<h2>🍲 식사 메뉴</h2>
+<div class="menu-grid">
 
-<h2 id="menu_title">🍲 식사 메뉴</h2>
-
-<!-- 1 -->
 <div class="menu-card">
-<h3 id="m1_name">감초순대국밥</h3>
-<p id="m1_desc">30년간 이어진 변함없는 어머님의 그맛</p>
-<p class="price">9,000원</p>
+  <div class="img-wrap">
+    <img src="menu1.jpg">
+    <div class="badge">BEST</div>
+  </div>
+  <div class="menu-info">
+    <h3>감초순대국밥</h3>
+    <p style="font-size:12px;">30년간 이어진 변함없는 어머님의 그맛 </p>
+    <p class="price">9,000원</p>
+  </div>
 </div>
 
-<!-- 2 -->
 <div class="menu-card">
-<h3 id="m2_name">감초돼지해장국</h3>
-<p id="m2_desc">알싸한 대정 마늘을 듬뿍넣고 칼칼하게 끓여낸 돼지 해장국</p>
-<p class="price">10,000원</p>
+  <div class="img-wrap">
+    <img src="menu2.png">
+  </div>
+  <div class="menu-info">
+    <h3>감초돼지해장국</h3>
+    <p style="font-size:12px;"> 알싸한 대정 마늘을 듬뿍넣고 칼칼하게 끓여낸 돼지 해장국 </p>
+    <p class="price">10,000원</p>
+  </div>
 </div>
 
-<!-- 3 -->
 <div class="menu-card">
-<h3 id="m3_name">순수돼지국밥</h3>
-<p id="m3_desc">최고급사태와 담백한 머리고기로 구성한 진짜 순수돼지국밥</p>
-<p class="price">9,000원</p>
+  <div class="img-wrap">
+    <img src="menu3.png">
+  </div>
+  <div class="menu-info">
+    <h3>순수돼지국밥(돼지설렁탕)</h3>
+    <p style="font-size:12px;"> 최고급사태와 담백한 머리고기로 구성한 진자 순수돼지국밥 </p>
+    <p class="price">9,000원</p>
+  </div>
 </div>
 
-<!-- 4 -->
 <div class="menu-card">
-<h3 id="m4_name">마농돼지우동</h3>
-<p id="m4_desc">마늘향 가득한 특색있는 돼지우동</p>
-<p class="price">9,000원</p>
+  <div class="img-wrap">
+    <img src="menu4.png">
+  </div>
+  <div class="menu-info">
+    <h3>마농돼지우동</h3>
+    <p style="font-size:12px;">감초식당신제주점에서만 맛볼수있는 마늘향가득한돼지우동 </p>
+    <p class="price">9,000원</p>
+  </div>
 </div>
 
-<!-- 5 -->
 <div class="menu-card">
-<h3 id="m5_name">맛보기순대</h3>
-<p id="m5_desc">수제로 만든 제주식 찹쌀순대</p>
-<p class="price">10,000원</p>
+  <div class="img-wrap">
+    <img src="menu6.png">
+  </div>
+  <div class="menu-info">
+    <h3>맛보기순대</h3>
+    <p style="font-size:12px;">수제로 직접만든 제주식 찹쌀순대 </p>
+    <p class="price">10,000원</p>
+  </div>
 </div>
 
-<!-- 6 -->
 <div class="menu-card">
-<h3 id="m6_name">검은콩국수</h3>
-<p id="m6_desc">여름메뉴 (6월~9월)</p>
-<p class="price">9,000원</p>
+  <div class="img-wrap">
+    <img src="menu5.png">
+  </div>
+  <div class="menu-info">
+    <h3>검은콩국수</h3>
+    <p style="font-size:12px;">여름메뉴!(6월 ~ 9월)콩국수 전문점은 아니지만 맛있어요</p>
+    <p class="price">9,000원</p>
+  </div>
 </div>
-
-<h2 id="menu2">🍖 전골 / 요리</h2>
-
-<div class="menu-card"><h3 id="m7_name">순대내장전골</h3><p id="m7_desc">내장과 야채, 수제순대의 푸짐함</p><p class="price">35,000원</p></div>
-<div class="menu-card"><h3 id="m8_name">내장막창전골</h3><p id="m8_desc">내장과 막창이 가득한 전골</p><p class="price">35,000원</p></div>
-<div class="menu-card"><h3 id="m9_name">닭볶음탕</h3><p id="m9_desc">매콤한 인기요리</p><p class="price">35,000원</p></div>
-<div class="menu-card"><h3 id="m10_name">돼지해장전골</h3><p id="m10_desc">푸짐한 해장 전골</p><p class="price">22,000원</p></div>
-<div class="menu-card"><h3 id="m11_name">순대술국</h3><p id="m11_desc">술안주로 좋은 메뉴</p><p class="price">20,000원</p></div>
-
-<h2 id="menu3">🍢 세트 메뉴</h2>
-
-<div class="menu-card"><h3 id="m12_name">A set</h3><p id="m12_desc">순대 + 머리고기</p><p class="price">15,000원</p></div>
-<div class="menu-card"><h3 id="m13_name">B set</h3><p id="m13_desc">순대 + 머리고기 + 내장</p><p class="price">20,000원</p></div>
-<div class="menu-card"><h3 id="m14_name">C set</h3><p id="m14_desc">순대 + 머리고기 + 내장 + 막창</p><p class="price">25,000원</p></div>
 
 </div>
 
-<script>
-function setLang(lang){
+<h2>🍖 전골 / 요리</h2>
+<div class="menu-grid">
 
-if(lang==='en'){
-document.getElementById('menu_title').innerText='🍲 Main Menu';
-document.getElementById('menu2').innerText='🍖 Hot Pot & Dishes';
-document.getElementById('menu3').innerText='🍢 Set Menu';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu10.jpg"></div>
+  <div class="menu-info">
+    <h3>순대내장전골</h3>
+    <p style="font-size:12px;"> 내장과 야채, 수제순대의 푸짐함! </p>
+    <p class="price">35,000원</p>
+  </div>
+</div>
 
-document.getElementById('m1_name').innerText='Sundae Soup';
-document.getElementById('m1_desc').innerText='30 years traditional taste';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu11.jpg"></div>
+  <div class="menu-info">
+    <h3>내장막창전골</h3>
+    <p style="font-size:12px;"> 내장과 막창이 가득한 전골 </p>
+    <p class="price">35,000원</p>
+  </div>
+</div>
 
-document.getElementById('m2_name').innerText='Pork Hangover Soup';
-document.getElementById('m2_desc').innerText='Spicy garlic pork soup';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu12.jpg"></div>
+  <div class="menu-info">
+    <h3>닭볶음탕</h3>
+    <p style="font-size:12px;"> 감초 닭볶음탕 전문점을 따로 낼정도의 맛있는건 안비밀~! </p>
+    <p class="price">35,000원</p>
+  </div>
+</div>
 
-document.getElementById('m3_name').innerText='Pork Soup';
-document.getElementById('m3_desc').innerText='Rich pork broth';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu13.png"></div>
+  <div class="menu-info">
+    <h3>돼지해장전골</h3>
+    <p style="font-size:12px;"> 푸짐한 해장전골에 신라면이 공짜~ </p>
+    <p class="price">22,000원</p>
+  </div>
+</div>
 
-document.getElementById('m4_name').innerText='Garlic Pork Udon';
-document.getElementById('m4_desc').innerText='Garlic flavored noodle';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu14.png"></div>
+  <div class="menu-info">
+    <h3>순대술국</h3>
+    <p style="font-size:12px;"> 푸짐한 순대와 배지근한 국물이 한잔을 부르는 맛 </p>
+    <p class="price">20,000원</p>
+  </div>
+</div>
 
-document.getElementById('m5_name').innerText='Sundae Plate';
-document.getElementById('m5_desc').innerText='Handmade sausage';
+</div>
 
-document.getElementById('m6_name').innerText='Black Bean Noodles';
-document.getElementById('m6_desc').innerText='Summer special';
+<h2>🍢 모듬 순대 세트 메뉴</h2>
+<p style="font-size:12px;"> 제주돼지로 직접 만든 제주식 전통 수제순대 </p>
 
-document.getElementById('m7_name').innerText='Sundae Hot Pot';
-document.getElementById('m7_desc').innerText='Intestine stew';
+<div class="menu-grid">
 
-document.getElementById('m8_name').innerText='Makchang Hot Pot';
-document.getElementById('m8_desc').innerText='Intestine + makchang';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu7.jpg"></div>
+  <div class="menu-info">
+    <h3>A set 순대 + 머리고기</h3>
+    <p class="price">15,000원</p>
+  </div>
+</div>
 
-document.getElementById('m9_name').innerText='Spicy Chicken Stew';
-document.getElementById('m9_desc').innerText='Korean spicy dish';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu8.jpg"></div>
+  <div class="menu-info">
+    <h3>B set 순대 + 머리고기 + 내장</h3>
+    <p class="price">20,000원</p>
+  </div>
+</div>
 
-document.getElementById('m10_name').innerText='Pork Hot Pot';
-document.getElementById('m10_desc').innerText='Hangover stew';
+<div class="menu-card">
+  <div class="img-wrap"><img src="menu9.jpg"></div>
+  <div class="menu-info">
+    <h3>C set 순대 + 머리고기 + 내장 + 막창</h3>
+    <p class="price">25,000원</p>
+  </div>
+</div>
 
-document.getElementById('m11_name').innerText='Sundae Soup (Large)';
-document.getElementById('m11_desc').innerText='Great with drinks';
+</div>
 
-document.getElementById('m12_name').innerText='Set A';
-document.getElementById('m12_desc').innerText='Sundae + pork';
+<h2>📞 전화</h2>
+<a class="btn" href="tel:0647438988">전화 바로걸기</a>
 
-document.getElementById('m13_name').innerText='Set B';
-document.getElementById('m13_desc').innerText='Sundae + pork + intestines';
+<h2>📍 오시는 길</h2>
+<p style="font-size:13px; color:gray;">
+제주시 노연로 144 1층 (구)코스모스호텔사거리 / 주차 가능
+</p>
 
-document.getElementById('m14_name').innerText='Set C';
-document.getElementById('m14_desc').innerText='Full combo set';
-}
+<iframe src="https://naver.me/GowzTPzr"
+width="100%" height="350"
+style="border-radius:10px; border:0;">
+</iframe>
 
-/* 중국어 */
-if(lang==='zh'){
-document.getElementById('menu_title').innerText='🍲 主食';
-document.getElementById('menu2').innerText='🍖 火锅 / 料理';
-document.getElementById('menu3').innerText='🍢 套餐';
-
-document.getElementById('m1_name').innerText='血肠汤';
-document.getElementById('m1_desc').innerText='30年传统味道';
-
-document.getElementById('m2_name').innerText='猪肉解酒汤';
-document.getElementById('m2_desc').innerText='蒜味辣汤';
-
-document.getElementById('m3_name').innerText='猪肉汤';
-document.getElementById('m3_desc').innerText='清爽浓郁';
-
-document.getElementById('m4_name').innerText='蒜香猪肉乌冬';
-document.getElementById('m4_desc').innerText='蒜香浓郁';
-
-document.getElementById('m5_name').innerText='血肠拼盘';
-document.getElementById('m5_desc').innerText='手工制作';
-
-document.getElementById('m6_name').innerText='黑豆冷面';
-document.getElementById('m6_desc').innerText='夏季限定';
-
-document.getElementById('m7_name').innerText='血肠火锅';
-document.getElementById('m7_desc').innerText='内脏+血肠';
-
-document.getElementById('m8_name').innerText='大肠火锅';
-document.getElementById('m8_desc').innerText='内脏+大肠';
-
-document.getElementById('m9_name').innerText='辣炖鸡';
-document.getElementById('m9_desc').innerText='韩国辣味';
-
-document.getElementById('m10_name').innerText='猪肉火锅';
-document.getElementById('m10_desc').innerText='解酒料理';
-
-document.getElementById('m11_name').innerText='血肠汤(大)';
-document.getElementById('m11_desc').innerText='下酒菜';
-
-document.getElementById('m12_name').innerText='A套餐';
-document.getElementById('m12_desc').innerText='血肠+猪肉';
-
-document.getElementById('m13_name').innerText='B套餐';
-document.getElementById('m13_desc').innerText='血肠+猪肉+内脏';
-
-document.getElementById('m14_name').innerText='C套餐';
-document.getElementById('m14_desc').innerText='全套组合';
-}
-
-/* 일본어 */
-if(lang==='ja'){
-document.getElementById('menu_title').innerText='🍲 食事メニュー';
-document.getElementById('menu2').innerText='🍖 鍋料理';
-document.getElementById('menu3').innerText='🍢 セット';
-
-document.getElementById('m1_name').innerText='スンデスープ';
-document.getElementById('m1_desc').innerText='30年の伝統の味';
-
-document.getElementById('m2_name').innerText='豚スープ';
-document.getElementById('m2_desc').innerText='にんにく入り辛いスープ';
-
-document.getElementById('m3_name').innerText='豚骨スープ';
-document.getElementById('m3_desc').innerText='濃厚でさっぱり';
-
-document.getElementById('m4_name').innerText='ガーリック豚うどん';
-document.getElementById('m4_desc').innerText='にんにく風味';
-
-document.getElementById('m5_name').innerText='スンデ盛り合わせ';
-document.getElementById('m5_desc').innerText='手作り';
-
-document.getElementById('m6_name').innerText='黒豆冷麺';
-document.getElementById('m6_desc').innerText='夏限定';
-
-document.getElementById('m7_name').innerText='スンデ鍋';
-document.getElementById('m7_desc').innerText='内臓入り';
-
-document.getElementById('m8_name').innerText='マクチャン鍋';
-document.getElementById('m8_desc').innerText='内臓+ホルモン';
-
-document.getElementById('m9_name').innerText='鶏炒め煮';
-document.getElementById('m9_desc').innerText='辛い料理';
-
-document.getElementById('m10_name').innerText='豚鍋';
-document.getElementById('m10_desc').innerText='酔い覚まし料理';
-
-document.getElementById('m11_name').innerText='スンデスープ(大)';
-document.getElementById('m11_desc').innerText='お酒に合う';
-
-document.getElementById('m12_name').innerText='Aセット';
-document.getElementById('m12_desc').innerText='スンデ+豚肉';
-
-document.getElementById('m13_name').innerText='Bセット';
-document.getElementById('m13_desc').innerText='スンデ+豚肉+内臓';
-
-document.getElementById('m14_name').innerText='Cセット';
-document.getElementById('m14_desc').innerText='フルセット';
-}
-
-/* 한국어 */
-if(lang==='ko'){
-location.reload();
-}
-
-}
-</script>
+</div>
 
 </body>
 </html>
