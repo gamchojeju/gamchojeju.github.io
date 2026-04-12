@@ -22,14 +22,14 @@ h2 { margin-top:30px; color:#6b3f2b; border-left:5px solid #c8a27a; padding-left
 .menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
 
 .menu-card {
-  background:#fff; border-radius:10px; overflow:hidden;
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+  background:#fff; border-radius:14px; overflow:hidden;
+  box-shadow:0 6px 14px rgba(0,0,0,0.08);
   cursor:pointer;
   transition:0.2s;
 }
-.menu-card:hover { transform:translateY(-4px); }
+.menu-card:hover { transform:translateY(-6px); scale(1.02); }
 
-.menu-card img { width:100%; aspect-ratio:1/1; object-fit:cover;}
+.menu-card img { width:100%; aspect-ratio:1/1; object-fit:contain;background:#eee;}
 
 .menu-info { padding:10px;}
 .price { color:#a0522d; font-weight:bold;}
@@ -53,7 +53,7 @@ h2 { margin-top:30px; color:#6b3f2b; border-left:5px solid #c8a27a; padding-left
 <img src="banner.jpg">
 <div class="banner-text">
 <h1 id="title">감초식당 신제주점</h1>
-<p id="subtitle" font-size:14px;>1994년부터 30년간 이어진 변함없는 어머님의 그 맛, 그대로!</p>
+<p id="subtitle" style="font-size:14px;">1994년부터 30년간 이어진 변함없는 어머님의 그 맛, 그대로!</p>
 </div>
 </div>
 
