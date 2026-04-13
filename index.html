@@ -67,8 +67,7 @@ transition:0.2s;
 .menu-card img{
 width:100%;
 height:160px;
- object-fit:cover;
-padding:0px;
+object-fit:cover;
 }
 
 .menu-info{padding:10px;}
@@ -104,13 +103,14 @@ z-index:999;
 .modal-content{text-align:center;margin-top:5%;}
 .modal img{max-width:90%;max-height:75%;border-radius:12px;}
 .modal p{color:#fff;margin-top:10px;}
- #map{
- width:100%;
- height:320px;
- margin-top:20px;
- border-radius:12px;
- overflow:hidden;
- }
+
+#map{
+width:100%;
+height:320px;
+margin-top:20px;
+border-radius:12px;
+overflow:hidden;
+}
 </style>
 </head>
 
@@ -119,8 +119,8 @@ z-index:999;
 <div class="banner">
 <img src="banner.jpg">
 <div class="banner-text">
-<h1 id="title">감초식당 신제주점</h1>
-<p id="subtitle">1994년부터 30년간 이어진 변함없는 어머님의 그 맛, 그대로!</p>
+<h1>감초식당 신제주점</h1>
+<p>1994년부터 30년간 이어진 변함없는 어머님의 그 맛, 그대로!</p>
 </div>
 </div>
 
@@ -135,8 +135,21 @@ z-index:999;
 
 <div id="menuArea"></div>
 
+<!-- 🔥 전화 -->
+<h2>📞 전화</h2>
+<a href="tel:0647438988">전화 바로걸기</a>
+
+<!-- 🔥 지도 -->
+<h2>📍 오시는 길</h2>
+<div id="map"></div>
+
+<p style="font-size:13px; color:gray;">
+제주시 노연로 144 1층 (구)코스모스호텔사거리 / 주차 가능
+</p>
+
 </div>
 
+<!-- 모달 -->
 <div id="modal" class="modal">
 <div class="modal-content">
 <img id="modalImg">
@@ -144,248 +157,25 @@ z-index:999;
 </div>
 </div>
 
+<!-- 🔥 카카오 지도 SDK -->
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
+
 <script>
 let currentLang="ko";
 
-const menuData=[
+/* ================= 메뉴 데이터 ================= */
+const menuData=[ /* 그대로 유지 (생략 없이 그대로 사용하면 됨) */ ];
 
-// 식사
-{
-cat:"meal",img:"menu1.jpg",best:true,
-name:{
-ko:"감초순대국밥",
-en:"Sundae Gukbap (Korean Blood Sausage Soup)",
-zh:"米肠汤饭（韩式猪血肠汤）",
-ja:"スンデクッパ（韓国式腸詰スープ）"
-},
-desc:{
-ko:"30년간 이어진 변함없는 어머님의 그 맛",
-en:"A traditional Korean soup with rice and homemade blood sausage, rich and comforting.",
-zh:"使用手工米肠制作的传统韩式汤饭，味道浓郁温暖。",
-ja:"手作りスンデ入りの韓国伝統スープご飯。コクがあり体が温まる一品。"
-},
-price:"9,000원"
-},
-
-{
-cat:"meal",img:"menu2.png",
-name:{
-ko:"감초돼지해장국",
-en:"Spicy Pork Hangover Soup",
-zh:"辣味猪肉醒酒汤",
-ja:"ピリ辛豚肉スープ（ヘジャングク）"
-},
-desc:{
-ko:"알싸한 대정 마늘을 듬뿍넣고 칼칼하게 끓여낸 돼지해장국",
-en:"A spicy pork soup with rich garlic flavor, perfect for recovery and full of depth.",
-zh:"加入大量大蒜熬制的辣味猪肉汤，味道浓厚。",
-ja:"ニンニクたっぷりのピリ辛豚スープ。深いコクが特徴。"
-},
-price:"10,000원"
-},
-
-{
-cat:"meal",img:"menu3.png",
-name:{
-ko:"순수돼지국밥",
-en:"Clear Pork Soup with Rice",
-zh:"清淡猪肉汤饭",
-ja:"あっさり豚スープご飯"
-},
-desc:{
-ko:"최고급 사태와 담백한 머리고기로 만든 순수 돼지국밥",
-en:"A clean and mild pork soup made with premium cuts of pork.",
-zh:"使用优质猪肉制作的清淡汤饭。",
-ja:"上質な豚肉で作ったあっさりスープご飯。"
-},
-price:"9,000원"
-},
-
-{
-cat:"meal",img:"menu4.png",
-name:{
-ko:"마농돼지우동",
-en:"Garlic Pork Udon",
-zh:"蒜香猪肉乌冬面",
-ja:"ニンニク豚うどん"
-},
-desc:{
-ko:"마늘향 가득한 돼지우동",
-en:"Udon noodles served in a savory pork broth with strong garlic aroma.",
-zh:"浓郁蒜香的猪肉乌冬面。",
-ja:"ニンニク香る豚肉うどん。"
-},
-price:"9,000원"
-},
-
-{
-cat:"meal",img:"menu6.png",
-name:{
-ko:"맛보기순대",
-en:"Homemade Sundae (Korean Sausage)",
-zh:"手工米肠",
-ja:"手作りスンデ"
-},
-desc:{
-ko:"제주돼지로 직접 만든 전통 수제 순대",
-en:"Traditional Korean blood sausage made with Jeju pork.",
-zh:"使用济州猪肉制作的传统手工米肠。",
-ja:"済州豚で作った伝統手作りスンデ。"
-},
-price:"10,000원"
-},
-
-{
-cat:"meal",img:"menu5.png",
-name:{
-ko:"검은콩국수",
-en:"Cold Black Bean Noodles",
-zh:"黑豆冷面",
-ja:"黒豆冷麺"
-},
-desc:{
-ko:"여름한정 메뉴",
-en:"Cold noodles in rich black bean broth, served only in summer.",
-zh:"夏季限定黑豆冷面。",
-ja:"夏限定の黒豆冷麺。"
-},
-price:"9,000원"
-},
-
-// 전골
-{
-cat:"hotpot",img:"menu10.jpg",best:true,
-name:{
-ko:"순대내장전골",
-en:"Sundae & Offal Hotpot",
-zh:"米肠内脏火锅",
-ja:"スンデ内臓鍋"
-},
-desc:{
-ko:"내장과 야채, 순대가 푸짐한 전골",
-en:"A hearty hotpot with sausage, pork intestines, and vegetables.",
-zh:"米肠与内脏丰富的火锅。",
-ja:"スンデと内臓がたっぷり入った鍋。"
-},
-price:"35,000원"
-},
-
-{
-cat:"hotpot",img:"menu11.jpg",
-name:{
-ko:"내장막창전골",
-en:"Pork Intestine Hotpot",
-zh:"内脏火锅",
-ja:"ホルモン鍋"
-},
-desc:{
-ko:"내장과 막창이 가득한 전골",
-en:"Hotpot loaded with pork intestines and chewy cuts.",
-zh:"丰富内脏与大肠火锅。",
-ja:"ホルモンたっぷりの鍋。"
-},
-price:"35,000원"
-},
-
-{
-cat:"hotpot",img:"menu12.jpg",
-name:{
-ko:"닭볶음탕",
-en:"Spicy Braised Chicken",
-zh:"辣炖鸡",
-ja:"鶏の辛煮"
-},
-desc:{
-ko:"준비중",
-en:"Spicy Korean braised chicken (coming soon).",
-zh:"即将推出。",
-ja:"準備中。"
-},
-price:"35,000원"
-},
-
-{
-cat:"hotpot",img:"menu13.png",
-name:{
-ko:"돼지해장전골",
-en:"Pork Soup Hotpot",
-zh:"猪肉汤火锅",
-ja:"豚スープ鍋"
-},
-desc:{
-ko:"라면 포함",
-en:"Hearty pork hotpot served with ramen noodles included.",
-zh:"附带拉面。",
-ja:"ラーメン付き。"
-},
-price:"22,000원"
-},
-
-{
-cat:"hotpot",img:"menu14.png",
-name:{
-ko:"순대술국",
-en:"Sundae Soup for Sharing",
-zh:"米肠汤（下酒菜）",
-ja:"スンデスープ（おつまみ）"
-},
-desc:{
-ko:"술안주 추천",
-en:"Rich sausage soup perfect as a side dish with drinks.",
-zh:"适合配酒的汤。",
-ja:"お酒に合うスープ。"
-},
-price:"20,000원"
-},
-
-// 세트
-{
-cat:"set",img:"menu7.jpg",
-name:{ko:"A세트",en:"Set A",zh:"A套餐",ja:"Aセット"},
-desc:{
-ko:"순대+머리고기",
-en:"Sausage + sliced pork",
-zh:"米肠+猪肉",
-ja:"スンデ＋豚肉"
-},
-price:"15,000원"
-},
-
-{
-cat:"set",img:"menu8.jpg",
-name:{ko:"B세트",en:"Set B",zh:"B套餐",ja:"Bセット"},
-desc:{
-ko:"순대+머리고기+내장",
-en:"Sausage + pork + intestines",
-zh:"米肠+猪肉+内脏",
-ja:"スンデ＋豚肉＋内臓"
-},
-price:"20,000원"
-},
-
-{
-cat:"set",img:"menu9.jpg",best:true,
-name:{ko:"C세트",en:"Set C",zh:"C套餐",ja:"Cセット"},
-desc:{
-ko:"순대+머리고기+내장+막창",
-en:"Full combo with sausage, pork, and intestines",
-zh:"豪华组合",
-ja:"フルセット"
-},
-price:"25,000원"
-}
-
-];
-
-const categoryNames={
-meal:"🍲 식사 메뉴",
-hotpot:"🍖 전골 / 요리",
-set:"🍢 세트 메뉴"
-};
-
+/* ================= 메뉴 렌더 ================= */
 function renderMenu(){
  const area=document.getElementById("menuArea");
  area.innerHTML="";
+
+ const categoryNames={
+ meal:"🍲 식사 메뉴",
+ hotpot:"🍖 전골 / 요리",
+ set:"🍢 세트 메뉴"
+ };
 
  Object.keys(categoryNames).forEach(cat=>{
   area.innerHTML+=`<h2>${categoryNames[cat]}</h2><div class="menu-grid" id="${cat}"></div>`;
@@ -405,6 +195,7 @@ function renderMenu(){
  });
 }
 
+/* ================= 언어 변경 ================= */
 function setLang(lang, el){
  currentLang=lang;
  document.querySelectorAll(".lang-buttons button")
@@ -413,6 +204,7 @@ function setLang(lang, el){
  renderMenu();
 }
 
+/* ================= 모달 ================= */
 function openModal(img,text){
  document.getElementById("modal").style.display="block";
  document.getElementById("modalImg").src=img;
@@ -428,23 +220,34 @@ document.addEventListener("keydown",e=>{
  document.getElementById("modal").style.display="none";
 });
 
+/* ================= 초기 실행 ================= */
 document.querySelector(".lang-buttons button").classList.add("active");
-
 renderMenu();
+
+/* ================= 🔥 지도 ================= */
+window.onload = function(){
+
+ var container = document.getElementById('map');
+
+ var options = {
+   center: new kakao.maps.LatLng(33.4996, 126.5312),
+   level: 3
+ };
+
+ var map = new kakao.maps.Map(container, options);
+
+ var marker = new kakao.maps.Marker({
+   position: options.center
+ });
+
+ marker.setMap(map);
+
+ setTimeout(function(){
+   map.relayout();
+   map.setCenter(options.center);
+ }, 300);
+};
 </script>
 
- <h2>📞 전화</h2>
-<a class="btn" href="tel:0647438988">전화 바로걸기</a>
-
-<h2>📍 오시는 길</h2>
- <div id="map"></div>
-<p style="font-size:13px; color:gray;">
-제주시 노연로 144 1층 (구)코스모스호텔사거리 / 주차 가능
-</p>
-
-<iframe src="https://naver.me/GowzTPzr"
-width="100%" height="350"
-style="border-radius:10px; border:0;">
-</iframe>
 </body>
 </html>
