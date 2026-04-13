@@ -59,6 +59,7 @@ overflow:hidden;
 box-shadow:0 6px 14px rgba(0,0,0,0.08);
 cursor:pointer;
 transition:0.2s;
+position:relative; /* 🔥 BEST 정상 작동 핵심 */
 }
 
 .menu-card:hover{transform:translateY(-4px);}
@@ -79,14 +80,15 @@ font-size:16px;
 
 .badge{
 position:absolute;
-top:8px;
-left:8px;
+top:10px;
+left:10px;
 background:linear-gradient(45deg,#ff5a5a,#ff2e2e);
 color:#fff;
-padding:3px 6px;
+padding:4px 7px;
 font-size:11px;
 border-radius:6px;
 font-weight:bold;
+z-index:10; /* 🔥 겹침 방지 */
 }
 
 .modal{
@@ -115,7 +117,6 @@ font-weight:bold;
 
 .btn.secondary{
 background:#c8a27a;
-color:#fff;
 }
 
 .map-box{
@@ -149,22 +150,20 @@ overflow:hidden;
 
 <div id="menuArea"></div>
 
-<!-- 📞 전화 -->
+<!-- 전화 -->
 <h2>📞 전화</h2>
 <a class="btn" href="tel:0647438988">전화 바로걸기</a>
 
-<!-- 📍 지도 -->
+<!-- 지도 -->
 <h2>📍 오시는 길</h2>
 <p style="font-size:13px;color:gray;">
 제주시 노연로 144 1층 (구 코스모스호텔사거리 / 주차 가능)
 </p>
 
-<!-- 🔥 추천: 지도 버튼 -->
 <a href="https://naver.me/GowzTPzr" target="_blank" class="btn secondary">
 네이버 지도에서 길찾기
 </a>
 
-<!-- 🔥 iframe 지도 -->
 <div class="map-box">
 <iframe src="https://naver.me/GowzTPzr"
 width="100%" height="350" style="border:0;"></iframe>
@@ -188,59 +187,84 @@ const menuData=[
 // 식사
 {
 cat:"meal",img:"menu1.jpg",best:true,
-name:{ko:"감초순대국밥",en:"Sundae Gukbap",zh:"米肠汤饭",ja:"スンデクッパ"},
+name:{
+ko:"감초순대국밥",
+en:"Sundae Gukbap (Korean Blood Sausage Soup)",
+zh:"米肠汤饭（韩式猪血肠汤）",
+ja:"スンデクッパ"
+},
 desc:{
-ko:"30년 전통 깊은 국물의 대표 메뉴",
-en:"Traditional Korean sausage soup",
+ko:"30년간 이어진 변함없는 어머님의 그 맛",
+en:"Traditional Korean sausage soup with rich flavor",
 zh:"传统韩式米肠汤",
-ja:"韓国伝統スープご飯"
+ja:"韓国伝統スープ"
 },
 price:"9,000원"
 },
 
 {
 cat:"meal",img:"menu2.png",
-name:{ko:"감초돼지해장국",en:"Spicy Pork Soup",zh:"辣猪肉汤",ja:"豚スープ"},
+name:{
+ko:"감초돼지해장국",
+en:"Spicy Pork Soup",
+zh:"辣猪肉汤",
+ja:"豚スープ"
+},
 desc:{
-ko:"마늘 가득한 얼큰한 해장국",
-en:"Spicy pork soup with garlic",
-zh:"蒜香辣猪肉汤",
-ja:"ニンニク入り辛口スープ"
+ko:"마늘 듬뿍 얼큰한 해장국",
+en:"Spicy garlic pork soup",
+zh:"蒜香辣汤",
+ja:"ニンニクスープ"
 },
 price:"10,000원"
 },
 
 {
 cat:"meal",img:"menu3.png",
-name:{ko:"순수돼지국밥",en:"Clear Pork Soup",zh:"清淡猪肉汤",ja:"豚スープ"},
+name:{
+ko:"순수돼지국밥",
+en:"Clear Pork Soup",
+zh:"清淡猪肉汤",
+ja:"豚スープ"
+},
 desc:{
 ko:"담백하고 깊은 국물",
-en:"Light and clean pork broth",
-zh:"清淡猪肉汤",
-ja:"あっさりスープ"
+en:"Light and clean broth",
+zh:"清淡汤",
+ja:"あっさり"
 },
 price:"9,000원"
 },
 
 {
 cat:"meal",img:"menu4.png",
-name:{ko:"마농돼지우동",en:"Garlic Pork Udon",zh:"蒜猪肉乌冬",ja:"豚うどん"},
+name:{
+ko:"마농돼지우동",
+en:"Garlic Pork Udon",
+zh:"蒜猪肉乌冬",
+ja:"うどん"
+},
 desc:{
-ko:"마늘향 가득 우동",
-en:"Garlic flavored udon",
-zh:"蒜香乌冬面",
-ja:"ニンニクうどん"
+ko:"마늘향 가득",
+en:"Garlic flavor",
+zh:"蒜香",
+ja:"ニンニク"
 },
 price:"9,000원"
 },
 
 {
 cat:"meal",img:"menu6.png",
-name:{ko:"맛보기순대",en:"Sundae",zh:"米肠",ja:"スンデ"},
+name:{
+ko:"맛보기순대",
+en:"Sundae",
+zh:"米肠",
+ja:"スンデ"
+},
 desc:{
 ko:"수제 순대",
-en:"Homemade sausage",
-zh:"手工米肠",
+en:"Homemade",
+zh:"手工",
 ja:"手作り"
 },
 price:"10,000원"
@@ -248,11 +272,16 @@ price:"10,000원"
 
 {
 cat:"meal",img:"menu5.png",
-name:{ko:"검은콩국수",en:"Cold Bean Noodles",zh:"黑豆冷面",ja:"冷麺"},
+name:{
+ko:"검은콩국수",
+en:"Cold Bean Noodles",
+zh:"黑豆冷面",
+ja:"冷麺"
+},
 desc:{
 ko:"여름 한정",
 en:"Summer only",
-zh:"夏季限定",
+zh:"夏季",
 ja:"夏限定"
 },
 price:"9,000원"
@@ -262,60 +291,35 @@ price:"9,000원"
 {
 cat:"hotpot",img:"menu10.jpg",best:true,
 name:{ko:"순대내장전골",en:"Hotpot",zh:"火锅",ja:"鍋"},
-desc:{
-ko:"푸짐한 전골",
-en:"Hearty hotpot",
-zh:"丰富火锅",
-ja:"ボリューム満点"
-},
+desc:{ko:"푸짐한 전골",en:"Hearty hotpot",zh:"丰富",ja:"ボリューム"},
 price:"35,000원"
 },
 
 {
 cat:"hotpot",img:"menu11.jpg",
 name:{ko:"내장막창전골",en:"Intestine Hotpot",zh:"内脏火锅",ja:"ホルモン鍋"},
-desc:{
-ko:"내장 가득",
-en:"Rich intestines",
-zh:"丰富内脏",
-ja:"内臓たっぷり"
-},
+desc:{ko:"내장 가득",en:"Rich",zh:"丰富",ja:"たっぷり"},
 price:"35,000원"
 },
 
 {
 cat:"hotpot",img:"menu12.jpg",
-name:{ko:"닭볶음탕",en:"Spicy Chicken",zh:"辣鸡",ja:"鶏料理"},
-desc:{
-ko:"준비중",
-en:"Coming soon",
-zh:"准备中",
-ja:"準備中"
-},
+name:{ko:"닭볶음탕",en:"Spicy Chicken",zh:"辣鸡",ja:"鶏"},
+desc:{ko:"준비중",en:"Coming soon",zh:"准备中",ja:"準備中"},
 price:"35,000원"
 },
 
 {
 cat:"hotpot",img:"menu13.png",
 name:{ko:"돼지해장전골",en:"Pork Hotpot",zh:"猪肉锅",ja:"豚鍋"},
-desc:{
-ko:"라면 포함",
-en:"With ramen",
-zh:"含拉面",
-ja:"ラーメン付き"
-},
+desc:{ko:"라면 포함",en:"With ramen",zh:"含面",ja:"ラーメン付き"},
 price:"22,000원"
 },
 
 {
 cat:"hotpot",img:"menu14.png",
 name:{ko:"순대술국",en:"Sundae Soup",zh:"米肠汤",ja:"スープ"},
-desc:{
-ko:"술안주 추천",
-en:"Great with drinks",
-zh:"下酒菜",
-ja:"おつまみ"
-},
+desc:{ko:"술안주 추천",en:"Great with drinks",zh:"下酒菜",ja:"おつまみ"},
 price:"20,000원"
 },
 
@@ -323,7 +327,7 @@ price:"20,000원"
 {
 cat:"set",img:"menu7.jpg",
 name:{ko:"A세트",en:"Set A",zh:"A套餐",ja:"Aセット"},
-desc:{ko:"순대+머리고기",en:"Sausage + pork",zh:"组合",ja:"セット"},
+desc:{ko:"순대+머리고기",en:"Combo",zh:"组合",ja:"セット"},
 price:"15,000원"
 },
 
@@ -337,7 +341,7 @@ price:"20,000원"
 {
 cat:"set",img:"menu9.jpg",best:true,
 name:{ko:"C세트",en:"Set C",zh:"C套餐",ja:"Cセット"},
-desc:{ko:"풀세트",en:"Full combo",zh:"豪华",ja:"フル"},
+desc:{ko:"풀세트",en:"Full",zh:"豪华",ja:"フル"},
 price:"25,000원"
 }
 
