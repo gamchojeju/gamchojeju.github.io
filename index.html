@@ -25,14 +25,22 @@ h2{margin-top:40px;font-size:20px;color:#6b3f2b;border-left:6px solid #c8a27a;pa
 
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
 
-.menu-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,0.08);cursor:pointer;}
+.menu-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,0.08);}
 .menu-card img{width:100%;height:160px;object-fit:cover;}
 .menu-info{padding:10px;}
 .price{color:#a0522d;font-weight:bold;}
 
-.badge{position:absolute;top:8px;left:8px;background:#ff5a5a;color:#fff;padding:3px 6px;font-size:11px;border-radius:6px;}
-
-#map{width:100%;height:320px;margin-top:20px;border-radius:12px;}
+/* 네이버 지도 */
+.map-wrap{
+margin-top:20px;
+border-radius:12px;
+overflow:hidden;
+}
+.map-wrap iframe{
+width:100%;
+height:320px;
+border:0;
+}
 </style>
 </head>
 
@@ -61,22 +69,25 @@ h2{margin-top:40px;font-size:20px;color:#6b3f2b;border-left:6px solid #c8a27a;pa
 <a href="tel:0647438988">전화 바로걸기</a>
 
 <h2>📍 오시는 길</h2>
-<div id="map"></div>
 
+<!-- ✅ 네이버 지도 -->
+<div class="map-wrap">
+<iframe src="https://naver.me/GowzTPzr"></iframe>
 </div>
 
-<!-- 카카오 지도 -->
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
+<p style="font-size:13px;color:gray;">
+제주시 노연로 144 1층
+</p>
+
+</div>
 
 <script>
 let currentLang="ko";
 
-/* ✅ 최소 테스트용 메뉴 (확실한 동작 보장) */
 const menuData=[
 {
 cat:"meal",
 img:"menu1.jpg",
-best:true,
 name:{ko:"순대국밥",en:"Sundae Soup",zh:"米肠汤",ja:"スンデスープ"},
 desc:{ko:"대표 메뉴",en:"Signature dish",zh:"招牌菜",ja:"人気メニュー"},
 price:"9,000원"
@@ -90,29 +101,22 @@ price:"9,000원"
 }
 ];
 
-const categoryNames={
-meal:"🍲 식사 메뉴"
-};
-
 function renderMenu(){
  const area=document.getElementById("menuArea");
  area.innerHTML="";
 
- Object.keys(categoryNames).forEach(cat=>{
-  area.innerHTML+=`<h2>${categoryNames[cat]}</h2><div class="menu-grid" id="${cat}"></div>`;
+ area.innerHTML+=`<h2>🍲 식사 메뉴</h2><div class="menu-grid" id="meal"></div>`;
 
-  menuData.filter(m=>m.cat===cat).forEach(item=>{
-   document.getElementById(cat).innerHTML+=`
-   <div class="menu-card">
-     ${item.best?'<div class="badge">BEST</div>':''}
-     <img src="${item.img}">
-     <div class="menu-info">
-       <h3>${item.name[currentLang]}</h3>
-       <p>${item.desc[currentLang]}</p>
-       <p class="price">${item.price}</p>
-     </div>
-   </div>`;
-  });
+ menuData.forEach(item=>{
+  document.getElementById("meal").innerHTML+=`
+  <div class="menu-card">
+    <img src="${item.img}">
+    <div class="menu-info">
+      <h3>${item.name[currentLang]}</h3>
+      <p>${item.desc[currentLang]}</p>
+      <p class="price">${item.price}</p>
+    </div>
+  </div>`;
  });
 }
 
@@ -125,28 +129,6 @@ function setLang(lang,el){
 
 document.querySelector("button").classList.add("active");
 renderMenu();
-
-/* ✅ 지도 */
-window.onload=function(){
- var mapContainer=document.getElementById('map');
- var mapOption={
-  center:new kakao.maps.LatLng(33.4996,126.5312),
-  level:3
- };
-
- var map=new kakao.maps.Map(mapContainer,mapOption);
-
- var marker=new kakao.maps.Marker({
-  position:mapOption.center
- });
-
- marker.setMap(map);
-
- setTimeout(function(){
-  map.relayout();
-  map.setCenter(mapOption.center);
- },300);
-};
 </script>
 
 </body>
