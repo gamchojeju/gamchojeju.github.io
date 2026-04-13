@@ -13,104 +13,26 @@ body{font-family:'Pretendard',Arial;margin:0;background:#f7f3ee;}
 .banner::after{content:"";position:absolute;width:100%;height:100%;
 background:linear-gradient(to top,rgba(0,0,0,0.6),rgba(0,0,0,0.2));}
 
-.banner-text{position:absolute;bottom:20px;left:20px;color:#fff;
-text-shadow:0 2px 6px rgba(0,0,0,0.6);}
+.banner-text{position:absolute;bottom:20px;left:20px;color:#fff;}
 
 .container{padding:18px;}
 
-h2{
-margin-top:40px;
-font-size:20px;
-color:#6b3f2b;
-border-left:6px solid #c8a27a;
-padding-left:10px;
-}
+h2{margin-top:40px;font-size:20px;color:#6b3f2b;border-left:6px solid #c8a27a;padding-left:10px;}
 
-.lang-buttons{
-display:flex;
-justify-content:center;
-gap:8px;
-margin:15px 0;
-}
+.lang-buttons{display:flex;justify-content:center;gap:8px;margin:15px 0;}
+.lang-buttons button{padding:8px 12px;background:#6b3f2b;color:#fff;border:none;border-radius:20px;cursor:pointer;}
+.lang-buttons button.active{background:#c8a27a;}
 
-.lang-buttons button{
-padding:8px 12px;
-background:#6b3f2b;
-color:#fff;
-border:none;
-border-radius:20px;
-cursor:pointer;
-}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
 
-.lang-buttons button.active{
-background:#c8a27a;
-}
-
-.menu-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:12px;
-}
-
-.menu-card{
-background:#fff;
-border-radius:14px;
-overflow:hidden;
-box-shadow:0 6px 14px rgba(0,0,0,0.08);
-cursor:pointer;
-position:relative;
-transition:0.2s;
-}
-
-.menu-card:hover{transform:translateY(-4px);}
-
-.menu-card img{
-width:100%;
-height:160px;
-object-fit:cover;
-}
-
+.menu-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,0.08);cursor:pointer;}
+.menu-card img{width:100%;height:160px;object-fit:cover;}
 .menu-info{padding:10px;}
+.price{color:#a0522d;font-weight:bold;}
 
-.price{
-color:#a0522d;
-font-weight:bold;
-font-size:16px;
-letter-spacing:0.5px;
-}
+.badge{position:absolute;top:8px;left:8px;background:#ff5a5a;color:#fff;padding:3px 6px;font-size:11px;border-radius:6px;}
 
-.badge{
-position:absolute;
-top:8px;
-left:8px;
-background:linear-gradient(45deg,#ff5a5a,#ff2e2e);
-color:#fff;
-padding:3px 6px;
-font-size:11px;
-border-radius:6px;
-font-weight:bold;
-}
-
-.modal{
-display:none;
-position:fixed;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-z-index:999;
-}
-
-.modal-content{text-align:center;margin-top:5%;}
-.modal img{max-width:90%;max-height:75%;border-radius:12px;}
-.modal p{color:#fff;margin-top:10px;}
-
-#map{
-width:100%;
-height:320px;
-margin-top:20px;
-border-radius:12px;
-overflow:hidden;
-}
+#map{width:100%;height:320px;margin-top:20px;border-radius:12px;}
 </style>
 </head>
 
@@ -120,69 +42,68 @@ overflow:hidden;
 <img src="banner.jpg">
 <div class="banner-text">
 <h1>감초식당 신제주점</h1>
-<p>1994년부터 30년간 이어진 변함없는 어머님의 그 맛, 그대로!</p>
+<p>30년 전통의 맛</p>
 </div>
 </div>
 
 <div class="container">
 
 <div class="lang-buttons">
-<button onclick="setLang('ko', this)">KO</button>
-<button onclick="setLang('en', this)">EN</button>
-<button onclick="setLang('zh', this)">ZH</button>
-<button onclick="setLang('ja', this)">JA</button>
+<button onclick="setLang('ko',this)">KO</button>
+<button onclick="setLang('en',this)">EN</button>
+<button onclick="setLang('zh',this)">ZH</button>
+<button onclick="setLang('ja',this)">JA</button>
 </div>
 
 <div id="menuArea"></div>
 
-<!-- 🔥 전화 -->
 <h2>📞 전화</h2>
 <a href="tel:0647438988">전화 바로걸기</a>
 
-<!-- 🔥 지도 -->
 <h2>📍 오시는 길</h2>
 <div id="map"></div>
 
-<p style="font-size:13px; color:gray;">
-제주시 노연로 144 1층 (구)코스모스호텔사거리 / 주차 가능
-</p>
-
 </div>
 
-<!-- 모달 -->
-<div id="modal" class="modal">
-<div class="modal-content">
-<img id="modalImg">
-<p id="modalText"></p>
-</div>
-</div>
-
-<!-- 🔥 카카오 지도 SDK -->
+<!-- 카카오 지도 -->
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
 
 <script>
 let currentLang="ko";
 
-/* ================= 메뉴 데이터 ================= */
-const menuData=[ /* 그대로 유지 (생략 없이 그대로 사용하면 됨) */ ];
+/* ✅ 최소 테스트용 메뉴 (확실한 동작 보장) */
+const menuData=[
+{
+cat:"meal",
+img:"menu1.jpg",
+best:true,
+name:{ko:"순대국밥",en:"Sundae Soup",zh:"米肠汤",ja:"スンデスープ"},
+desc:{ko:"대표 메뉴",en:"Signature dish",zh:"招牌菜",ja:"人気メニュー"},
+price:"9,000원"
+},
+{
+cat:"meal",
+img:"menu2.png",
+name:{ko:"돼지국밥",en:"Pork Soup",zh:"猪肉汤",ja:"豚スープ"},
+desc:{ko:"담백한 맛",en:"Light taste",zh:"清淡",ja:"あっさり"},
+price:"9,000원"
+}
+];
 
-/* ================= 메뉴 렌더 ================= */
+const categoryNames={
+meal:"🍲 식사 메뉴"
+};
+
 function renderMenu(){
  const area=document.getElementById("menuArea");
  area.innerHTML="";
-
- const categoryNames={
- meal:"🍲 식사 메뉴",
- hotpot:"🍖 전골 / 요리",
- set:"🍢 세트 메뉴"
- };
 
  Object.keys(categoryNames).forEach(cat=>{
   area.innerHTML+=`<h2>${categoryNames[cat]}</h2><div class="menu-grid" id="${cat}"></div>`;
 
   menuData.filter(m=>m.cat===cat).forEach(item=>{
    document.getElementById(cat).innerHTML+=`
-   <div class="menu-card" onclick="openModal('${item.img}','${item.name[currentLang]}')">
+   <div class="menu-card">
      ${item.best?'<div class="badge">BEST</div>':''}
      <img src="${item.img}">
      <div class="menu-info">
@@ -195,57 +116,36 @@ function renderMenu(){
  });
 }
 
-/* ================= 언어 변경 ================= */
-function setLang(lang, el){
+function setLang(lang,el){
  currentLang=lang;
- document.querySelectorAll(".lang-buttons button")
-  .forEach(b=>b.classList.remove("active"));
+ document.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
  el.classList.add("active");
  renderMenu();
 }
 
-/* ================= 모달 ================= */
-function openModal(img,text){
- document.getElementById("modal").style.display="block";
- document.getElementById("modalImg").src=img;
- document.getElementById("modalText").innerText=text;
-}
-
-document.getElementById("modal").onclick=function(e){
- if(e.target===this)this.style.display="none";
-};
-
-document.addEventListener("keydown",e=>{
- if(e.key==='Escape')
- document.getElementById("modal").style.display="none";
-});
-
-/* ================= 초기 실행 ================= */
-document.querySelector(".lang-buttons button").classList.add("active");
+document.querySelector("button").classList.add("active");
 renderMenu();
 
-/* ================= 🔥 지도 ================= */
-window.onload = function(){
-
- var container = document.getElementById('map');
-
- var options = {
-   center: new kakao.maps.LatLng(33.4996, 126.5312),
-   level: 3
+/* ✅ 지도 */
+window.onload=function(){
+ var mapContainer=document.getElementById('map');
+ var mapOption={
+  center:new kakao.maps.LatLng(33.4996,126.5312),
+  level:3
  };
 
- var map = new kakao.maps.Map(container, options);
+ var map=new kakao.maps.Map(mapContainer,mapOption);
 
- var marker = new kakao.maps.Marker({
-   position: options.center
+ var marker=new kakao.maps.Marker({
+  position:mapOption.center
  });
 
  marker.setMap(map);
 
  setTimeout(function(){
-   map.relayout();
-   map.setCenter(options.center);
- }, 300);
+  map.relayout();
+  map.setCenter(mapOption.center);
+ },300);
 };
 </script>
 
