@@ -7,33 +7,121 @@
 
 <style>
 body{font-family:'Pretendard',Arial;margin:0;background:#f7f3ee;}
+
 .banner{position:relative;height:320px;overflow:hidden;}
 .banner img{width:100%;height:100%;object-fit:cover;}
-.banner::after{content:"";position:absolute;width:100%;height:100%;background:linear-gradient(to top,rgba(0,0,0,0.6),rgba(0,0,0,0.2));}
-.banner-text{position:absolute;bottom:20px;left:20px;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,0.6);} 
+.banner::after{content:"";position:absolute;width:100%;height:100%;
+background:linear-gradient(to top,rgba(0,0,0,0.6),rgba(0,0,0,0.2));}
+
+.banner-text{position:absolute;bottom:20px;left:20px;color:#fff;
+text-shadow:0 2px 6px rgba(0,0,0,0.6);}
 
 .container{padding:18px;}
 
-h2{margin-top:40px;font-size:20px;color:#6b3f2b;border-left:6px solid #c8a27a;padding-left:10px;}
+h2{
+margin-top:40px;
+font-size:20px;
+color:#6b3f2b;
+border-left:6px solid #c8a27a;
+padding-left:10px;
+}
 
-.lang-buttons{display:flex;justify-content:center;gap:8px;margin:15px 0;}
-.lang-buttons button{padding:8px 12px;background:#6b3f2b;color:#fff;border:none;border-radius:20px;cursor:pointer;}
-.lang-buttons button.active{background:#c8a27a;}
+.lang-buttons{
+display:flex;
+justify-content:center;
+gap:8px;
+margin:15px 0;
+}
 
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
-.menu-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,0.08);cursor:pointer;position:relative;}
-.menu-card img{width:100%;aspect-ratio:1/1;object-fit:contain;background:#fafafa;padding:10px;}
+.lang-buttons button{
+padding:8px 12px;
+background:#6b3f2b;
+color:#fff;
+border:none;
+border-radius:20px;
+cursor:pointer;
+}
+
+.lang-buttons button.active{
+background:#c8a27a;
+}
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:12px;
+}
+
+.menu-card{
+background:#fff;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 6px 14px rgba(0,0,0,0.08);
+cursor:pointer;
+position:relative;
+transition:0.2s;
+}
+
+.menu-card:hover{
+transform:translateY(-4px);
+}
+
+.menu-card img{
+width:100%;
+aspect-ratio:4/3;
+object-fit:contain;
+background:#fafafa;
+padding:10px;
+}
+
 .menu-info{padding:10px;}
-.price{color:#a0522d;font-weight:bold;}
-.badge{position:absolute;top:8px;left:8px;background:#ff5a5a;color:#fff;padding:3px 6px;font-size:11px;border-radius:6px;}
 
-.modal{display:none;position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:999;}
-.modal-content{text-align:center;margin-top:5%;}
-.modal img{max-width:90%;max-height:75%;border-radius:12px;}
-.modal p{color:#fff;margin-top:10px;}
+.price{
+color:#a0522d;
+font-weight:bold;
+font-size:16px;
+letter-spacing:0.5px;
+}
 
+.badge{
+position:absolute;
+top:8px;
+left:8px;
+background:linear-gradient(45deg,#ff5a5a,#ff2e2e);
+color:#fff;
+padding:3px 6px;
+font-size:11px;
+border-radius:6px;
+font-weight:bold;
+}
+
+.modal{
+display:none;
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+z-index:999;
+}
+
+.modal-content{
+text-align:center;
+margin-top:5%;
+}
+
+.modal img{
+max-width:90%;
+max-height:75%;
+border-radius:12px;
+}
+
+.modal p{
+color:#fff;
+margin-top:10px;
+}
 </style>
 </head>
+
 <body>
 
 <div class="banner">
@@ -47,10 +135,10 @@ h2{margin-top:40px;font-size:20px;color:#6b3f2b;border-left:6px solid #c8a27a;pa
 <div class="container">
 
 <div class="lang-buttons">
-<button onclick="setLang('ko')">KO</button>
-<button onclick="setLang('en')">EN</button>
-<button onclick="setLang('zh')">ZH</button>
-<button onclick="setLang('ja')">JA</button>
+<button onclick="setLang('ko', this)">KO</button>
+<button onclick="setLang('en', this)">EN</button>
+<button onclick="setLang('zh', this)">ZH</button>
+<button onclick="setLang('ja', this)">JA</button>
 </div>
 
 <div id="menuArea"></div>
@@ -68,25 +156,26 @@ h2{margin-top:40px;font-size:20px;color:#6b3f2b;border-left:6px solid #c8a27a;pa
 let currentLang="ko";
 
 const menuData=[
+
 // 식사
-{cat:"meal",img:"menu1.jpg",best:true,name:{ko:"감초순대국밥",en:"Sundae Gukbap",zh:"米肠汤饭",ja:"スンデクッパ"},desc:{ko:"30년간 이어진 변함없는 어머님의 그 맛",en:"The taste of mother's cooking that has remained unchanged for 30 years",zh:"三十年不变的母亲的味道",ja:"30年間変わらないお母さんのあの味"},price:"9,000원"},
-{cat:"meal",img:"menu2.png",name:{ko:"감초돼지해장국",en:"Pork Soup",zh:"猪肉汤",ja:"豚スープ"},desc:{ko:"알싸한 대정 마늘을 듬뿍넣고 칼칼하게 끓여낸 감초식 돼지해장국",en:"Garlic",zh:"蒜",ja:"ニンニク"},price:"10,000원"},
-{cat:"meal",img:"menu3.png",name:{ko:"순수돼지국밥",en:"Pure Pork",zh:"猪肉",ja:"豚"},desc:{ko:"최고급사태와 담백한 머리고기로 구성한 진짜 순수돼지국밥",en:"Light",zh:"清淡",ja:"あっさり"},price:"9,000원"},
-{cat:"meal",img:"menu4.png",name:{ko:"마농돼지우동",en:"Udon",zh:"乌冬",ja:"うどん"},desc:{ko:"감초식당 신제주점에서만 맛볼수 있는 마늘향 가득한 돼지우동",en:"Garlic",zh:"蒜",ja:"ニンニク"},price:"9,000원"},
-{cat:"meal",img:"menu6.png",name:{ko:"맛보기순대",en:"Sundae",zh:"米肠",ja:"スンデ"},desc:{ko:"제주돼지로 직접 만든 제주식 전통 토종수제순대",en:"Homemade",zh:"手工",ja:"手作り"},price:"10,000원"},
-{cat:"meal",img:"menu5.png",name:{ko:"검은콩국수",en:"Noodles",zh:"面",ja:"麺"},desc:{ko:"여름메뉴(5월~9월)한정",en:"Summer",zh:"夏",ja:"夏"},price:"9,000원"},
+{cat:"meal",img:"menu1.jpg",best:true,name:{ko:"감초순대국밥",en:"Sundae Gukbap",zh:"米肠汤饭",ja:"スンデクッパ"},desc:{ko:"30년간 이어진 변함없는 어머님의 그 맛",en:"Traditional pork blood sausage soup with rice",zh:"30年传统米肠汤饭",ja:"30年続く伝統のスンデクッパ"},price:"9,000원"},
+{cat:"meal",img:"menu2.png",name:{ko:"감초돼지해장국",en:"Spicy Pork Soup",zh:"辣猪肉汤",ja:"ピリ辛豚スープ"},desc:{ko:"알싸한 대정 마늘을 듬뿍넣고 칼칼하게 끓여낸 감초식 돼지해장국",en:"Spicy pork soup with rich garlic flavor",zh:"蒜香浓郁辣猪肉汤",ja:"ニンニクたっぷりのピリ辛豚スープ"},price:"10,000원"},
+{cat:"meal",img:"menu3.png",name:{ko:"순수돼지국밥",en:"Pure Pork Gukbap",zh:"清淡猪肉汤饭",ja:"あっさり豚クッパ"},desc:{ko:"최고급사태와 담백한 머리고기로 구성한 진짜 순수돼지국밥",en:"Light and clean pork soup with premium cuts",zh:"清淡优质猪肉汤",ja:"上質な豚肉のあっさりスープ"},price:"9,000원"},
+{cat:"meal",img:"menu4.png",name:{ko:"마농돼지우동",en:"Garlic Pork Udon",zh:"蒜香猪肉乌冬",ja:"ニンニク豚うどん"},desc:{ko:"마늘향 가득한 돼지우동",en:"Udon with garlic pork flavor",zh:"蒜香猪肉乌冬面",ja:"ニンニク香る豚うどん"},price:"9,000원"},
+{cat:"meal",img:"menu6.png",name:{ko:"맛보기순대",en:"Homemade Sundae",zh:"手工米肠",ja:"手作りスンデ"},desc:{ko:"제주돼지로 만든 수제 순대",en:"Homemade sausage with Jeju pork",zh:"济州猪肉手工米肠",ja:"済州豚の手作りスンデ"},price:"10,000원"},
+{cat:"meal",img:"menu5.png",name:{ko:"검은콩국수",en:"Black Bean Noodles",zh:"黑豆冷面",ja:"黒豆冷麺"},desc:{ko:"여름한정 메뉴",en:"Seasonal summer dish",zh:"夏季限定",ja:"夏限定"},price:"9,000원"},
 
 // 전골
-{cat:"hotpot",img:"menu10.jpg",best:true,name:{ko:"순대내장전골",en:"Hotpot",zh:"火锅",ja:"鍋"},desc:{ko:"내장과 야채, 수제순대의 푸짐함!",en:"Rich",zh:"丰富",ja:"豊富"},price:"35,000원"},
-{cat:"hotpot",img:"menu11.jpg",name:{ko:"내장막창전골",en:"Hotpot",zh:"火锅",ja:"鍋"},desc:{ko:"내장과 막창이 가득한 전골",en:"Offal",zh:"内脏",ja:"内臓"},price:"35,000원"},
-{cat:"hotpot",img:"menu12.jpg",name:{ko:"닭볶음탕",en:"Chicken",zh:"鸡",ja:"鶏"},desc:{ko:"감초 닭볶음탕 전문점 개업준비중~!",en:"Soon",zh:"准备",ja:"準備"},price:"35,000원"},
-{cat:"hotpot",img:"menu13.png",name:{ko:"돼지해장전골",en:"Pork",zh:"猪",ja:"豚"},desc:{ko:"푸짐한 해정전골에 신라면이 공짜!",en:"Ramen",zh:"拉面",ja:"ラーメン"},price:"22,000원"},
-{cat:"hotpot",img:"menu14.png",name:{ko:"순대술국",en:"Soup",zh:"汤",ja:"スープ"},desc:{ko:"푸짐한 순대와 배지근한 국물이 한잔을 부르는 맛",en:"With drink",zh:"下酒",ja:"お酒"},price:"20,000원"},
+{cat:"hotpot",img:"menu10.jpg",best:true,name:{ko:"순대내장전골",en:"Sundae Hotpot",zh:"米肠内脏火锅",ja:"スンデ内臓鍋"},desc:{ko:"푸짐한 전골",en:"Rich hotpot with sausage and offal",zh:"丰富米肠火锅",ja:"具だくさん鍋"},price:"35,000원"},
+{cat:"hotpot",img:"menu11.jpg",name:{ko:"내장막창전골",en:"Offal Hotpot",zh:"内脏火锅",ja:"内臓鍋"},desc:{ko:"막창 포함",en:"Includes pork intestines",zh:"含大肠",ja:"ホルモン入り"},price:"35,000원"},
+{cat:"hotpot",img:"menu12.jpg",name:{ko:"닭볶음탕",en:"Spicy Chicken Stew",zh:"辣炖鸡",ja:"鶏煮込み"},desc:{ko:"준비중",en:"Coming soon",zh:"准备中",ja:"準備中"},price:"35,000원"},
+{cat:"hotpot",img:"menu13.png",name:{ko:"돼지해장전골",en:"Pork Hotpot",zh:"猪肉火锅",ja:"豚鍋"},desc:{ko:"라면 포함",en:"Includes ramen noodles",zh:"含拉面",ja:"ラーメン付き"},price:"22,000원"},
+{cat:"hotpot",img:"menu14.png",name:{ko:"순대술국",en:"Sundae Soup",zh:"米肠汤",ja:"スンデスープ"},desc:{ko:"술안주 추천",en:"Perfect with drinks",zh:"下酒菜推荐",ja:"お酒に合う"},price:"20,000원"},
 
 // 세트
-{cat:"set",img:"menu7.jpg",name:{ko:"A세트",en:"Set A",zh:"A套餐",ja:"Aセット"},desc:{ko:"순대+머리고기",en:"A",zh:"A",ja:"A"},price:"15,000원"},
-{cat:"set",img:"menu8.jpg",name:{ko:"B세트",en:"Set B",zh:"B套餐",ja:"Bセット"},desc:{ko:"순대+머리고기+내장",en:"B",zh:"B",ja:"B"},price:"20,000원"},
-{cat:"set",img:"menu9.jpg",name:{ko:"C세트",en:"Set C",zh:"C套餐",ja:"Cセット"},desc:{ko:"순대+머리고기+내장+막창",en:"C",zh:"C",ja:"C"},price:"25,000원"}
+{cat:"set",img:"menu7.jpg",name:{ko:"A세트",en:"Set A",zh:"A套餐",ja:"Aセット"},desc:{ko:"순대+머리고기",en:"Sundae + pork",zh:"米肠+猪肉",ja:"スンデ+豚肉"},price:"15,000원"},
+{cat:"set",img:"menu8.jpg",name:{ko:"B세트",en:"Set B",zh:"B套餐",ja:"Bセット"},desc:{ko:"순대+머리고기+내장",en:"With offal",zh:"含内脏",ja:"内臓付き"},price:"20,000원"},
+{cat:"set",img:"menu9.jpg",name:{ko:"C세트",en:"Set C",zh:"C套餐",ja:"Cセット"},desc:{ko:"순대+머리고기+내장+막창",en:"Full set",zh:"豪华套餐",ja:"フルセット"},price:"25,000원"}
 ];
 
 const categoryNames={
@@ -117,10 +206,13 @@ function renderMenu(){
  });
 }
 
-function setLang(lang){
+function setLang(lang, el){
  currentLang=lang;
- document.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
- event.target.classList.add("active");
+
+ document.querySelectorAll(".lang-buttons button")
+  .forEach(b=>b.classList.remove("active"));
+
+ el.classList.add("active");
  renderMenu();
 }
 
@@ -130,9 +222,17 @@ function openModal(img,text){
  document.getElementById("modalText").innerText=text;
 }
 
-document.getElementById("modal").onclick=function(e){if(e.target===this)this.style.display="none"};
+document.getElementById("modal").onclick=function(e){
+ if(e.target===this)this.style.display="none";
+};
 
-document.addEventListener("keydown",e=>{if(e.key==='Escape')document.getElementById("modal").style.display="none"});
+document.addEventListener("keydown",e=>{
+ if(e.key==='Escape')
+ document.getElementById("modal").style.display="none";
+});
+
+// 초기 active 버튼 설정
+document.querySelector(".lang-buttons button").classList.add("active");
 
 renderMenu();
 </script>
