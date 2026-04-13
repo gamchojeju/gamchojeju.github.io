@@ -9,12 +9,24 @@
 body{font-family:'Pretendard',Arial;margin:0;background:#f7f3ee;}
 
 .banner{position:relative;height:320px;overflow:hidden;}
-.banner img{width:100%;height:100%;object-fit:cover;}
-.banner::after{content:"";position:absolute;width:100%;height:100%;
-background:linear-gradient(to top,rgba(0,0,0,0.6),rgba(0,0,0,0.2));}
+.banner img{width:100%;height:100%;object-fit:cover;display:block;}
+.banner::after{
+content:"";
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.35);
+z-index:1;
+}
 
-.banner-text{position:absolute;bottom:20px;left:20px;color:#fff;
-text-shadow:0 2px 6px rgba(0,0,0,0.6);}
+.banner-text{
+position:absolute;
+bottom:20px;
+left:20px;
+color:#fff;
+z-index:2;
+text-shadow:0 2px 6px rgba(0,0,0,0.6);
+}
 
 .container{padding:18px;}
 
@@ -42,9 +54,7 @@ border-radius:20px;
 cursor:pointer;
 }
 
-.lang-buttons button.active{
-background:#c8a27a;
-}
+.lang-buttons button.active{background:#c8a27a;}
 
 .menu-grid{
 display:grid;
@@ -59,7 +69,7 @@ overflow:hidden;
 box-shadow:0 6px 14px rgba(0,0,0,0.08);
 cursor:pointer;
 transition:0.2s;
-position:relative; /* 🔥 BEST 정상 작동 핵심 */
+position:relative;
 }
 
 .menu-card:hover{transform:translateY(-4px);}
@@ -88,7 +98,7 @@ padding:4px 7px;
 font-size:11px;
 border-radius:6px;
 font-weight:bold;
-z-index:10; /* 🔥 겹침 방지 */
+z-index:10;
 }
 
 .modal{
@@ -115,9 +125,7 @@ margin-top:10px;
 font-weight:bold;
 }
 
-.btn.secondary{
-background:#c8a27a;
-}
+.btn.secondary{background:#c8a27a;}
 
 .map-box{
 margin-top:10px;
@@ -131,32 +139,7 @@ overflow:hidden;
 
 <!-- 배너 -->
 <div class="banner">
-<img src="banner.jpg">
-<div class="banner-text">
-<h1>감초식당 신제주점</h1>
-<p>1994년부터 30년간 이어진 변함없는 어머님의 그 맛</p>
-</div>
-</div>
-
-<div class="container">
-
-<!-- 언어 -->
-<div class="lang-buttons">
-<button onclick="setLang('ko', this)">KO</button>
-<button onclick="setLang('en', this)">EN</button>
-<button onclick="setLang('zh', this)">ZH</button>
-<button onclick="setLang('ja', this)">JA</button>
-</div>
-
-<div id="menuArea"></div>
-</style>
-</head>
-
-<body>
-
-<!-- 배너 -->
-<div class="banner">
-<img src="banner.jpg">
+<img src="banner.jpg" alt="배너">
 <div class="banner-text">
 <h1>감초식당 신제주점</h1>
 <p>1994년부터 30년간 이어진 변함없는 어머님의 그 맛</p>
@@ -179,13 +162,13 @@ overflow:hidden;
 <h2>📞 전화</h2>
 <a class="btn" href="tel:0647438988">전화 바로걸기</a>
 
- <!-- 인스타그램 -->
-<h2>🔥  인스타그램 </h2>
-<a class="btn" href="https://www.instagram.com/p/DJc4IKczv-t/">Instagram</a>
+<!-- 인스타 -->
+<h2>🔥 인스타그램</h2>
+<a class="btn" href="https://www.instagram.com/p/DJc4IKczv-t/" target="_blank">Instagram</a>
 
- <!-- 네이버리뷰작성 -->
-<h2>🔥  리뷰작성하러가기 </h2>
-<a class="btn" href="https://m.place.naver.com/my"> Naver Review </a>
+<!-- 리뷰 -->
+<h2>🔥 리뷰작성</h2>
+<a class="btn" href="https://m.place.naver.com/my" target="_blank">Naver Review</a>
 
 <!-- 지도 -->
 <h2>📍 오시는 길</h2>
