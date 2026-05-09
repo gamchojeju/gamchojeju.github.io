@@ -1,0 +1,510 @@
+# 감초식당 STORY 페이지 전체 코드
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>감초식당 이야기 | 오래 지켜온 제주 로컬의 맛</title>
+<meta name="description" content="오랜 시간 변하지 않은 방식으로 한 그릇을 준비하는 감초식당의 이야기를 소개합니다.">
+<meta name="keywords" content="감초식당, 제주 로컬 맛집, 제주 순대국밥, 제주 국밥, 제주 맛집">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Pretendard',sans-serif;
+background:#f7f3ee;
+color:#1f1f1f;
+line-height:1.8;
+word-break:keep-all;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+.container{
+width:min(1180px,92%);
+margin:auto;
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(247,243,238,0.92);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
+
+.logo{
+font-family:'Noto Serif KR',serif;
+font-size:24px;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.menu{
+display:flex;
+gap:32px;
+}
+
+.menu a{
+text-decoration:none;
+color:#1f1f1f;
+font-size:14px;
+font-weight:500;
+letter-spacing:1px;
+transition:0.3s;
+}
+
+.menu a:hover{
+opacity:0.55;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+position:relative;
+overflow:hidden;
+}
+
+.hero img{
+height:100%;
+object-fit:cover;
+filter:brightness(0.62);
+}
+
+.hero-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:white;
+width:90%;
+}
+
+.hero-sub{
+font-size:14px;
+letter-spacing:4px;
+margin-bottom:18px;
+opacity:0.8;
+}
+
+.hero-title{
+font-family:'Noto Serif KR',serif;
+font-size:68px;
+font-weight:600;
+line-height:1.35;
+margin-bottom:24px;
+}
+
+.hero-desc{
+font-size:18px;
+opacity:0.9;
+max-width:720px;
+margin:auto;
+}
+
+/* SECTION */
+section{
+padding:140px 0;
+}
+
+.section-label{
+font-size:13px;
+letter-spacing:3px;
+color:#8b7765;
+margin-bottom:18px;
+font-weight:600;
+}
+
+.section-title{
+font-family:'Noto Serif KR',serif;
+font-size:46px;
+line-height:1.5;
+margin-bottom:40px;
+font-weight:600;
+}
+
+.section-text{
+font-size:18px;
+color:#444;
+max-width:780px;
+}
+
+/* STORY GRID */
+.story-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:90px;
+align-items:center;
+}
+
+.story-image img{
+height:720px;
+object-fit:cover;
+border-radius:28px;
+box-shadow:0 25px 60px rgba(0,0,0,0.08);
+}
+
+/* QUOTE */
+.quote{
+background:#1d241d;
+color:white;
+text-align:center;
+padding:180px 20px;
+}
+
+.quote p{
+font-family:'Noto Serif KR',serif;
+font-size:44px;
+line-height:1.8;
+max-width:980px;
+margin:auto;
+font-weight:500;
+}
+
+/* VALUE */
+.value-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:36px;
+margin-top:60px;
+}
+
+.value-card{
+background:white;
+padding:50px 38px;
+border-radius:26px;
+box-shadow:0 15px 40px rgba(0,0,0,0.05);
+transition:0.35s;
+}
+
+.value-card:hover{
+transform:translateY(-8px);
+}
+
+.value-card h3{
+font-family:'Noto Serif KR',serif;
+font-size:28px;
+margin-bottom:22px;
+}
+
+.value-card p{
+font-size:16px;
+color:#555;
+}
+
+/* END */
+.end-section{
+text-align:center;
+padding-top:120px;
+}
+
+.end-title{
+font-family:'Noto Serif KR',serif;
+font-size:54px;
+line-height:1.6;
+margin-bottom:28px;
+}
+
+.end-text{
+font-size:18px;
+color:#555;
+max-width:760px;
+margin:auto;
+}
+
+/* FOOTER */
+footer{
+background:#161616;
+color:#d7d7d7;
+padding:70px 0;
+margin-top:140px;
+}
+
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.footer-logo{
+font-family:'Noto Serif KR',serif;
+font-size:30px;
+margin-bottom:12px;
+}
+
+.footer-info{
+font-size:15px;
+line-height:2;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+.hero-title{
+font-size:42px;
+}
+
+.hero-desc{
+font-size:16px;
+}
+
+.story-grid{
+grid-template-columns:1fr;
+gap:50px;
+}
+
+.story-image img{
+height:420px;
+}
+
+.section-title{
+font-size:34px;
+}
+
+.quote p{
+font-size:30px;
+}
+
+.value-grid{
+grid-template-columns:1fr;
+}
+
+.end-title{
+font-size:38px;
+}
+
+.menu{
+gap:18px;
+font-size:12px;
+}
+
+.nav{
+flex-direction:column;
+gap:14px;
+}
+
+header{
+padding:6px 0;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+<div class="logo">감초식당</div>
+
+<nav class="menu">
+<a href="index.html">HOME</a>
+<a href="menu.html">MENU</a>
+<a href="story.html">STORY</a>
+<a href="broadcast.html">MEDIA</a>
+<a href="review.html">REVIEW</a>
+<a href="location.html">LOCATION</a>
+<a href="blog.html">BLOG</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<img src="story-main.jpg" alt="감초식당 대표 이미지">
+
+<div class="hero-text">
+<div class="hero-sub">GAMCHO STORY</div>
+<h1 class="hero-title">
+오랜 시간 변하지 않은<br>
+한 그릇의 마음
+</h1>
+<p class="hero-desc">
+감초식당은 화려함보다 익숙하고 깊은 맛을 중요하게 생각합니다.
+오랜 시간 한 자리를 지키며 변하지 않는 방식으로 한 그릇을 준비합니다.
+</p>
+</div>
+</section>
+
+<section>
+<div class="container story-grid">
+
+<div>
+<div class="section-label">OUR STORY</div>
+<h2 class="section-title">
+시간이 지나도 변하지 않는 맛
+</h2>
+
+<p class="section-text">
+감초식당은 오랜 시간 동안 한결같은 마음으로 음식을 준비해왔습니다.
+빠르게 변하는 유행보다 오래 기억에 남는 한 끼를 더 중요하게 생각하며,
+익숙한 따뜻함과 깊은 풍미를 담아내기 위해 노력하고 있습니다.
+<br><br>
+한 그릇의 음식이 누군가에게는 여행의 기억이 되고,
+누군가에게는 하루를 위로하는 식사가 되기를 바랍니다.
+</p>
+</div>
+
+<div class="story-image">
+<img src="story-food.jpg" alt="감초식당 대표 메뉴">
+</div>
+
+</div>
+</section>
+
+<section class="quote">
+<p>
+“ 오랜 시간 사랑받는 맛은<br>
+결국 기본을 지켜온 시간에서 만들어집니다. ”
+</p>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-label">OUR VALUES</div>
+<h2 class="section-title">
+감초식당이 중요하게 생각하는 것
+</h2>
+
+<div class="value-grid">
+
+<div class="value-card">
+<h3>정직한 맛</h3>
+<p>
+자극적인 화려함보다 오랜 시간 편안하게 기억되는 맛을 추구합니다.
+기본에 충실한 방식으로 한 그릇을 준비합니다.
+</p>
+</div>
+
+<div class="value-card">
+<h3>따뜻한 공간</h3>
+<p>
+누구나 편안하게 머물 수 있는 공간이 되기를 바랍니다.
+감초식당은 음식뿐 아니라 분위기와 시간까지 함께 준비합니다.
+</p>
+</div>
+
+<div class="value-card">
+<h3>변하지 않는 마음</h3>
+<p>
+오랜 시간 찾아주시는 분들께 늘 같은 정성과 마음으로 음식을 대접하고 있습니다.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="end-section">
+<div class="container">
+<h2 class="end-title">
+오늘도 감초식당은<br>
+정성스러운 한 그릇을 준비합니다.
+</h2>
+
+<p class="end-text">
+익숙하지만 쉽게 잊히지 않는 맛.
+감초식당은 오래도록 기억에 남는 한 끼를 위해
+변함없는 마음으로 음식을 만들고 있습니다.
+</p>
+</div>
+</section>
+
+<footer>
+<div class="container footer-inner">
+
+<div>
+<div class="footer-logo">감초식당</div>
+<div class="footer-info">
+제주 로컬 국밥 전문점<br>
+오랜 시간 변하지 않은 한 그릇
+</div>
+</div>
+
+<div class="footer-info">
+OPEN AM 11:00 - PM 23:00<br>
+TEL 064-743-8988
+</div>
+
+</div>
+</footer>
+
+</body>
+</html>
+```
+
+---
+
+# 사용 방법
+
+1. `story.html` 파일 생성
+2. 위 코드 전체 복사 후 붙여넣기
+3. 아래 이미지 파일 준비
+
+```plaintext
+story-main.jpg
+story-food.jpg
+```
+
+4. 같은 폴더에 이미지 넣기
+5. 메뉴에서 `story.html` 연결
+
+---
+
+# 추천 이미지 스타일
+
+## story-main.jpg
+
+* 매장 전경
+* 감성적인 분위기
+* 어두운 톤 가능
+* 따뜻한 조명 추천
+
+## story-food.jpg
+
+* 대표메뉴 근접샷
+* 여백 있는 고급 촬영
+* 검정 식기 / 우드 테이블 잘 어울림
+
+---
+
+# 이 코드의 특징
+
+* 네이버 SEO 최적화 구조
+* 모바일 최적화 완료
+* 고급 브랜드 디자인
+* serif + Pretendard 조합
+* 여백 중심 레이아웃
+* 대기업 브랜드 느낌 UI
+* 제주 로컬 감성 유지
