@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>감초식당 LOCATION | 오시는 길</title>
+
+<meta name="description" content="제주공항 근처 감초식당 신제주점 위치 및 오시는 길 안내입니다.">
+<meta name="keywords" content="감초식당 위치, 제주공항 맛집, 제주 연동 맛집, 제주 국밥 맛집">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="감초식당 LOCATION">
+<meta property="og:description" content="감초식당 신제주점 오시는 길 안내">
+<meta property="og:image" content="location-main.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#0f0f0f;
+--card:#171717;
+--text:#f5f5f5;
+--sub:#bdbdbd;
+--gold:#d6b98a;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+-webkit-text-size-adjust:100%;
+}
+
+body{
+font-family:'Pretendard',sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.8;
+overflow-x:hidden;
+word-break:keep-all;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:min(1180px,92%);
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(15,15,15,0.82);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 0;
+gap:20px;
+}
+
+.logo{
+font-family:'Noto Serif KR',serif;
+font-size:24px;
+font-weight:700;
+}
+
+.menu{
+display:flex;
+gap:24px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.menu a{
+font-size:13px;
+font-weight:600;
+letter-spacing:1px;
+position:relative;
+}
+
+.menu a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:1px;
+background:var(--gold);
+transition:0.3s;
+}
+
+.menu a:hover::after{
+width:100%;
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+height:88svh;
+min-height:720px;
+overflow:hidden;
+}
+
+.hero img{
+height:100%;
+object-fit:cover;
+filter:brightness(0.35);
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.82));
+}
+
+.hero-text{
+position:absolute;
+top:55%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+width:min(92%,900px);
+}
+
+.hero-sub{
+font-size:13px;
+letter-spacing:4px;
+margin-bottom:20px;
+color:var(--gold);
+}
+
+.hero-title{
+font-family:'Noto Serif KR',serif;
+font-size:clamp(42px,6vw,76px);
+line-height:1.35;
+margin-bottom:24px;
+font-weight:600;
+}
+
+.hero-desc{
+font-size:18px;
+color:rgba(255,255,255,0.82);
+max-width:760px;
+margin:auto;
+}
+
+/* SECTION */
+
+section{
+padding:120px 0;
+}
+
+.section-label{
+font-size:13px;
+letter-spacing:3px;
+color:var(--gold);
+margin-bottom:18px;
+font-weight:600;
+}
+
+.section-title{
+font-family:'Noto Serif KR',serif;
+font-size:clamp(34px,4vw,50px);
+line-height:1.5;
+margin-bottom:30px;
+font-weight:600;
+}
+
+.section-desc{
+font-size:18px;
+color:var(--sub);
+max-width:760px;
+}
+
+/* INFO GRID */
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+margin-top:60px;
+}
+
+.info-card{
+background:var(--card);
+padding:36px 28px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.35s;
+}
+
+.info-card:hover{
+transform:translateY(-6px);
+}
+
+.info-icon{
+font-size:34px;
+margin-bottom:18px;
+}
+
+.info-title{
+font-family:'Noto Serif KR',serif;
+font-size:24px;
+margin-bottom:12px;
+}
+
+.info-text{
+font-size:15px;
+color:#cfcfcf;
+line-height:1.9;
+}
+
+/* MAP */
+
+.map-wrap{
+margin-top:70px;
+border-radius:30px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.map-wrap iframe{
+width:100%;
+height:520px;
+border:0;
+}
+
+/* GUIDE */
+
+.guide-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+margin-top:60px;
+}
+
+.guide-card{
+background:var(--card);
+padding:40px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.guide-card h3{
+font-family:'Noto Serif KR',serif;
+font-size:28px;
+margin-bottom:22px;
+}
+
+.guide-card p{
+font-size:15px;
+color:#cfcfcf;
+line-height:2;
+}
+
+/* LANDMARK */
+
+.landmark-wrap{
+margin-top:70px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+}
+
+.landmark-card{
+position:relative;
+overflow:hidden;
+border-radius:30px;
+height:420px;
+}
+
+.landmark-card img{
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.landmark-card:hover img{
+transform:scale(1.05);
+}
+
+.landmark-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.1));
+display:flex;
+align-items:flex-end;
+padding:30px;
+}
+
+.landmark-title{
+font-family:'Noto Serif KR',serif;
+font-size:30px;
+margin-bottom:10px;
+}
+
+.landmark-text{
+font-size:15px;
+line-height:1.8;
+}
+
+/* CTA */
+
+.cta{
+background:#161616;
+text-align:center;
+padding:150px 20px;
+}
+
+.cta h2{
+font-family:'Noto Serif KR',serif;
+font-size:clamp(36px,5vw,60px);
+line-height:1.5;
+margin-bottom:26px;
+}
+
+.cta p{
+font-size:18px;
+color:#cfcfcf;
+margin-bottom:40px;
+}
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:16px 28px;
+border-radius:999px;
+font-weight:700;
+transition:0.3s;
+}
+
+.btn-primary{
+background:var(--gold);
+color:#111;
+}
+
+.btn-dark{
+background:#222;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+background:#090909;
+padding:70px 0;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.footer-logo{
+font-family:'Noto Serif KR',serif;
+font-size:30px;
+margin-bottom:12px;
+}
+
+.footer-info{
+font-size:15px;
+line-height:2;
+color:#bdbdbd;
+}
+
+/* MOBILE */
+
+@media(max-width:1024px){
+
+.info-grid,
+.guide-grid,
+.landmark-wrap{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.nav{
+flex-direction:column;
+gap:14px;
+padding:14px 0;
+}
+
+.hero{
+min-height:680px;
+}
+
+.hero-title{
+font-size:42px;
+}
+
+.hero-desc{
+font-size:15px;
+}
+
+section{
+padding:90px 0;
+}
+
+.landmark-card{
+height:320px;
+}
+
+.map-wrap iframe{
+height:420px;
+}
+
+.footer-inner{
+flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">감초식당</div>
+
+<nav class="menu">
+<a href="index.html">HOME</a>
+<a href="menu.html">MENU</a>
+<a href="story.html">STORY</a>
+<a href="broadcast.html">MEDIA</a>
+<a href="review.html">REVIEW</a>
+<a href="location.html">LOCATION</a>
+<a href="blog.html">BLOG</a>
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<img src="location-main.jpg" alt="감초식당 위치 메인 이미지">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-text">
+
+<div class="hero-sub">GAMCHO LOCATION</div>
+
+<h1 class="hero-title">
+제주의 여행길 끝에서<br>
+따뜻한 한 끼를 만나다
+</h1>
+
+<p class="hero-desc">
+제주공항 근처 연동에 위치한 감초식당 신제주점은
+여행객과 제주 도민 모두가 편하게 찾는 로컬 맛집입니다.
+</p>
+
+</div>
+
+</section>
+
+<!-- INFO -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">LOCATION INFO</div>
+
+<h2 class="section-title">
+감초식당 이용 안내
+</h2>
+
+<p class="section-desc">
+제주공항과 가까운 위치로 여행 중 편하게 방문하실 수 있습니다.
+</p>
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<div class="info-icon">📍</div>
+
+<div class="info-title">주소</div>
+
+<div class="info-text">
+제주시 노연로 144 1층<br>
+(구 코스모스호텔사거리)
+</div>
+
+</div>
+
+<div class="info-card">
+
+<div class="info-icon">📞</div>
+
+<div class="info-title">전화번호</div>
+
+<div class="info-text">
+064-743-8988
+</div>
+
+</div>
+
+<div class="info-card">
+
+<div class="info-icon">🕒</div>
+
+<div class="info-title">영업시간</div>
+
+<div class="info-text">
+AM 11:00 - PM 24:00<br>
+연중무휴
+</div>
+
+</div>
+
+<div class="info-card">
+
+<div class="info-icon">🚗</div>
+
+<div class="info-title">주차 안내</div>
+
+<div class="info-text">
+매장 앞 주차 가능<br>
+편하게 방문하세요
+</div>
+
+</div>
+
+</div>
+
+<div class="map-wrap">
+
+<iframe
+src="https://naver.me/GowzTPzr">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GUIDE -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">HOW TO VISIT</div>
+
+<h2 class="section-title">
+오시는 방법 안내
+</h2>
+
+<div class="guide-grid">
+
+<div class="guide-card">
+
+<h3>✈ 제주공항에서</h3>
+
+<p>
+차량 기준 약 10분 거리로
+제주 도착 후 바로 방문하기 좋은 위치입니다.
+여행 첫 식사 또는 마지막 식사 코스로 많이 찾습니다.
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🚗 차량 이용</h3>
+
+<p>
+네이버 지도 또는 카카오맵에서
+‘감초식당 신제주점’을 검색해주세요.
+매장 앞 주차 가능합니다.
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🚌 버스 이용</h3>
+
+<p>
+신제주 및 연동 주요 버스노선 이용 가능하며
+도보 접근도 편리한 위치입니다.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LANDMARK -->
+
+<section>
+
+<div class="container">
+
+<div class="section-label">NEARBY PLACE</div>
+
+<h2 class="section-title">
+주변 주요 위치
+</h2>
+
+<div class="landmark-wrap">
+
+<div class="landmark-card">
+
+<img src="airport.jpg" alt="제주공항">
+
+<div class="landmark-overlay">
+
+<div>
+
+<div class="landmark-title">
+제주공항
+</div>
+
+<div class="landmark-text">
+차량 약 10분 거리의 뛰어난 접근성
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="landmark-card">
+
+<img src="yeondong.jpg" alt="연동">
+
+<div class="landmark-overlay">
+
+<div>
+
+<div class="landmark-title">
+신제주 연동
+</div>
+
+<div class="landmark-text">
+제주 중심 상권과 가까운 위치
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="landmark-card">
+
+<img src="street.jpg" alt="누웨마루거리">
+
+<div class="landmark-overlay">
+
+<div>
+
+<div class="landmark-title">
+누웨마루거리
+</div>
+
+<div class="landmark-text">
+제주 여행객들이 많이 찾는 인기 거리
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>
+감초식당에서<br>
+따뜻한 제주 한 끼를 만나보세요
+</h2>
+
+<p>
+오랜 시간 변하지 않은 한 그릇의 정성을 준비하고 있습니다.
+</p>
+
+<div class="cta-buttons">
+
+<a href="tel:0647438988" class="btn btn-primary">
+📞 전화하기
+</a>
+
+<a href="https://naver.me/GowzTPzr" target="_blank" class="btn btn-dark">
+📍 길찾기
+</a>
+
+<a href="menu.html" class="btn btn-dark">
+🍲 메뉴보기
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+
+<div class="footer-logo">감초식당</div>
+
+<div class="footer-info">
+제주 로컬 국밥 전문점<br>
+오랜 시간 변하지 않은 한 그릇
+</div>
+
+</div>
+
+<div class="footer-info">
+OPEN AM 11:00 - PM 24:00<br>
+Last Order 안주류 PM 23:00 국밥류 PM 23:30<br>
+TEL 064-743-8988
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
