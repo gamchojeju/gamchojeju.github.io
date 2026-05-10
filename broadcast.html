@@ -254,7 +254,7 @@ color:var(--sub);
 max-width:760px;
 }
 
-/* TRUST LOGO */
+/* TRUST */
 
 .trust-wrap{
 margin-top:60px;
@@ -440,15 +440,21 @@ background:#141414;
 }
 
 .youtube-frame{
+position:relative;
+padding-top:56.25%;
+height:0;
+overflow:hidden;
 margin-top:60px;
 border-radius:30px;
-overflow:hidden;
 box-shadow:0 30px 60px rgba(0,0,0,0.4);
 }
 
 .youtube-frame iframe{
+position:absolute;
+top:0;
+left:0;
 width:100%;
-height:640px;
+height:100%;
 border:0;
 display:block;
 }
@@ -549,7 +555,7 @@ line-height:2;
 color:#bdbdbd;
 }
 
-/* FLOAT BUTTON */
+/* FLOAT */
 
 .floating-call{
 position:fixed;
@@ -591,10 +597,6 @@ grid-template-columns:1fr;
 
 .trust-wrap{
 grid-template-columns:1fr 1fr;
-}
-
-.youtube-frame iframe{
-height:460px;
 }
 
 }
@@ -691,10 +693,6 @@ flex-direction:column;
 grid-template-columns:1fr;
 }
 
-.youtube-frame iframe{
-height:240px;
-}
-
 .cta-title{
 font-size:30px;
 }
@@ -707,6 +705,7 @@ font-size:30px;
 <body>
 
 <header id="header">
+
 <div class="container nav">
 
 <div class="logo">감초식당</div>
@@ -722,17 +721,14 @@ font-size:30px;
 </nav>
 
 </div>
+
 </header>
 
 <!-- HERO -->
 
 <section class="hero">
 
-<img
-src="media-main.jpg"
-loading="eager"
-alt="감초식당 대표 국밥 이미지"
-/>
+<img src="media-main.jpg" alt="감초식당 대표 국밥 이미지" loading="eager">
 
 <div class="hero-overlay"></div>
 
@@ -757,6 +753,7 @@ alt="감초식당 대표 국밥 이미지"
 </div>
 
 </div>
+
 </section>
 
 <!-- TRUST -->
@@ -783,8 +780,7 @@ alt="감초식당 대표 국밥 이미지"
 <div class="trust-logo">📺</div>
 <div class="trust-title">TV 방송 출연</div>
 <div class="trust-text">
-tvN 놀라운토요일, comedyTV 안녕하세요 거인인데요 등
-다양한 방송 소개
+tvN 놀라운토요일, comedyTV 안녕하세요 거인인데요 등 다양한 방송 소개
 </div>
 </div>
 
@@ -792,8 +788,7 @@ tvN 놀라운토요일, comedyTV 안녕하세요 거인인데요 등
 <div class="trust-logo">🎥</div>
 <div class="trust-title">유튜브 콘텐츠</div>
 <div class="trust-text">
-제주 맛집 유튜버
-다수 방문
+제주 맛집 유튜버 다수 방문
 </div>
 </div>
 
@@ -801,8 +796,7 @@ tvN 놀라운토요일, comedyTV 안녕하세요 거인인데요 등
 <div class="trust-logo">📝</div>
 <div class="trust-title">블로그 리뷰</div>
 <div class="trust-text">
-누적 리뷰와 후기
-지속 증가
+누적 리뷰와 후기 지속 증가
 </div>
 </div>
 
@@ -810,8 +804,7 @@ tvN 놀라운토요일, comedyTV 안녕하세요 거인인데요 등
 <div class="trust-logo">📍</div>
 <div class="trust-title">제주 로컬 맛집</div>
 <div class="trust-text">
-제주공항 근처
-오랜 로컬 맛집
+제주공항 근처 오랜 로컬 맛집
 </div>
 </div>
 
@@ -826,11 +819,7 @@ tvN 놀라운토요일, comedyTV 안녕하세요 거인인데요 등
 <div class="container feature-wrap">
 
 <div class="feature-image">
-<img
-src="media-feature.jpg"
-loading="lazy"
-alt="감초식당 방송 출연 이미지"
-/>
+<img src="media-feature.jpg" alt="감초식당 방송 출연 이미지" loading="lazy">
 </div>
 
 <div class="feature-card">
@@ -851,7 +840,7 @@ alt="감초식당 방송 출연 이미지"
 <div class="feature-info">
 
 <div class="feature-item">
-📺 tvN 놀라운토요일, comedytv 안녕하세요 거인인데요 소개
+📺 tvN 놀라운토요일, comedyTV 안녕하세요 거인인데요 소개
 </div>
 
 <div class="feature-item">
@@ -865,7 +854,9 @@ alt="감초식당 방송 출연 이미지"
 </div>
 
 </div>
+
 </div>
+
 </section>
 
 <!-- VIDEOS -->
@@ -886,17 +877,11 @@ alt="감초식당 방송 출연 이미지"
 
 <div class="video-grid">
 
-<a href="https://www.youtube.com/watch?v=ExxlbZ2jPpc"
-target="_blank"
-class="video-card">
+<a href="https://www.youtube.com/watch?v=ExxlbZ2jPpc" target="_blank" class="video-card">
 
 <div class="video-thumb">
 
-<img
-src="video1.jpg"
-loading="lazy"
-alt="놀라운토요일 감초식당"
-/>
+<img src="video1.jpg" alt="놀라운토요일 감초식당" loading="lazy">
 
 <div class="play-icon">▶</div>
 
@@ -913,19 +898,14 @@ alt="놀라운토요일 감초식당"
 </p>
 
 </div>
+
 </a>
 
-<a href="https://www.youtube.com/watch?v=UrKhox4uwpg&list=PLHAtcbuTm_o1t4ZnB8x2N9DJycZl45Nld&index=14"
-target="_blank"
-class="video-card">
+<a href="https://www.youtube.com/watch?v=UrKhox4uwpg&list=PLHAtcbuTm_o1t4ZnB8x2N9DJycZl45Nld&index=14" target="_blank" class="video-card">
 
 <div class="video-thumb">
 
-<img
-src="video2.jpg"
-loading="lazy"
-alt="안녕하세요 거인인데요 제주 맛집"
-/>
+<img src="video2.jpg" alt="안녕하세요 거인인데요 제주 맛집" loading="lazy">
 
 <div class="play-icon">▶</div>
 
@@ -942,19 +922,14 @@ alt="안녕하세요 거인인데요 제주 맛집"
 </p>
 
 </div>
+
 </a>
 
-<a href="https://www.instagram.com/p/DTylWn0kywN/"
-target="_blank"
-class="video-card">
+<a href="https://www.instagram.com/p/DTylWn0kywN/" target="_blank" class="video-card">
 
 <div class="video-thumb">
 
-<img
-src="video3.jpg"
-loading="lazy"
-alt="감초식당 리뷰 영상"
-/>
+<img src="video3.jpg" alt="감초식당 리뷰 영상" loading="lazy">
 
 <div class="play-icon">▶</div>
 
@@ -971,10 +946,13 @@ alt="감초식당 리뷰 영상"
 </p>
 
 </div>
+
 </a>
 
 </div>
+
 </div>
+
 </section>
 
 <!-- YOUTUBE -->
@@ -996,14 +974,18 @@ alt="감초식당 리뷰 영상"
 <div class="youtube-frame">
 
 <iframe
-src="https://www.youtube.com/watch?v=wMUuKYlBaak"
+src="https://www.youtube.com/embed/wMUuKYlBaak"
 title="감초식당 영상"
-allowfullscreen>
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen
+loading="lazy">
 </iframe>
 
 </div>
 
 </div>
+
 </section>
 
 <!-- QUOTE -->
@@ -1048,6 +1030,7 @@ allowfullscreen>
 </div>
 
 </div>
+
 </section>
 
 <!-- FOOTER -->
@@ -1084,8 +1067,6 @@ TEL 064-743-8988
 <a href="tel:0647438988" class="floating-call">
 ☎
 </a>
-
-<!-- SCRIPT -->
 
 <script>
 
