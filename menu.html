@@ -1,12 +1,9 @@
-<!-- =========================
-감초식당 MENU PAGE
-MEDIA 스타일 통합 완성본
-========================= -->
+# 감초식당 MENU 페이지 MEDIA 스타일 통합 완성본
 
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
@@ -24,25 +21,18 @@ MEDIA 스타일 통합 완성본
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
 --bg:#0f0f0f;
 --card:#171717;
 --text:#f5f5f5;
 --sub:#bdbdbd;
 --gold:#d6b98a;
---gold-dark:#2a2116;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 html{
 scroll-behavior:smooth;
@@ -73,8 +63,6 @@ width:min(1180px,92%);
 margin:auto;
 }
 
-/* HEADER */
-
 header{
 position:fixed;
 top:0;
@@ -85,12 +73,6 @@ background:rgba(15,15,15,0.82);
 backdrop-filter:blur(14px);
 -webkit-backdrop-filter:blur(14px);
 border-bottom:1px solid rgba(255,255,255,0.05);
-transition:0.35s;
-}
-
-header.scrolled{
-background:rgba(0,0,0,0.96);
-padding:2px 0;
 }
 
 .nav{
@@ -105,7 +87,6 @@ gap:20px;
 font-family:'Noto Serif KR',serif;
 font-size:24px;
 font-weight:700;
-letter-spacing:1px;
 }
 
 .menu{
@@ -119,8 +100,6 @@ justify-content:center;
 font-size:13px;
 font-weight:600;
 letter-spacing:1px;
-opacity:0.88;
-transition:0.3s;
 position:relative;
 }
 
@@ -139,12 +118,10 @@ transition:0.3s;
 width:100%;
 }
 
-/* HERO */
-
 .hero{
 position:relative;
 height:72svh;
-min-height:650px;
+min-height:640px;
 overflow:hidden;
 }
 
@@ -152,15 +129,12 @@ overflow:hidden;
 height:100%;
 object-fit:cover;
 filter:brightness(0.34);
-transform:scale(1.03);
 }
 
 .hero-overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(to bottom,
-rgba(0,0,0,0.18),
-rgba(0,0,0,0.82));
+background:linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.82));
 }
 
 .hero-text{
@@ -170,7 +144,6 @@ left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
 width:min(92%,900px);
-z-index:2;
 }
 
 .hero-sub{
@@ -194,8 +167,6 @@ color:rgba(255,255,255,0.82);
 max-width:760px;
 margin:auto;
 }
-
-/* SECTION */
 
 section{
 padding:120px 0;
@@ -222,8 +193,6 @@ font-size:18px;
 color:var(--sub);
 max-width:760px;
 }
-
-/* LANGUAGE */
 
 .lang-wrap{
 display:flex;
@@ -254,12 +223,6 @@ background:var(--gold);
 color:#111;
 }
 
-.lang-buttons button:hover{
-border-color:rgba(214,185,138,0.4);
-}
-
-/* CATEGORY */
-
 .category-wrap{
 margin-top:110px;
 }
@@ -269,8 +232,6 @@ font-family:'Noto Serif KR',serif;
 font-size:34px;
 margin-bottom:34px;
 }
-
-/* MENU GRID */
 
 .menu-grid{
 display:grid;
@@ -346,8 +307,6 @@ font-weight:700;
 color:var(--gold) !important;
 }
 
-/* INFO SECTION */
-
 .info-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -360,12 +319,6 @@ background:#161616;
 border-radius:28px;
 padding:34px;
 border:1px solid rgba(255,255,255,0.05);
-transition:0.35s;
-}
-
-.info-card:hover{
-transform:translateY(-6px);
-border-color:rgba(214,185,138,0.25);
 }
 
 .info-card h3{
@@ -388,11 +341,6 @@ color:#111;
 border-radius:999px;
 margin-top:24px;
 font-weight:700;
-transition:0.35s;
-}
-
-.btn:hover{
-transform:translateY(-4px);
 }
 
 .btn.dark{
@@ -407,15 +355,12 @@ border-radius:24px;
 overflow:hidden;
 }
 
-/* MODAL */
-
 .modal{
 display:none;
 position:fixed;
 inset:0;
 background:rgba(0,0,0,0.92);
 z-index:9999;
-backdrop-filter:blur(6px);
 }
 
 .modal-content{
@@ -428,7 +373,6 @@ padding:20px;
 max-width:88%;
 max-height:78vh;
 border-radius:24px;
-box-shadow:0 20px 50px rgba(0,0,0,0.45);
 }
 
 .modal p{
@@ -437,8 +381,6 @@ margin-top:18px;
 font-size:22px;
 font-family:'Noto Serif KR',serif;
 }
-
-/* FOOTER */
 
 footer{
 background:#090909;
@@ -466,8 +408,6 @@ line-height:2;
 color:#bdbdbd;
 }
 
-/* FLOATING */
-
 .floating-call{
 position:fixed;
 right:20px;
@@ -482,18 +422,9 @@ display:flex;
 align-items:center;
 justify-content:center;
 font-size:28px;
-box-shadow:0 14px 30px rgba(0,0,0,0.35);
-transition:0.35s;
 }
-
-.floating-call:hover{
-transform:translateY(-4px);
-}
-
-/* MOBILE */
 
 @media(max-width:1024px){
-
 .menu-grid{
 grid-template-columns:1fr 1fr;
 }
@@ -501,83 +432,34 @@ grid-template-columns:1fr 1fr;
 .info-grid{
 grid-template-columns:1fr;
 }
-
 }
 
 @media(max-width:768px){
-
 .nav{
 flex-direction:column;
 gap:14px;
 padding:14px 0;
 }
 
-.menu{
-gap:14px;
-}
-
-.menu a{
-font-size:11px;
-}
-
-.hero{
-min-height:580px;
+.menu-grid{
+grid-template-columns:1fr;
 }
 
 .hero-title{
 font-size:42px;
 }
 
-.hero-desc{
-font-size:15px;
-line-height:1.8;
-}
-
-section{
-padding:90px 0;
-}
-
-.menu-grid{
-grid-template-columns:1fr;
-}
-
-.menu-card img{
-height:240px;
-}
-
-.menu-info{
-padding:24px;
-}
-
-.menu-info h3{
-font-size:24px;
-}
-
-.category-title{
-font-size:28px;
-}
-
 .footer-inner{
 flex-direction:column;
 }
-
-.modal img{
-max-width:94%;
 }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
-<header id="header">
-
+<header>
 <div class="container nav">
-
 <div class="logo">감초식당</div>
 
 <nav class="menu">
@@ -589,20 +471,14 @@ max-width:94%;
 <a href="location.html">LOCATION</a>
 <a href="blog.html">BLOG</a>
 </nav>
-
 </div>
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
-
 <img src="banner.jpg" alt="감초식당 메뉴 대표 이미지">
-
 <div class="hero-overlay"></div>
 
 <div class="hero-text">
-
 <div class="hero-sub">GAMCHO MENU</div>
 
 <h1 class="hero-title">
@@ -611,39 +487,28 @@ max-width:94%;
 </h1>
 
 <p class="hero-desc">
-1994년부터 이어온 감초식당만의 깊은 맛과
-제주 로컬 감성이 담긴 메뉴를 만나보세요.
+1994년부터 이어온 감초식당만의 깊은 맛과 제주 로컬 감성이 담긴 메뉴를 만나보세요.
 </p>
-
 </div>
 </section>
 
-<!-- MENU -->
-
 <section>
-
 <div class="container">
 
 <div class="section-label">MENU</div>
-
-<h2 class="section-title">
-감초식당 메뉴 안내
-</h2>
-
+<h2 class="section-title">감초식당 메뉴 안내</h2>
 <p class="section-desc">
 감초식당 신제주점의 대표 메뉴를 소개합니다.
 다국어 지원으로 해외 여행객들도 편하게 확인할 수 있습니다.
 </p>
 
 <div class="lang-wrap">
-
 <div class="lang-buttons">
 <button onclick="setLang('ko', this)">KO</button>
 <button onclick="setLang('en', this)">EN</button>
 <button onclick="setLang('zh', this)">ZH</button>
 <button onclick="setLang('ja', this)">JA</button>
 </div>
-
 </div>
 
 <div id="menuArea"></div>
@@ -651,135 +516,68 @@ max-width:94%;
 </div>
 </section>
 
-<!-- INFO -->
-
 <section>
-
 <div class="container">
 
 <div class="section-label">INFORMATION</div>
-
-<h2 class="section-title">
-감초식당 이용 안내
-</h2>
+<h2 class="section-title">감초식당 이용 안내</h2>
 
 <div class="info-grid">
 
 <div class="info-card">
-
 <h3>📞 전화 문의</h3>
-
-<p>
-감초식당 신제주점으로
-편하게 문의해주세요.
-</p>
-
-<a class="btn" href="tel:0647438988">
-전화 바로걸기
-</a>
-
+<p>감초식당 신제주점으로 편하게 문의해주세요.</p>
+<a class="btn" href="tel:0647438988">전화 바로걸기</a>
 </div>
 
 <div class="info-card">
-
 <h3>🔥 인스타그램</h3>
-
-<p>
-감초식당의 다양한 메뉴와
-실시간 소식을 확인해보세요.
-</p>
-
-<a class="btn dark"
-href="https://www.instagram.com/p/DJc4IKczv-t/"
-target="_blank">
-Instagram
-</a>
-
+<p>감초식당의 다양한 메뉴와 실시간 소식을 확인해보세요.</p>
+<a class="btn dark" href="https://www.instagram.com/p/DJc4IKczv-t/" target="_blank">Instagram</a>
 </div>
 
 <div class="info-card">
-
 <h3>🔥 리뷰 작성</h3>
-
-<p>
-방문 후 소중한 리뷰를
-남겨주시면 큰 힘이 됩니다.
-</p>
-
-<a class="btn dark"
-href="https://m.place.naver.com/my"
-target="_blank">
-Naver Review
-</a>
-
+<p>방문 후 소중한 리뷰를 남겨주시면 큰 힘이 됩니다.</p>
+<a class="btn dark" href="https://m.place.naver.com/my" target="_blank">Naver Review</a>
 </div>
 
 </div>
 
 <div class="category-wrap">
-
-<h2 class="category-title">
-📍 오시는 길
-</h2>
+<h2 class="category-title">📍 오시는 길</h2>
 
 <p style="color:#bdbdbd;line-height:2;">
 제주시 노연로 144 1층<br>
 (구 코스모스호텔사거리 / 주차 가능)
 </p>
 
-<a href="https://naver.me/GowzTPzr"
-target="_blank"
-class="btn">
+<a href="https://naver.me/GowzTPzr" target="_blank" class="btn">
 네이버 지도에서 길찾기
 </a>
 
 <div class="map-box">
-
-<iframe
-src="https://naver.me/GowzTPzr"
-width="100%"
-height="420"
-style="border:0;">
-</iframe>
-
+<iframe src="https://naver.me/GowzTPzr" width="100%" height="420" style="border:0;"></iframe>
 </div>
-
 </div>
-
 </div>
 </section>
 
-<!-- MODAL -->
-
 <div id="modal" class="modal">
-
 <div class="modal-content">
-
 <img id="modalImg">
-
 <p id="modalText"></p>
-
 </div>
-
 </div>
-
-<!-- FOOTER -->
 
 <footer>
-
 <div class="container footer-inner">
-
 <div>
-
-<div class="footer-logo">
-감초식당
-</div>
-
+<div class="footer-logo">감초식당</div>
 <div class="footer-info">
 제주 로컬 국밥 전문점<br>
 오랜 시간 변하지 않은 한 그릇
 </div>
-
 </div>
 
 <div class="footer-info">
@@ -787,28 +585,17 @@ OPEN AM 11:00 - PM 24:00<br>
 Last Order 안주류 PM 23:00 국밥류 PM 23:30<br>
 TEL 064-743-8988
 </div>
-
 </div>
-
 </footer>
 
-<a href="tel:0647438988" class="floating-call">
-☎
-</a>
+<a href="tel:0647438988" class="floating-call">☎</a>
 
 <script>
-
-window.addEventListener('scroll',()=>{
-
-const header=document.getElementById('header');
-
-header.classList.toggle('scrolled',window.scrollY>30);
-
-});
-
 let currentLang="ko";
 
 const menuData=[
+
+// 식사
 {
 cat:"meal",img:"menu1.jpg",best:true,
 name:{
@@ -841,104 +628,206 @@ zh:"蒜香微辣猪肉汤",
 ja:"にんにく香るピリ辛豚スープ"
 },
 price:"10,000원"
+},
+
+{
+cat:"meal",img:"menu3.png",
+name:{
+ko:"순수돼지국밥",
+en:"Clear Pork Soup",
+zh:"清淡猪肉汤",
+ja:"豚スープ"
+},
+desc:{
+ko:"최고급사태와 담백한 머리고기로 구성한 진짜 순수돼지국밥",
+en:"Premium Pork Rice Soup",
+zh:"精品猪肉汤饭",
+ja:"上質な豚肉の本格クッパ"
+},
+price:"9,000원"
+},
+
+{
+cat:"meal",img:"menu4.png",
+name:{
+ko:"마농돼지우동",
+en:"Garlic Pork Udon",
+zh:"蒜猪肉乌冬",
+ja:"うどん"
+},
+desc:{
+ko:"감초식당 신제주점에서만 맛볼수 있는 마늘향 가득한 돼지우동",
+en:"Shin-Jeju Exclusive Garlic Pork Udon",
+zh:"新济州店限定 蒜香猪肉乌冬",
+ja:"新済州店限定 にんにく豚うどん"
+},
+price:"9,000원"
+},
+
+{
+cat:"meal",img:"menu6.png",
+name:{
+ko:"맛보기순대",
+en:"Sundae",
+zh:"米肠",
+ja:"スンデ"
+},
+desc:{
+ko:"제주돼지로 직접 만든 제주식 전통 수제순대",
+en:"Jeju-Style Handmade Blood Sausage",
+zh:"济州传统手工血肠",
+ja:"済州産 手作りスンデ"
+},
+price:"10,000원"
+},
+
+{
+cat:"meal",img:"menu5.png",
+name:{
+ko:"검은콩국수",
+en:"Cold Bean Noodles",
+zh:"黑豆冷面",
+ja:"冷麺"
+},
+desc:{
+ko:"(5월 ~ 9월까지) 얼음에 비벼먹는 비빙국수! 콩국수 전문점은 아니지만 맛있어요",
+en:"Seasonal (May–Sep) Chilled Bibim Noodles",
+zh:"【5–9月限定】冰拌面",
+ja:"【5月～9月限定】冷やしビビン麺"
+},
+price:"9,000원"
+},
+
+// 전골
+{
+cat:"hotpot",img:"menu10.jpg",best:true,
+name:{ko:"순대내장전골",en:"Hotpot",zh:"火锅",ja:"鍋"},
+desc:{ko:"내장과 야채, 수제순대의 푸짐함! ",en:"Assorted Intestines & Blood Sausage",zh:"内脏与血肠拼盘",ja:"内臓とスンデの盛り合わせ"},
+price:"35,000원"
+},
+
+{
+cat:"hotpot",img:"menu11.jpg",
+name:{ko:"내장막창전골",en:"Intestine Hotpot",zh:"内脏火锅",ja:"ホルモン鍋"},
+desc:{ko:"내장과 막창이 가득한전골",en:"Hearty Intestine Hot Pot",zh:"丰盛内脏火锅",ja:"ホルモンたっぷり鍋"},
+price:"35,000원"
+},
+
+{
+cat:"hotpot",img:"menu12.jpg",best:true,
+name:{ko:"닭볶음탕",en:"Spicy Chicken",zh:"辣鸡",ja:"鶏"},
+desc:{ko:"닭볶음탕 전문점을 따로 준비해도 될정도의 맛",en:"Spicy Braised Chicken",zh:"香辣炖鸡",ja:"ピリ辛鶏煮込み"},
+price:"35,000원"
+},
+
+{
+cat:"hotpot",img:"menu13.png",
+name:{ko:"돼지해장전골",en:"Pork Hotpot",zh:"猪肉锅",ja:"豚鍋"},
+desc:{ko:"푸짐한 해장전골에 신라면이 공짜",en:"Hearty Hangover Hot Pot (Ramen Included)",zh:"丰盛解酒火锅（附赠拉面）",ja:"ボリューム満点鍋（ラーメンサービス）"},
+price:"22,000원"
+},
+
+{
+cat:"hotpot",img:"menu14.png",
+name:{ko:"순대술국",en:"Sundae Soup",zh:"米肠汤",ja:"スープ"},
+desc:{ko:"푸짐한 순대와 배지근한 국물이 한잔을 부르는맛",en:"Blood Sausage with Rich Broth",zh:"血肠与浓郁汤底",ja:"スンデとコク深いスープ"},
+price:"20,000원"
+},
+
+// 세트
+{
+cat:"set",img:"menu7.jpg",
+name:{ko:"A세트",en:"Set A",zh:"A套餐",ja:"Aセット"},
+desc:{ko:"순대+머리고기",en:"Blood Sausage + Pork",zh:"血肠 + 猪肉",ja:"スンデ + 豚肉"},
+price:"15,000원"
+},
+
+{
+cat:"set",img:"menu8.jpg",
+name:{ko:"B세트",en:"Set B",zh:"B套餐",ja:"Bセット"},
+desc:{ko:"순대+머리고기+내장",en:"Blood Sausage + Pork + Intestines",zh:"血肠 + 猪肉 + 内脏",ja:"スンデ + 豚肉 + 内臓"},
+price:"20,000원"
+},
+
+{
+cat:"set",img:"menu9.jpg",best:true,
+name:{ko:"C세트",en:"Set C",zh:"C套餐",ja:"Cセット"},
+desc:{ko:"순대+머리고기+내장+막창",en:"Blood Sausage + Pork + Intestines + Makchang",zh:"血肠 + 猪肉 + 内脏 + 大肠",ja:"スンデ + 豚肉 + 内臓 + ホルモン"},
+price:"25,000원"
 }
 
 ];
 
 const categoryNames={
-meal:"🍲 식사 메뉴"
+meal:"🍲 식사 메뉴",
+hotpot:"🍖 전골 / 요리",
+set:"🍢 세트 메뉴"
 };
 
 function renderMenu(){
+ const area=document.getElementById("menuArea");
+ area.innerHTML="";
 
-const area=document.getElementById("menuArea");
+ Object.keys(categoryNames).forEach(cat=>{
 
-area.innerHTML="";
+ area.innerHTML+=`
+ <div class="category-wrap">
+ <h2 class="category-title">${categoryNames[cat]}</h2>
+ <div class="menu-grid" id="${cat}"></div>
+ </div>`;
 
-Object.keys(categoryNames).forEach(cat=>{
+ menuData.filter(m=>m.cat===cat).forEach(item=>{
 
-area.innerHTML+=`
-<div class="category-wrap">
-<h2 class="category-title">${categoryNames[cat]}</h2>
-<div class="menu-grid" id="${cat}"></div>
-</div>
-`;
+ document.getElementById(cat).innerHTML+=`
+ <div class="menu-card" onclick="openModal('${item.img}','${item.name[currentLang]}')">
 
-menuData.filter(m=>m.cat===cat).forEach(item=>{
+ ${item.best?'<div class="badge">BEST</div>':''}
 
-document.getElementById(cat).innerHTML+=`
+ <div class="menu-image">
+ <img src="${item.img}">
+ </div>
 
-<div class="menu-card"
-onclick="openModal('${item.img}','${item.name[currentLang]}')">
+ <div class="menu-info">
+ <h3>${item.name[currentLang]}</h3>
+ <p>${item.desc[currentLang]}</p>
+ <p class="price">${item.price}</p>
+ </div>
 
-${item.best?'<div class="badge">BEST</div>':''}
+ </div>`;
 
-<div class="menu-image">
-<img src="${item.img}" loading="lazy">
-</div>
+ });
 
-<div class="menu-info">
-
-<h3>${item.name[currentLang]}</h3>
-
-<p>${item.desc[currentLang]}</p>
-
-<p class="price">${item.price}</p>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-});
-
+ });
 }
 
-function setLang(lang,el){
-
-currentLang=lang;
-
-document.querySelectorAll(".lang-buttons button")
-.forEach(btn=>btn.classList.remove("active"));
-
-el.classList.add("active");
-
-renderMenu();
-
+function setLang(lang, el){
+ currentLang=lang;
+ document.querySelectorAll(".lang-buttons button")
+ .forEach(b=>b.classList.remove("active"));
+ el.classList.add("active");
+ renderMenu();
 }
 
 function openModal(img,text){
-
-document.getElementById("modal").style.display="block";
-
-document.getElementById("modalImg").src=img;
-
-document.getElementById("modalText").innerText=text;
-
+ document.getElementById("modal").style.display="block";
+ document.getElementById("modalImg").src=img;
+ document.getElementById("modalText").innerText=text;
 }
 
 document.getElementById("modal").onclick=function(e){
-
-if(e.target===this)
-this.style.display="none";
-
+ if(e.target===this)this.style.display="none";
 };
 
 document.addEventListener("keydown",e=>{
-
-if(e.key==="Escape")
-document.getElementById("modal").style.display="none";
-
+ if(e.key==='Escape')
+ document.getElementById("modal").style.display="none";
 });
 
 document.querySelector(".lang-buttons button").classList.add("active");
 
 renderMenu();
-
 </script>
 
 </body>
 </html>
+```
