@@ -1,3 +1,8 @@
+<!-- =========================
+감초식당 MENU PAGE
+MEDIA 스타일 통합 완성본
+========================= -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,11 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name="description" content="제주공항 근처 도민 찐맛집 30년 전통 감초식당 신제주점입니다.">
-
-<meta property="og:title" content="감초식당 신제주점">
-
 <meta name="keywords" content="감초식당, 신제주점, 제주맛집, 연동맛집, 제주한식, 제주공항근처식당">
-
 <meta name="robots" content="index, follow">
 
 <meta property="og:title" content="감초식당 신제주점">
@@ -32,7 +33,7 @@
 --bg:#0f0f0f;
 --card:#171717;
 --text:#f5f5f5;
---sub:#b9b9b9;
+--sub:#bdbdbd;
 --gold:#d6b98a;
 --gold-dark:#2a2116;
 }
@@ -98,7 +99,6 @@ justify-content:space-between;
 align-items:center;
 padding:16px 0;
 gap:20px;
-transition:0.35s;
 }
 
 .logo{
@@ -143,8 +143,8 @@ width:100%;
 
 .hero{
 position:relative;
-height:75svh;
-min-height:680px;
+height:72svh;
+min-height:650px;
 overflow:hidden;
 }
 
@@ -176,13 +176,13 @@ z-index:2;
 .hero-sub{
 font-size:13px;
 letter-spacing:4px;
-margin-bottom:22px;
+margin-bottom:20px;
 color:var(--gold);
 }
 
 .hero-title{
 font-family:'Noto Serif KR',serif;
-font-size:clamp(40px,6vw,76px);
+font-size:clamp(40px,6vw,74px);
 line-height:1.35;
 margin-bottom:22px;
 font-weight:600;
@@ -205,7 +205,7 @@ padding:120px 0;
 font-size:13px;
 letter-spacing:3px;
 color:var(--gold);
-margin-bottom:16px;
+margin-bottom:18px;
 font-weight:600;
 }
 
@@ -226,9 +226,9 @@ max-width:760px;
 /* LANGUAGE */
 
 .lang-wrap{
-margin-top:60px;
 display:flex;
 justify-content:center;
+margin-top:50px;
 }
 
 .lang-buttons{
@@ -249,31 +249,28 @@ transition:0.35s;
 font-weight:600;
 }
 
-.lang-buttons button:hover{
-border-color:rgba(214,185,138,0.4);
-}
-
 .lang-buttons button.active{
 background:var(--gold);
 color:#111;
 }
 
-/* MENU SECTION */
+.lang-buttons button:hover{
+border-color:rgba(214,185,138,0.4);
+}
 
-.menu-section{
-padding-top:0;
+/* CATEGORY */
+
+.category-wrap{
+margin-top:110px;
 }
 
 .category-title{
 font-family:'Noto Serif KR',serif;
-font-size:32px;
+font-size:34px;
 margin-bottom:34px;
-color:white;
 }
 
-.category-wrap{
-margin-top:100px;
-}
+/* MENU GRID */
 
 .menu-grid{
 display:grid;
@@ -288,26 +285,27 @@ overflow:hidden;
 transition:0.4s;
 border:1px solid rgba(255,255,255,0.05);
 position:relative;
+cursor:pointer;
 }
 
 .menu-card:hover{
 transform:translateY(-10px);
-box-shadow:0 24px 50px rgba(212,175,55,0.12);
-}
-
-.menu-card img{
-height:270px;
-object-fit:cover;
-transition:0.45s;
-}
-
-.menu-card:hover img{
-transform:scale(1.05);
+box-shadow:0 24px 50px rgba(212,175,55,0.14);
 }
 
 .menu-image{
 overflow:hidden;
 position:relative;
+}
+
+.menu-card img{
+height:270px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.menu-card:hover img{
+transform:scale(1.05);
 }
 
 .badge{
@@ -316,7 +314,7 @@ top:18px;
 left:18px;
 background:linear-gradient(135deg,#f3c98b,#d49d5f);
 color:#111;
-padding:6px 10px;
+padding:6px 12px;
 font-size:11px;
 border-radius:999px;
 font-weight:700;
@@ -331,18 +329,18 @@ padding:28px;
 .menu-info h3{
 font-family:'Noto Serif KR',serif;
 font-size:28px;
-margin-bottom:14px;
 line-height:1.4;
+margin-bottom:14px;
 }
 
 .menu-info p{
-color:#c7c7c7;
 font-size:15px;
+color:#c9c9c9;
 line-height:1.8;
 }
 
 .price{
-margin-top:20px;
+margin-top:18px;
 font-size:20px !important;
 font-weight:700;
 color:var(--gold) !important;
@@ -404,8 +402,8 @@ border:1px solid rgba(255,255,255,0.08);
 }
 
 .map-box{
-margin-top:20px;
-border-radius:20px;
+margin-top:24px;
+border-radius:24px;
 overflow:hidden;
 }
 
@@ -429,14 +427,14 @@ padding:20px;
 .modal img{
 max-width:88%;
 max-height:78vh;
-border-radius:22px;
-box-shadow:0 20px 50px rgba(0,0,0,0.4);
+border-radius:24px;
+box-shadow:0 20px 50px rgba(0,0,0,0.45);
 }
 
 .modal p{
 color:#fff;
-margin-top:20px;
-font-size:20px;
+margin-top:18px;
+font-size:22px;
 font-family:'Noto Serif KR',serif;
 }
 
@@ -492,7 +490,7 @@ transition:0.35s;
 transform:translateY(-4px);
 }
 
-/* TABLET */
+/* MOBILE */
 
 @media(max-width:1024px){
 
@@ -505,8 +503,6 @@ grid-template-columns:1fr;
 }
 
 }
-
-/* MOBILE */
 
 @media(max-width:768px){
 
@@ -525,7 +521,7 @@ font-size:11px;
 }
 
 .hero{
-min-height:620px;
+min-height:580px;
 }
 
 .hero-title{
@@ -624,7 +620,7 @@ max-width:94%;
 
 <!-- MENU -->
 
-<section class="menu-section">
+<section>
 
 <div class="container">
 
@@ -638,8 +634,6 @@ max-width:94%;
 감초식당 신제주점의 대표 메뉴를 소개합니다.
 다국어 지원으로 해외 여행객들도 편하게 확인할 수 있습니다.
 </p>
-
-<!-- LANGUAGE -->
 
 <div class="lang-wrap">
 
@@ -668,10 +662,6 @@ max-width:94%;
 <h2 class="section-title">
 감초식당 이용 안내
 </h2>
-
-<p class="section-desc">
-방문 전 필요한 정보를 확인해보세요.
-</p>
 
 <div class="info-grid">
 
@@ -725,8 +715,6 @@ Naver Review
 </div>
 
 </div>
-
-<!-- LOCATION -->
 
 <div class="category-wrap">
 
@@ -804,8 +792,6 @@ TEL 064-743-8988
 
 </footer>
 
-<!-- FLOATING -->
-
 <a href="tel:0647438988" class="floating-call">
 ☎
 </a>
@@ -823,3 +809,136 @@ header.classList.toggle('scrolled',window.scrollY>30);
 let currentLang="ko";
 
 const menuData=[
+{
+cat:"meal",img:"menu1.jpg",best:true,
+name:{
+ko:"감초순대국밥",
+en:"Sundae Gukbap (Korean Blood Sausage Soup)",
+zh:"米肠汤饭（韩式猪血肠汤）",
+ja:"スンデクッパ"
+},
+desc:{
+ko:"30년간 이어진 변함없는 어머님의 그 맛",
+en:"Traditional Korean sausage soup with rich flavor",
+zh:"30年传承的妈妈味道",
+ja:"30年受け継がれた母の味"
+},
+price:"9,000원"
+},
+
+{
+cat:"meal",img:"menu2.png",
+name:{
+ko:"감초돼지해장국",
+en:"Spicy Pork Soup",
+zh:"辣猪肉汤",
+ja:"豚スープ"
+},
+desc:{
+ko:"알싸한 대정 마늘을 듬뿍넣고 칼칼하게 끓여낸 감초식 돼지 해장국",
+en:"Spicy garlic pork soup",
+zh:"蒜香微辣猪肉汤",
+ja:"にんにく香るピリ辛豚スープ"
+},
+price:"10,000원"
+}
+
+];
+
+const categoryNames={
+meal:"🍲 식사 메뉴"
+};
+
+function renderMenu(){
+
+const area=document.getElementById("menuArea");
+
+area.innerHTML="";
+
+Object.keys(categoryNames).forEach(cat=>{
+
+area.innerHTML+=`
+<div class="category-wrap">
+<h2 class="category-title">${categoryNames[cat]}</h2>
+<div class="menu-grid" id="${cat}"></div>
+</div>
+`;
+
+menuData.filter(m=>m.cat===cat).forEach(item=>{
+
+document.getElementById(cat).innerHTML+=`
+
+<div class="menu-card"
+onclick="openModal('${item.img}','${item.name[currentLang]}')">
+
+${item.best?'<div class="badge">BEST</div>':''}
+
+<div class="menu-image">
+<img src="${item.img}" loading="lazy">
+</div>
+
+<div class="menu-info">
+
+<h3>${item.name[currentLang]}</h3>
+
+<p>${item.desc[currentLang]}</p>
+
+<p class="price">${item.price}</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+});
+
+}
+
+function setLang(lang,el){
+
+currentLang=lang;
+
+document.querySelectorAll(".lang-buttons button")
+.forEach(btn=>btn.classList.remove("active"));
+
+el.classList.add("active");
+
+renderMenu();
+
+}
+
+function openModal(img,text){
+
+document.getElementById("modal").style.display="block";
+
+document.getElementById("modalImg").src=img;
+
+document.getElementById("modalText").innerText=text;
+
+}
+
+document.getElementById("modal").onclick=function(e){
+
+if(e.target===this)
+this.style.display="none";
+
+};
+
+document.addEventListener("keydown",e=>{
+
+if(e.key==="Escape")
+document.getElementById("modal").style.display="none";
+
+});
+
+document.querySelector(".lang-buttons button").classList.add("active");
+
+renderMenu();
+
+</script>
+
+</body>
+</html>
