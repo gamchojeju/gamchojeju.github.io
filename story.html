@@ -1,11 +1,27 @@
-# 감초식당 STORY 페이지 전체 코드
+# 감초식당 STORY 페이지 모바일 최적화 수정본
+
+아래 수정본은 기존 디자인 감성을 유지하면서 모바일에서 발생하던 문제들을 해결한 버전입니다.
+
+개선 내용:
+
+* 모바일 메뉴 줄바꿈 최적화
+* HERO 영역 잘림 방지
+* 모바일 글자 크기 자동 조정
+* 이미지 비율 깨짐 수정
+* iPhone Safari 대응
+* 섹션 여백 최적화
+* 모바일 가독성 향상
+* overflow 문제 해결
+* 작은 화면에서 메뉴 눌림 현상 개선
+
+전체 CSS만 교체해도 되지만, 아래는 복붙 가능한 전체 완성본입니다.
 
 ```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>감초식당 이야기 | 오래 지켜온 제주 로컬의 맛</title>
 <meta name="description" content="오랜 시간 변하지 않은 방식으로 한 그릇을 준비하는 감초식당의 이야기를 소개합니다.">
@@ -25,6 +41,7 @@ box-sizing:border-box;
 
 html{
 scroll-behavior:smooth;
+-webkit-text-size-adjust:100%;
 }
 
 body{
@@ -33,6 +50,7 @@ background:#f7f3ee;
 color:#1f1f1f;
 line-height:1.8;
 word-break:keep-all;
+overflow-x:hidden;
 }
 
 img{
@@ -52,8 +70,9 @@ top:0;
 left:0;
 width:100%;
 z-index:1000;
-background:rgba(247,243,238,0.92);
-backdrop-filter:blur(12px);
+background:rgba(247,243,238,0.94);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
 border-bottom:1px solid rgba(0,0,0,0.05);
 }
 
@@ -61,7 +80,8 @@ border-bottom:1px solid rgba(0,0,0,0.05);
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 0;
+padding:16px 0;
+gap:20px;
 }
 
 .logo{
@@ -69,20 +89,24 @@ font-family:'Noto Serif KR',serif;
 font-size:24px;
 font-weight:700;
 letter-spacing:1px;
+white-space:nowrap;
 }
 
 .menu{
 display:flex;
-gap:32px;
+gap:24px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 .menu a{
 text-decoration:none;
 color:#1f1f1f;
-font-size:14px;
-font-weight:500;
+font-size:13px;
+font-weight:600;
 letter-spacing:1px;
 transition:0.3s;
+white-space:nowrap;
 }
 
 .menu a:hover{
@@ -91,52 +115,55 @@ opacity:0.55;
 
 /* HERO */
 .hero{
-height:100vh;
+height:100svh;
+min-height:760px;
 position:relative;
 overflow:hidden;
 }
 
 .hero img{
 height:100%;
+width:100%;
 object-fit:cover;
-filter:brightness(0.62);
+filter:brightness(0.6);
 }
 
 .hero-text{
 position:absolute;
-top:50%;
+top:52%;
 left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
 color:white;
-width:90%;
+width:min(92%,900px);
+padding:0 12px;
 }
 
 .hero-sub{
-font-size:14px;
+font-size:13px;
 letter-spacing:4px;
 margin-bottom:18px;
-opacity:0.8;
+opacity:0.82;
 }
 
 .hero-title{
 font-family:'Noto Serif KR',serif;
-font-size:68px;
+font-size:clamp(38px,6vw,68px);
 font-weight:600;
 line-height:1.35;
 margin-bottom:24px;
 }
 
 .hero-desc{
-font-size:18px;
-opacity:0.9;
-max-width:720px;
+font-size:clamp(15px,2vw,18px);
+opacity:0.92;
+max-width:760px;
 margin:auto;
 }
 
 /* SECTION */
 section{
-padding:140px 0;
+padding:120px 0;
 }
 
 .section-label{
@@ -149,9 +176,9 @@ font-weight:600;
 
 .section-title{
 font-family:'Noto Serif KR',serif;
-font-size:46px;
+font-size:clamp(32px,4vw,46px);
 line-height:1.5;
-margin-bottom:40px;
+margin-bottom:34px;
 font-weight:600;
 }
 
@@ -165,7 +192,7 @@ max-width:780px;
 .story-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:90px;
+gap:80px;
 align-items:center;
 }
 
@@ -181,12 +208,12 @@ box-shadow:0 25px 60px rgba(0,0,0,0.08);
 background:#1d241d;
 color:white;
 text-align:center;
-padding:180px 20px;
+padding:150px 20px;
 }
 
 .quote p{
 font-family:'Noto Serif KR',serif;
-font-size:44px;
+font-size:clamp(28px,4vw,44px);
 line-height:1.8;
 max-width:980px;
 margin:auto;
@@ -197,13 +224,13 @@ font-weight:500;
 .value-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:36px;
+gap:30px;
 margin-top:60px;
 }
 
 .value-card{
 background:white;
-padding:50px 38px;
+padding:46px 34px;
 border-radius:26px;
 box-shadow:0 15px 40px rgba(0,0,0,0.05);
 transition:0.35s;
@@ -227,12 +254,12 @@ color:#555;
 /* END */
 .end-section{
 text-align:center;
-padding-top:120px;
+padding-top:100px;
 }
 
 .end-title{
 font-family:'Noto Serif KR',serif;
-font-size:54px;
+font-size:clamp(34px,5vw,54px);
 line-height:1.6;
 margin-bottom:28px;
 }
@@ -249,7 +276,7 @@ footer{
 background:#161616;
 color:#d7d7d7;
 padding:70px 0;
-margin-top:140px;
+margin-top:120px;
 }
 
 .footer-inner{
@@ -270,16 +297,8 @@ font-size:15px;
 line-height:2;
 }
 
-/* MOBILE */
-@media(max-width:900px){
-
-.hero-title{
-font-size:42px;
-}
-
-.hero-desc{
-font-size:16px;
-}
+/* TABLET */
+@media(max-width:1024px){
 
 .story-grid{
 grid-template-columns:1fr;
@@ -287,38 +306,170 @@ gap:50px;
 }
 
 .story-image img{
-height:420px;
-}
-
-.section-title{
-font-size:34px;
-}
-
-.quote p{
-font-size:30px;
+height:520px;
 }
 
 .value-grid{
 grid-template-columns:1fr;
 }
 
-.end-title{
-font-size:38px;
 }
 
-.menu{
-gap:18px;
-font-size:12px;
+/* MOBILE */
+@media(max-width:768px){
+
+header{
+padding:6px 0;
 }
 
 .nav{
 flex-direction:column;
 gap:14px;
+padding:14px 0;
 }
 
-header{
-padding:6px 0;
+.logo{
+font-size:22px;
 }
+
+.menu{
+gap:14px;
+row-gap:10px;
+}
+
+.menu a{
+font-size:11px;
+letter-spacing:0.5px;
+}
+
+.hero{
+min-height:680px;
+height:92svh;
+}
+
+.hero-text{
+width:92%;
+top:54%;
+}
+
+.hero-sub{
+font-size:11px;
+letter-spacing:3px;
+margin-bottom:14px;
+}
+
+.hero-title{
+font-size:42px;
+line-height:1.45;
+margin-bottom:20px;
+}
+
+.hero-desc{
+font-size:15px;
+line-height:1.8;
+}
+
+section{
+padding:90px 0;
+}
+
+.section-title{
+font-size:32px;
+margin-bottom:26px;
+}
+
+.section-text{
+font-size:16px;
+line-height:1.9;
+}
+
+.story-image img{
+height:360px;
+border-radius:22px;
+}
+
+.quote{
+padding:110px 18px;
+}
+
+.quote p{
+font-size:26px;
+line-height:1.9;
+}
+
+.value-card{
+padding:38px 28px;
+}
+
+.value-card h3{
+font-size:24px;
+}
+
+.end-title{
+font-size:34px;
+}
+
+.end-text{
+font-size:16px;
+line-height:1.9;
+}
+
+footer{
+padding:56px 0;
+margin-top:90px;
+}
+
+.footer-inner{
+flex-direction:column;
+gap:24px;
+}
+
+.footer-logo{
+font-size:26px;
+}
+
+.footer-info{
+font-size:14px;
+line-height:1.9;
+}
+
+}
+
+/* SMALL MOBILE */
+@media(max-width:480px){
+
+.hero-title{
+font-size:36px;
+}
+
+.hero-desc{
+font-size:14px;
+}
+
+.section-title{
+font-size:28px;
+}
+
+.quote p{
+font-size:22px;
+}
+
+.end-title{
+font-size:30px;
+}
+
+.story-image img{
+height:300px;
+}
+
+.menu{
+gap:10px;
+}
+
+.menu a{
+font-size:10px;
+}
+
 }
 </style>
 </head>
@@ -454,7 +605,7 @@ padding:6px 0;
 
 <div class="footer-info">
 OPEN AM 11:00 - PM 24:00<br>
-  Last Order 안주류 PM 23:00  국밥류 PM 23:30 <br>
+Last Order 안주류 PM 23:00 국밥류 PM 23:30 <br>
 TEL 064-743-8988
 </div>
 
@@ -464,49 +615,14 @@ TEL 064-743-8988
 </body>
 </html>
 ```
-<!--
----
 
-# 사용 방법
+추가로 원하면 다음 단계도 가능해:
 
-1. `story.html` 파일 생성
-2. 위 코드 전체 복사 후 붙여넣기
-3. 아래 이미지 파일 준비
-
-```plaintext
-story-main.jpg
-story-food.jpg
-```
-
-4. 같은 폴더에 이미지 넣기
-5. 메뉴에서 `story.html` 연결
-
----
-
-# 추천 이미지 스타일
-
-## story-main.jpg
-
-* 매장 전경
-* 감성적인 분위기
-* 어두운 톤 가능
-* 따뜻한 조명 추천
-
-## story-food.jpg
-
-* 대표메뉴 근접샷
-* 여백 있는 고급 촬영
-* 검정 식기 / 우드 테이블 잘 어울림
-
----
-
-# 이 코드의 특징
-
-* 네이버 SEO 최적화 구조
-* 모바일 최적화 완료
-* 고급 브랜드 디자인
-* serif + Pretendard 조합
-* 여백 중심 레이아웃
-* 대기업 브랜드 느낌 UI
-* 제주 로컬 감성 유지
---!>
+* 모바일 전용 햄버거 메뉴
+* 스크롤 애니메이션
+* STORY 페이지 영상 배경
+* 아이폰 감성 패럴랙스 효과
+* 일본/영문 자동 다국어 버전
+* 네이버 SEO 강화 구조화 데이터 추가
+* 페이지 로딩속도 최적화
+* 고급 브랜드 느낌 인터랙션 추가
