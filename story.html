@@ -1,40 +1,35 @@
-<!--
-# 감초식당 STORY 페이지 모바일 최적화 수정본
-
-아래 수정본은 기존 디자인 감성을 유지하면서 모바일에서 발생하던 문제들을 해결한 버전입니다.
-
-개선 내용:
-
-* 모바일 메뉴 줄바꿈 최적화
-* HERO 영역 잘림 방지
-* 모바일 글자 크기 자동 조정
-* 이미지 비율 깨짐 수정
-* iPhone Safari 대응
-* 섹션 여백 최적화
-* 모바일 가독성 향상
-* overflow 문제 해결
-* 작은 화면에서 메뉴 눌림 현상 개선
-
-전체 CSS만 교체해도 되지만, 아래는 복붙 가능한 전체 완성본입니다.
-
-```html
---!>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>감초식당 이야기 | 오래 지켜온 제주 로컬의 맛</title>
+<title>감초식당 STORY | 오래 지켜온 제주 로컬의 맛</title>
+
 <meta name="description" content="오랜 시간 변하지 않은 방식으로 한 그릇을 준비하는 감초식당의 이야기를 소개합니다.">
 <meta name="keywords" content="감초식당, 제주 로컬 맛집, 제주 순대국밥, 제주 국밥, 제주 맛집">
 <meta name="robots" content="index, follow">
 
+<meta property="og:title" content="감초식당 STORY">
+<meta property="og:description" content="감초식당이 오래도록 지켜온 따뜻한 한 그릇의 이야기">
+<meta property="og:image" content="story-main.png">
+<meta property="og:type" content="website">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--bg:#0f0f0f;
+--card:#171717;
+--text:#f5f5f5;
+--sub:#bdbdbd;
+--gold:#d6b98a;
+}
+
 *{
 margin:0;
 padding:0;
@@ -48,16 +43,21 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Pretendard',sans-serif;
-background:#f7f3ee;
-color:#1f1f1f;
+background:var(--bg);
+color:var(--text);
 line-height:1.8;
-word-break:keep-all;
 overflow-x:hidden;
+word-break:keep-all;
 }
 
 img{
 width:100%;
 display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
 }
 
 .container{
@@ -66,16 +66,17 @@ margin:auto;
 }
 
 /* HEADER */
+
 header{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-z-index:1000;
-background:rgba(247,243,238,0.94);
+z-index:999;
+background:rgba(15,15,15,0.88);
 backdrop-filter:blur(14px);
 -webkit-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(0,0,0,0.05);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .nav{
@@ -102,68 +103,88 @@ justify-content:center;
 }
 
 .menu a{
-text-decoration:none;
-color:#1f1f1f;
 font-size:13px;
 font-weight:600;
 letter-spacing:1px;
-transition:0.3s;
-white-space:nowrap;
+position:relative;
+color:#f1f1f1;
 }
 
-.menu a:hover{
-opacity:0.55;
+.menu a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:1px;
+background:var(--gold);
+transition:0.3s;
+}
+
+.menu a:hover::after{
+width:100%;
 }
 
 /* HERO */
+
 .hero{
+position:relative;
 height:100svh;
 min-height:760px;
-position:relative;
 overflow:hidden;
 }
 
 .hero img{
 height:100%;
-width:100%;
 object-fit:cover;
-filter:brightness(0.6);
+filter:brightness(0.38);
+}
+
+.hero::after{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0.2),
+rgba(0,0,0,0.82)
+);
 }
 
 .hero-text{
 position:absolute;
-top:52%;
+top:54%;
 left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
-color:white;
 width:min(92%,900px);
-padding:0 12px;
+z-index:2;
 }
 
 .hero-sub{
 font-size:13px;
 letter-spacing:4px;
-margin-bottom:18px;
-opacity:0.82;
+margin-bottom:20px;
+color:var(--gold);
 }
 
 .hero-title{
 font-family:'Noto Serif KR',serif;
-font-size:clamp(38px,6vw,68px);
-font-weight:600;
+font-size:clamp(42px,6vw,76px);
 line-height:1.35;
 margin-bottom:24px;
+font-weight:600;
 }
 
 .hero-desc{
-font-size:clamp(15px,2vw,18px);
-opacity:0.92;
+font-size:18px;
+color:rgba(255,255,255,0.82);
 max-width:760px;
 margin:auto;
 }
 
 /* SECTION */
+
 section{
 padding:120px 0;
 }
@@ -171,26 +192,27 @@ padding:120px 0;
 .section-label{
 font-size:13px;
 letter-spacing:3px;
-color:#8b7765;
+color:var(--gold);
 margin-bottom:18px;
 font-weight:600;
 }
 
 .section-title{
 font-family:'Noto Serif KR',serif;
-font-size:clamp(32px,4vw,46px);
+font-size:clamp(34px,4vw,50px);
 line-height:1.5;
-margin-bottom:34px;
+margin-bottom:30px;
 font-weight:600;
 }
 
 .section-text{
 font-size:18px;
-color:#444;
-max-width:780px;
+color:var(--sub);
+max-width:760px;
 }
 
 /* STORY GRID */
+
 .story-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -201,28 +223,29 @@ align-items:center;
 .story-image img{
 height:720px;
 object-fit:cover;
-border-radius:28px;
-box-shadow:0 25px 60px rgba(0,0,0,0.08);
+border-radius:30px;
+box-shadow:0 30px 60px rgba(0,0,0,0.45);
 }
 
 /* QUOTE */
+
 .quote{
-background:#1d241d;
-color:white;
+background:#161616;
 text-align:center;
-padding:150px 20px;
+padding:160px 20px;
 }
 
 .quote p{
 font-family:'Noto Serif KR',serif;
-font-size:clamp(28px,4vw,44px);
+font-size:clamp(28px,4vw,46px);
 line-height:1.8;
 max-width:980px;
 margin:auto;
-font-weight:500;
+color:white;
 }
 
 /* VALUE */
+
 .value-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -231,10 +254,10 @@ margin-top:60px;
 }
 
 .value-card{
-background:white;
+background:var(--card);
 padding:46px 34px;
-border-radius:26px;
-box-shadow:0 15px 40px rgba(0,0,0,0.05);
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.05);
 transition:0.35s;
 }
 
@@ -250,10 +273,12 @@ margin-bottom:22px;
 
 .value-card p{
 font-size:16px;
-color:#555;
+color:#cfcfcf;
+line-height:1.9;
 }
 
-/* END */
+/* END SECTION */
+
 .end-section{
 text-align:center;
 padding-top:100px;
@@ -261,24 +286,76 @@ padding-top:100px;
 
 .end-title{
 font-family:'Noto Serif KR',serif;
-font-size:clamp(34px,5vw,54px);
+font-size:clamp(36px,5vw,58px);
 line-height:1.6;
 margin-bottom:28px;
 }
 
 .end-text{
 font-size:18px;
-color:#555;
+color:#bdbdbd;
 max-width:760px;
 margin:auto;
 }
 
-/* FOOTER */
-footer{
+/* CTA */
+
+.cta{
 background:#161616;
-color:#d7d7d7;
-padding:70px 0;
+text-align:center;
+padding:150px 20px;
 margin-top:120px;
+}
+
+.cta h2{
+font-family:'Noto Serif KR',serif;
+font-size:clamp(36px,5vw,60px);
+line-height:1.5;
+margin-bottom:26px;
+}
+
+.cta p{
+font-size:18px;
+color:#cfcfcf;
+margin-bottom:40px;
+}
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:16px 28px;
+border-radius:999px;
+font-weight:700;
+transition:0.3s;
+}
+
+.btn-primary{
+background:var(--gold);
+color:#111;
+}
+
+.btn-dark{
+background:#222;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+background:#090909;
+color:#d4d4d4;
+padding:70px 0;
+border-top:1px solid rgba(255,255,255,0.05);
 }
 
 .footer-inner{
@@ -297,9 +374,11 @@ margin-bottom:12px;
 .footer-info{
 font-size:15px;
 line-height:2;
+color:#bdbdbd;
 }
 
 /* TABLET */
+
 @media(max-width:1024px){
 
 .story-grid{
@@ -318,20 +397,13 @@ grid-template-columns:1fr;
 }
 
 /* MOBILE */
-@media(max-width:768px){
 
-header{
-padding:6px 0;
-}
+@media(max-width:768px){
 
 .nav{
 flex-direction:column;
 gap:14px;
 padding:14px 0;
-}
-
-.logo{
-font-size:22px;
 }
 
 .menu{
@@ -349,21 +421,8 @@ min-height:680px;
 height:92svh;
 }
 
-.hero-text{
-width:92%;
-top:54%;
-}
-
-.hero-sub{
-font-size:11px;
-letter-spacing:3px;
-margin-bottom:14px;
-}
-
 .hero-title{
 font-size:42px;
-line-height:1.45;
-margin-bottom:20px;
 }
 
 .hero-desc{
@@ -377,7 +436,6 @@ padding:90px 0;
 
 .section-title{
 font-size:32px;
-margin-bottom:26px;
 }
 
 .section-text{
@@ -387,7 +445,6 @@ line-height:1.9;
 
 .story-image img{
 height:360px;
-border-radius:22px;
 }
 
 .quote{
@@ -416,28 +473,22 @@ font-size:16px;
 line-height:1.9;
 }
 
-footer{
-padding:56px 0;
-margin-top:90px;
+.cta{
+padding:110px 20px;
+}
+
+.cta p{
+font-size:16px;
 }
 
 .footer-inner{
 flex-direction:column;
-gap:24px;
-}
-
-.footer-logo{
-font-size:26px;
-}
-
-.footer-info{
-font-size:14px;
-line-height:1.9;
 }
 
 }
 
 /* SMALL MOBILE */
+
 @media(max-width:480px){
 
 .hero-title{
@@ -473,12 +524,16 @@ font-size:10px;
 }
 
 }
+
 </style>
 </head>
+
 <body>
 
 <header>
+
 <div class="container nav">
+
 <div class="logo">감초식당</div>
 
 <nav class="menu">
@@ -490,32 +545,48 @@ font-size:10px;
 <a href="location.html">LOCATION</a>
 <a href="blog.html">BLOG</a>
 </nav>
+
 </div>
+
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
+
 <img src="story-main.png" alt="감초식당 대표 이미지">
 
 <div class="hero-text">
+
 <div class="hero-sub">GAMCHO STORY</div>
+
 <h1 class="hero-title">
 오랜 시간 변하지 않은<br>
 한 그릇의 마음
 </h1>
+
 <p class="hero-desc">
 감초식당은 화려함보다 익숙하고 깊은 맛을 중요하게 생각합니다.
 오랜 시간 한 자리를 지키며 변하지 않는 방식으로 한 그릇을 준비합니다.
 </p>
+
 </div>
+
 </section>
 
+<!-- STORY -->
+
 <section>
+
 <div class="container story-grid">
 
 <div>
+
 <div class="section-label">OUR STORY</div>
+
 <h2 class="section-title">
-시간이 지나도 변하지 않는 맛
+시간이 지나도<br>
+변하지 않는 맛
 </h2>
 
 <p class="section-text">
@@ -526,6 +597,7 @@ font-size:10px;
 한 그릇의 음식이 누군가에게는 여행의 기억이 되고,
 누군가에게는 하루를 위로하는 식사가 되기를 바랍니다.
 </p>
+
 </div>
 
 <div class="story-image">
@@ -533,19 +605,28 @@ font-size:10px;
 </div>
 
 </div>
+
 </section>
+
+<!-- QUOTE -->
 
 <section class="quote">
+
 <p>
-“ 오랜 시간 사랑받는 맛은<br>
-결국 기본을 지켜온 시간에서 만들어집니다. ”
+“ 오래 기억되는 맛은<br>
+결국 변하지 않는 정성에서 만들어집니다. ”
 </p>
+
 </section>
 
+<!-- VALUE -->
+
 <section>
+
 <div class="container">
 
 <div class="section-label">OUR VALUES</div>
+
 <h2 class="section-title">
 감초식당이 중요하게 생각하는 것
 </h2>
@@ -553,34 +634,51 @@ font-size:10px;
 <div class="value-grid">
 
 <div class="value-card">
+
 <h3>정직한 맛</h3>
+
 <p>
-자극적인 화려함보다 오랜 시간 편안하게 기억되는 맛을 추구합니다.
+자극적인 화려함보다
+오랜 시간 편안하게 기억되는 맛을 추구합니다.
 기본에 충실한 방식으로 한 그릇을 준비합니다.
 </p>
+
 </div>
 
 <div class="value-card">
+
 <h3>따뜻한 공간</h3>
+
 <p>
 누구나 편안하게 머물 수 있는 공간이 되기를 바랍니다.
 감초식당은 음식뿐 아니라 분위기와 시간까지 함께 준비합니다.
 </p>
+
 </div>
 
 <div class="value-card">
+
 <h3>변하지 않는 마음</h3>
+
 <p>
-오랜 시간 찾아주시는 분들께 늘 같은 정성과 마음으로 음식을 대접하고 있습니다.
+오랜 시간 찾아주시는 분들께
+늘 같은 정성과 마음으로 음식을 대접하고 있습니다.
 </p>
+
 </div>
 
 </div>
+
 </div>
+
 </section>
 
+<!-- END -->
+
 <section class="end-section">
+
 <div class="container">
+
 <h2 class="end-title">
 오늘도 감초식당은<br>
 정성스러운 한 그릇을 준비합니다.
@@ -591,43 +689,69 @@ font-size:10px;
 감초식당은 오래도록 기억에 남는 한 끼를 위해
 변함없는 마음으로 음식을 만들고 있습니다.
 </p>
+
 </div>
+
 </section>
 
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>
+감초식당의 이야기를<br>
+직접 만나보세요
+</h2>
+
+<p>
+제주 여행 속 오래 기억되는 한 끼를 준비하고 있습니다.
+</p>
+
+<div class="cta-buttons">
+
+<a href="menu.html" class="btn btn-primary">
+🍲 메뉴보기
+</a>
+
+<a href="location.html" class="btn btn-dark">
+📍 오시는 길
+</a>
+
+<a href="tel:0647438988" class="btn btn-dark">
+📞 전화하기
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer>
+
 <div class="container footer-inner">
 
 <div>
+
 <div class="footer-logo">감초식당</div>
+
 <div class="footer-info">
 제주 로컬 국밥 전문점<br>
 오랜 시간 변하지 않은 한 그릇
 </div>
+
 </div>
 
 <div class="footer-info">
 OPEN AM 11:00 - PM 24:00<br>
-Last Order 안주류 PM 23:00 국밥류 PM 23:30 <br>
-  정기휴무 매주 수요일 <br>
+Last Order 안주류 PM 23:00 국밥류 PM 23:30<br>
+정기휴무 매주 수요일<br>
 TEL 064-743-8988
 </div>
 
 </div>
+
 </footer>
 
 </body>
 </html>
-<!--
-```
-
-추가로 원하면 다음 단계도 가능해:
-
-* 모바일 전용 햄버거 메뉴
-* 스크롤 애니메이션
-* STORY 페이지 영상 배경
-* 아이폰 감성 패럴랙스 효과
-* 일본/영문 자동 다국어 버전
-* 네이버 SEO 강화 구조화 데이터 추가
-* 페이지 로딩속도 최적화
-* 고급 브랜드 느낌 인터랙션 추가
---!>
