@@ -1,62 +1,40 @@
-<!-- =========================
-     HERO SECTION - GAMCHO JEJU
-     감초식당 신제주점 메인 히어로
-========================= -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<section class="hero">
+<title>감초식당 신제주점 | 30년 전통 제주 로컬 순대국</title>
 
-  <!-- 배경 오버레이 -->
-  <div class="hero-overlay"></div>
+<meta name="description" content="제주 연동에서 오랜 시간 사랑받아온 감초식당 신제주점. 깊고 진한 국물과 직접 삶아낸 순대로 제주 여행의 따뜻한 한 끼를 전합니다.">
 
-  <!-- 배경 이미지 -->
-  <img src="main.png" alt="감초식당 순대국" class="hero-bg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- 콘텐츠 -->
-  <div class="hero-content">
-
-    <p class="hero-subtitle">
-      JEJU LOCAL RESTAURANT
-    </p>
-
-    <h1>
-      30년 전통<br>
-      제주 로컬 순대국
-    </h1>
-
-    <p class="hero-description">
-      제주 연동에서 오랜 시간 사랑받아온 감초식당 신제주점.<br>
-      깊고 진한 국물과 직접 삶아낸 순대로<br>
-      제주 여행의 따뜻한 한 끼를 전합니다.
-    </p>
-
-    <!-- 버튼 -->
-    <div class="hero-buttons">
-
-      <a href="#menu" class="hero-btn primary">
-        메뉴 보기
-      </a>
-
-      <a href="https://map.naver.com/" target="_blank" class="hero-btn">
-        길찾기
-      </a>
-
-      <a href="tel:064-743-8988" class="hero-btn">
-        전화하기
-      </a>
-
-    </div>
-
-  </div>
-
-  <!-- 스크롤 안내 -->
-  <div class="scroll-down">
-    <span></span>
-    <p>SCROLL</p>
-  </div>
-
-</section>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Pretendard', sans-serif;
+    background:#0f0d0b;
+    overflow-x:hidden;
+    color:#fff;
+}
 
 /* =========================
    HERO SECTION
@@ -66,7 +44,7 @@
     position:relative;
     width:100%;
     height:100vh;
-    min-height:700px;
+    min-height:760px;
     overflow:hidden;
     display:flex;
     align-items:center;
@@ -75,146 +53,255 @@
 }
 
 /* 배경 이미지 */
+
 .hero-bg{
     position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    top:0;
-    left:0;
+    object-position:center center;
     z-index:1;
-    transform:scale(1.03);
-    filter:brightness(0.72);
+
+    transform:scale(1.04);
+
+    filter:
+    brightness(0.62)
+    contrast(1.08)
+    saturate(1.05);
+
+    animation:heroZoom 14s ease-in-out infinite alternate;
 }
 
-/* 오버레이 */
+/* 시네마틱 오버레이 */
+
 .hero-overlay{
     position:absolute;
     inset:0;
+    z-index:2;
+
     background:
     linear-gradient(to top,
-    rgba(0,0,0,0.72),
-    rgba(0,0,0,0.25));
-    z-index:2;
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.42) 40%,
+    rgba(0,0,0,0.28) 100%);
+}
+
+/* 은은한 브라운 톤 */
+
+.hero-overlay::after{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(181,139,89,0.12),
+    transparent 60%);
 }
 
 /* 콘텐츠 */
+
 .hero-content{
     position:relative;
     z-index:3;
+
+    width:100%;
+    max-width:1100px;
+
+    padding:
+    140px
+    40px
+    80px;
+
     text-align:center;
-    color:#fff;
-    padding:0 24px;
-    max-width:900px;
 }
 
-/* 서브타이틀 */
+/* 서브 타이틀 */
+
 .hero-subtitle{
-    letter-spacing:4px;
     font-size:13px;
-    margin-bottom:18px;
-    color:#d6c3a5;
+    letter-spacing:5px;
+    color:#d4b489;
+    margin-bottom:22px;
     font-weight:500;
 }
 
 /* 메인 타이틀 */
+
 .hero h1{
-    font-size:72px;
+    font-family:'Noto Serif KR', serif;
+
+    font-size:78px;
     line-height:1.18;
-    margin:0;
+    letter-spacing:-2.5px;
+
     font-weight:700;
-    letter-spacing:-2px;
+
+    text-shadow:
+    0 6px 30px rgba(0,0,0,0.55);
 }
 
 /* 설명 */
+
 .hero-description{
-    margin-top:28px;
-    font-size:19px;
-    line-height:1.9;
+    margin-top:34px;
+
+    font-size:20px;
+    line-height:2;
+
     color:rgba(255,255,255,0.88);
+
+    font-weight:300;
 }
 
 /* 버튼 영역 */
+
 .hero-buttons{
-    margin-top:42px;
+    margin-top:46px;
+
     display:flex;
     justify-content:center;
-    gap:16px;
+    align-items:center;
+
+    gap:18px;
     flex-wrap:wrap;
 }
 
 /* 버튼 공통 */
+
 .hero-btn{
-    padding:15px 34px;
+    position:relative;
+
+    padding:
+    16px
+    34px;
+
     border-radius:999px;
+
     text-decoration:none;
+
     color:#fff;
-    border:1px solid rgba(255,255,255,0.35);
-    backdrop-filter:blur(6px);
-    background:rgba(255,255,255,0.08);
-    transition:all 0.3s ease;
+
     font-size:15px;
     font-weight:600;
+
+    border:1px solid rgba(255,255,255,0.18);
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    transition:all 0.35s ease;
+
+    overflow:hidden;
+}
+
+/* 버튼 호버 */
+
+.hero-btn:hover{
+    transform:translateY(-3px);
+
+    background:
+    rgba(255,255,255,0.16);
+
+    border-color:
+    rgba(255,255,255,0.32);
 }
 
 /* 메인 버튼 */
+
 .hero-btn.primary{
     background:#b58b59;
     border:none;
-    color:#fff;
-}
-
-/* 호버 */
-.hero-btn:hover{
-    transform:translateY(-2px);
-    background:rgba(255,255,255,0.16);
 }
 
 .hero-btn.primary:hover{
-    background:#c89a62;
+    background:#c79861;
 }
 
 /* 스크롤 영역 */
+
 .scroll-down{
     position:absolute;
-    bottom:36px;
+
+    bottom:34px;
     left:50%;
+
     transform:translateX(-50%);
-    z-index:3;
+
+    z-index:4;
+
     text-align:center;
+
     color:#fff;
-    opacity:0.8;
+
+    opacity:0.78;
 }
 
-/* 스크롤 애니메이션 */
+/* 스크롤 라인 */
+
 .scroll-down span{
     display:block;
-    width:2px;
-    height:42px;
-    background:#fff;
-    margin:0 auto 10px;
-    animation:scrollMove 1.8s infinite;
+
+    width:1.5px;
+    height:52px;
+
+    background:
+    linear-gradient(to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,1),
+    rgba(255,255,255,0));
+
+    margin:0 auto 12px;
+
+    animation:scrollMove 2s ease-in-out infinite;
 }
+
+/* 스크롤 텍스트 */
 
 .scroll-down p{
-    font-size:11px;
-    letter-spacing:3px;
+    font-size:10px;
+    letter-spacing:5px;
+    font-weight:500;
 }
 
-/* 애니메이션 */
+/* =========================
+   ANIMATION
+========================= */
+
 @keyframes scrollMove{
+
     0%{
         transform:translateY(0);
-        opacity:0.2;
+        opacity:0.25;
     }
+
     50%{
-        transform:translateY(12px);
+        transform:translateY(14px);
         opacity:1;
     }
+
     100%{
         transform:translateY(0);
-        opacity:0.2;
+        opacity:0.25;
     }
+
+}
+
+/* 배경 줌 */
+
+@keyframes heroZoom{
+
+    0%{
+        transform:scale(1.04);
+    }
+
+    100%{
+        transform:scale(1.10);
+    }
+
 }
 
 /* =========================
@@ -225,37 +312,126 @@
 
 .hero{
     min-height:100vh;
-    padding-top:40px;
+}
+
+.hero-content{
+
+    padding:
+    150px
+    24px
+    90px;
+}
+
+.hero-subtitle{
+    font-size:11px;
+    letter-spacing:4px;
 }
 
 .hero h1{
-    font-size:42px;
+    font-size:44px;
     line-height:1.3;
-    letter-spacing:-1px;
+    letter-spacing:-1.2px;
 }
 
 .hero-description{
+
+    margin-top:26px;
+
     font-size:15px;
-    line-height:1.8;
-    margin-top:22px;
+    line-height:1.9;
 }
 
 .hero-buttons{
-    margin-top:32px;
+    margin-top:36px;
     gap:12px;
 }
 
 .hero-btn{
+
     width:100%;
     max-width:260px;
-    padding:14px 20px;
+
+    padding:
+    15px
+    22px;
+
     font-size:14px;
 }
 
 .scroll-down{
-    bottom:24px;
+    bottom:22px;
+}
+
+.scroll-down span{
+    height:42px;
 }
 
 }
 
 </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="hero">
+
+    <!-- 배경 이미지 -->
+    <img src="main.png" alt="감초식당 순대국" class="hero-bg">
+
+    <!-- 오버레이 -->
+    <div class="hero-overlay"></div>
+
+    <!-- 콘텐츠 -->
+    <div class="hero-content">
+
+        <p class="hero-subtitle">
+            JEJU LOCAL RESTAURANT
+        </p>
+
+        <h1>
+            30년 전통<br>
+            제주 로컬 순대국
+        </h1>
+
+        <p class="hero-description">
+            제주 연동에서 오랜 시간 사랑받아온 감초식당 신제주점.<br>
+            깊고 진한 국물과 직접 삶아낸 순대로<br>
+            제주 여행의 따뜻한 한 끼를 전합니다.
+        </p>
+
+        <!-- 버튼 -->
+        <div class="hero-buttons">
+
+            <a href="#menu" class="hero-btn primary">
+                메뉴 보기
+            </a>
+
+            <a href="https://map.naver.com/" target="_blank" class="hero-btn">
+                길찾기
+            </a>
+
+            <a href="tel:064-743-8988" class="hero-btn">
+                전화하기
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- 스크롤 -->
+    <div class="scroll-down">
+
+        <span></span>
+
+        <p>SCROLL</p>
+
+    </div>
+
+</section>
+
+</body>
+</html>
