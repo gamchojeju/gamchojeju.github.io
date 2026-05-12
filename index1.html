@@ -6,60 +6,271 @@
 
 <title>감초식당 신제주점 | 제주 로컬 국밥 맛집</title>
 
-<meta name="description" content="제주공항 근처 30년 전통 감초식당 신제주점. 제주 로컬 감성과 따뜻한 국밥 한 그릇의 깊은 맛을 경험해보세요." />
-<meta name="keywords" content="감초식당, 제주맛집, 제주공항맛집, 제주국밥, 제주순대국밥, 신제주맛집, 제주로컬맛집" />
+<meta name="description" content="제주공항 근처 30년 전통 감초식당 신제주점. 제주 로컬 국밥 맛집" />
+<meta name="keywords" content="감초식당, 제주맛집, 제주국밥, 신제주맛집, 제주공항맛집" />
 <meta name="robots" content="index, follow" />
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="감초식당 신제주점" />
-<meta property="og:description" content="오랜 시간 변하지 않은 제주 로컬 국밥 맛집 감초식당" />
+<meta property="og:description" content="30년 전통 제주 국밥 맛집 감초식당" />
 <meta property="og:image" content="main-hero.jpg" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* =========================
+   BASE
+========================= */
+
 :root{
 --bg:#0f0f0f;
---card:#171717;
 --text:#f5f5f5;
 --sub:#bdbdbd;
 --gold:#d6b98a;
---line:rgba(255,255,255,0.06);
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-html{
-scroll-behavior:smooth;
--webkit-text-size-adjust:100%;
-}
+html{scroll-behavior:smooth;}
 
 body{
 font-family:'Pretendard',sans-serif;
 background:var(--bg);
 color:var(--text);
-line-height:1.8;
+line-height:1.7;
 overflow-x:hidden;
-word-break:keep-all;
 }
 
 /* =========================
-   🔥 SEO/UX IMPROVEMENT (NEW)
+   HEADER (MOBILE FIX)
 ========================= */
 
-/* 스크롤 체류시간 증가용 */
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+}
+
+.nav{
+display:flex;
+justify-content:center;
+gap:14px;
+padding:12px;
+flex-wrap:wrap;
+}
+
+.nav a{
+color:#fff;
+text-decoration:none;
+font-size:12px;
+opacity:0.85;
+}
+
+/* =========================
+   HERO (CINEMATIC + MOBILE FIX)
+========================= */
+
+.hero{
+height:100svh;
+position:relative;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(0.32) contrast(1.1);
+transform:scale(1.08);
+animation:zoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes zoom{
+from{transform:scale(1.05);}
+to{transform:scale(1.15);}
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.85));
+}
+
+.hero-text{
+position:absolute;
+top:55%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+width:92%;
+}
+
+.hero-sub{
+font-size:12px;
+letter-spacing:3px;
+color:var(--gold);
+margin-bottom:18px;
+}
+
+.hero-title{
+font-family:'Noto Serif KR',serif;
+font-size:clamp(28px,6vw,70px);
+line-height:1.3;
+margin-bottom:16px;
+}
+
+.hero-desc{
+font-size:14px;
+color:var(--sub);
+padding:0 10px;
+}
+
+.hero-buttons{
+margin-top:26px;
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.hero-btn{
+padding:12px 22px;
+border-radius:999px;
+font-size:13px;
+font-weight:700;
+text-decoration:none;
+}
+
+.hero-btn.primary{
+background:var(--gold);
+color:#111;
+}
+
+.hero-btn.secondary{
+border:1px solid rgba(255,255,255,0.2);
+color:#fff;
+}
+
+/* =========================
+   SECTION (MOBILE OPTIMIZED)
+========================= */
+
+section{
+padding:80px 16px;
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+h2{
+font-size:26px;
+margin-bottom:16px;
+}
+
+p{color:var(--sub);font-size:14px;}
+
+/* =========================
+   STORY / MENU / MEDIA / REVIEW / GALLERY
+========================= */
+
+.menu-grid,
+.media-grid,
+.review-wrap,
+.gallery-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:16px;
+margin-top:30px;
+}
+
+/* MENU */
+.card{
+background:#1a1a1a;
+padding:18px;
+border-radius:14px;
+}
+
+.card h3{margin:8px 0;}
+
+.price{color:var(--gold);font-weight:bold;}
+
+/* MEDIA */
+.media-card{
+background:#1a1a1a;
+padding:22px;
+border-radius:14px;
+}
+
+/* REVIEW */
+.review-box{
+background:#1a1a1a;
+padding:18px;
+border-radius:14px;
+text-align:left;
+}
+
+/* IMAGE FIX */
+img{
+width:100%;
+display:block;
+border-radius:12px;
+object-fit:cover;
+}
+
+.menu-thumb img,
+.gallery-grid img{
+height:220px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+margin-top:60px;
+background:#111;
+padding:60px 16px;
+border-radius:16px;
+}
+
+.cta a{
+display:inline-block;
+margin:8px;
+}
+
+/* =========================
+   FLOAT BUTTON (MOBILE UX 핵심)
+========================= */
+
+.floating-call{
+position:fixed;
+right:16px;
+bottom:16px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:var(--gold);
+color:#111;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+z-index:1000;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
 section{
 opacity:0;
-transform:translateY(40px);
-transition:1s ease;
+transform:translateY(30px);
+transition:0.8s ease;
 }
 
 section.show{
@@ -68,113 +279,39 @@ transform:translateY(0);
 }
 
 /* =========================
-   HEADER (UNCHANGED + SHADOW IMPROVE)
+   DESKTOP ONLY UPGRADE
 ========================= */
 
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:999;
-background:rgba(15,15,15,0.82);
-backdrop-filter:blur(14px);
--webkit-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(255,255,255,0.05);
-transition:0.35s;
+@media(min-width:900px){
+
+.menu-grid{
+grid-template-columns:repeat(3,1fr);
 }
 
-header.scrolled{
-background:rgba(0,0,0,0.96);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+.media-grid{
+grid-template-columns:repeat(3,1fr);
 }
 
-/* =========================
-   🔥 HERO CINEMATIC UPGRADE (ONLY EFFECT ADD)
-========================= */
-
-.hero img{
-height:100%;
-object-fit:cover;
-filter:brightness(0.28) contrast(1.15) saturate(1.1);
-transform:scale(1.05);
-animation:heroZoom 14s ease-in-out infinite alternate;
+.review-wrap{
+grid-template-columns:repeat(3,1fr);
 }
 
-@keyframes heroZoom{
-from{transform:scale(1.05);}
-to{transform:scale(1.12);}
-}
-
-.hero-overlay{
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at center, rgba(0,0,0,0.1), rgba(0,0,0,0.9)),
-linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
-}
-
-/* =========================
-   🔥 CTA FLOAT BUTTON (NEW)
-========================= */
-
-.floating-call{
-position:fixed;
-right:20px;
-bottom:20px;
-width:64px;
-height:64px;
-border-radius:50%;
-background:var(--gold);
-color:#111;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-z-index:1000;
-box-shadow:0 20px 40px rgba(0,0,0,0.35);
-transition:0.35s;
-}
-
-.floating-call:hover{
-transform:translateY(-5px);
-}
-
-/* =========================
-   🔥 MENU SEO BOOST (ONLY ADD)
-========================= */
-
-.menu-card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* =========================
-   MOBILE UX IMPROVE
-========================= */
-
-@media(max-width:768px){
-
-.menu{
-gap:14px;
-}
-
-.hero-title{
-font-size:44px;
+.gallery-grid{
+grid-template-columns:repeat(4,1fr);
 }
 
 .hero-desc{
-font-size:15px;
+font-size:18px;
 }
 
+section{
+padding:120px 20px;
 }
 
-/* =========================
-   NAV SCROLL EFFECT
-========================= */
+h2{
+font-size:34px;
+}
 
-header.scrolled{
-transition:0.3s;
 }
 
 </style>
@@ -182,302 +319,127 @@ transition:0.3s;
 
 <body>
 
-<header id="header">
-
-<div class="container nav">
-
-<div class="logo">감초식당</div>
-
-<nav class="menu">
-<a href="index.html">HOME</a>
-<a href="menu.html">MENU</a>
-<a href="story.html">STORY</a>
-<a href="broadcast.html">MEDIA</a>
-<a href="review.html">REVIEW</a>
-<a href="location.html">LOCATION</a>
-<a href="instagram.html">INSTAGRAM</a>
-</nav>
-
+<header>
+<div class="nav">
+<a href="#home">HOME</a>
+<a href="#story">STORY</a>
+<a href="#menu">MENU</a>
+<a href="#media">MEDIA</a>
+<a href="#review">REVIEW</a>
+<a href="#insta">INSTAGRAM</a>
 </div>
 </header>
 
-<!-- HERO (원본 유지 + 효과만 강화됨) -->
+<!-- HERO -->
+<section id="home" class="hero">
 
-<section class="hero">
-
-<img src="main-hero.jpg" alt="감초식당 메인 비주얼">
+<img src="main-hero.jpg" alt="감초식당">
 
 <div class="hero-overlay"></div>
 
 <div class="hero-text">
 
-<div class="hero-sub">
-GAMCHO RESTAURANT
-</div>
+<div class="hero-sub">GAMCHO RESTAURANT</div>
 
 <h1 class="hero-title">
-제주의 깊은 맛을 담은<br>
-따뜻한 한 그릇
+제주의 깊은 맛을 담은<br>한 그릇
 </h1>
 
 <p class="hero-desc">
-1994년부터 이어온 감초식당 신제주점.
-오랜 시간 변하지 않은 정성과 제주 로컬의 깊은 맛을 전합니다.
+30년 전통 제주 국밥 맛집 감초식당 신제주점
 </p>
 
 <div class="hero-buttons">
-
-<a href="menu.html" class="hero-btn primary">
-메뉴 보기
-</a>
-
-<a href="location.html" class="hero-btn secondary">
-매장 위치
-</a>
-
+<a href="#menu" class="hero-btn primary">메뉴 보기</a>
+<a href="tel:0647438988" class="hero-btn secondary">전화 예약</a>
 </div>
 
 </div>
 </section>
 
-<!-- STORY / MENU / MEDIA / REVIEW / GALLERY (원본 그대로 유지) -->
-<!-- ↓↓↓ 아래는 수정 없음 (요청대로 유지) ↓↓↓ -->
-
-<section>
-
-<div class="container story-wrap">
-
-<div class="story-image">
-<img src="story-home.jpg" alt="감초식당 스토리">
-</div>
-
-<div class="story-card">
-
-<div class="section-label">OUR STORY</div>
-
-<h2 class="section-title">
-30년 넘게 지켜온<br>
-감초식당의 마음
-</h2>
-
-<p class="story-text">
-화려함보다 오래 기억에 남는 따뜻한 맛.
-감초식당은 오랜 시간 한결같은 방식으로
-한 그릇의 정성을 준비하고 있습니다.
-</p>
-
-<a href="story.html" class="story-link">
-스토리 자세히 보기 →
-</a>
-
-</div>
-
-</div>
+<!-- STORY -->
+<section id="story">
+<h2>STORY</h2>
+<p>30년 동안 변하지 않은 제주 로컬 국밥의 맛</p>
 </section>
 
-<section>
-<div class="container">
-
-<div class="section-label">BEST MENU</div>
-
-<h2 class="section-title">
-감초식당 대표 메뉴
-</h2>
+<!-- MENU -->
+<section id="menu">
+<h2>MENU</h2>
 
 <div class="menu-grid">
 
-<!-- (원본 유지) -->
-<div class="menu-card">
-<div class="menu-thumb">
-<img src="menu1.jpg" alt="감초순대국밥">
-</div>
-<div class="menu-content">
-<div class="menu-badge">BEST</div>
-<h3 class="menu-title">감초순대국밥</h3>
-<p class="menu-text">30년간 이어진 변함없는 어머님의 그 맛</p>
-<div class="menu-price">9,000원</div>
-</div>
+<div class="card">
+<h3>감초국밥</h3>
+<p>진한 제주식 국물</p>
+<div class="price">9,000원</div>
 </div>
 
-<div class="menu-card">
-<div class="menu-thumb">
-<img src="menu10.jpg" alt="순대내장전골">
-</div>
-<div class="menu-content">
-<div class="menu-badge">POPULAR</div>
-<h3 class="menu-title">순대내장전골</h3>
-<p class="menu-text">내장과 야채, 수제순대의 푸짐한 전골</p>
-<div class="menu-price">35,000원</div>
-</div>
+<div class="card">
+<h3>돔베고기</h3>
+<p>부드러운 제주 전통 고기</p>
+<div class="price">12,000원</div>
 </div>
 
-<div class="menu-card">
-<div class="menu-thumb">
-<img src="menu12.jpg" alt="닭볶음탕">
-</div>
-<div class="menu-content">
-<div class="menu-badge">SIGNATURE</div>
-<h3 class="menu-title">닭볶음탕</h3>
-<p class="menu-text">감초식당 인기 요리 메뉴</p>
-<div class="menu-price">35,000원</div>
-</div>
-</div>
-
-</div>
 </div>
 </section>
 
 <!-- MEDIA -->
-<section class="media-section">
-<div class="container">
-
-<div class="section-label">MEDIA</div>
-
-<h2 class="section-title">
-방송과 미디어가 주목한 맛
-</h2>
+<section id="media">
+<h2>MEDIA</h2>
 
 <div class="media-grid">
-
-<div class="media-card">
-<div class="media-icon">📺</div>
-<h3 class="media-title">TV 방송 출연</h3>
-<p class="media-text">놀라운토요일 등 다양한 방송 프로그램 소개</p>
-</div>
-
-<div class="media-card">
-<div class="media-icon">🎥</div>
-<h3 class="media-title">유튜브 콘텐츠</h3>
-<p class="media-text">제주 로컬 맛집 콘텐츠 다수 출연</p>
-</div>
-
-<div class="media-card">
-<div class="media-icon">📍</div>
-<h3 class="media-title">제주 로컬 맛집</h3>
-<p class="media-text">제주공항 근처 오래된 로컬 맛집</p>
-</div>
-
-</div>
-
+<div class="media-card">📺 방송 출연</div>
+<div class="media-card">🎥 유튜브</div>
+<div class="media-card">📍 제주 로컬 맛집</div>
 </div>
 </section>
 
 <!-- REVIEW -->
-<section>
-<div class="container">
-
-<div class="section-label">REVIEWS</div>
-
-<h2 class="section-title">
-많은 분들이 기억하는 맛
-</h2>
+<section id="review">
+<h2>REVIEW</h2>
 
 <div class="review-wrap">
-
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">제주 여행 중 가장 기억에 남는 국밥집</p>
-<div class="review-name">네이버 리뷰</div>
-</div>
-
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">현지인 추천 맛집</p>
-<div class="review-name">방문 고객</div>
-</div>
-
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">국물이 깊고 깔끔함</p>
-<div class="review-name">Google Review</div>
-</div>
-
-</div>
-
+<div class="review-box">제주 여행 최고 맛집</div>
+<div class="review-box">국물이 깊다</div>
+<div class="review-box">현지인 추천</div>
 </div>
 </section>
 
-<!-- GALLERY -->
-<section>
-<div class="container">
-
-<div class="section-label">JEJU MOOD</div>
-
-<h2 class="section-title">
-감초식당의 분위기
-</h2>
+<!-- INSTAGRAM -->
+<section id="insta">
+<h2>INSTAGRAM</h2>
 
 <div class="gallery-grid">
-
-<img src="gallery1.jpg">
-<img src="gallery2.jpg">
-<img src="gallery3.jpg">
-<img src="gallery4.jpg">
-
+<img src="i1.jpg">
+<img src="i2.jpg">
+<img src="i3.jpg">
 </div>
 
+<div class="cta">
+<h3>지금 감초식당을 경험하세요</h3>
+<a href="tel:0647438988" class="hero-btn primary">전화 예약</a>
+<a href="https://map.naver.com" class="hero-btn secondary">지도</a>
 </div>
+
 </section>
 
-<!-- CTA -->
-<section class="cta">
-<div class="container">
-
-<div class="cta-box">
-
-<h2 class="cta-title">
-제주의 깊은 맛을 경험해보세요
-</h2>
-
-<p class="cta-text">
-오랜 시간 변하지 않은 감초식당의 따뜻한 한 그릇
-</p>
-
-<div class="cta-buttons">
-
-<a href="location.html" class="cta-btn gold">매장 위치 보기</a>
-<a href="tel:0647438988" class="cta-btn dark">전화 문의</a>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<footer>
-
-<div class="container footer-inner">
-
-<div>
-<div class="footer-logo">감초식당</div>
-<div class="footer-info">제주 로컬 국밥 전문점</div>
-</div>
-
-<div class="footer-info">
-TEL 064-743-8988
-</div>
-
-</div>
-
-</footer>
-
-<!-- FLOAT BUTTON -->
+<!-- FLOAT -->
 <a href="tel:0647438988" class="floating-call">☎</a>
 
-<!-- 🔥 SCROLL ANIMATION (ONLY ADD) -->
+<!-- SCROLL -->
 <script>
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add('show');
+const sections=document.querySelectorAll("section");
+
+const obs=new IntersectionObserver(e=>{
+e.forEach(el=>{
+if(el.isIntersecting){
+el.target.classList.add("show");
 }
 });
 });
 
-document.querySelectorAll('section').forEach(sec=>{
-observer.observe(sec);
-});
+sections.forEach(s=>obs.observe(s));
 </script>
 
 </body>
